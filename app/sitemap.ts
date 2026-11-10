@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 import { jobs } from "@/lib/jobs";
-import { industries } from "@/app/industries/[slug]/page";
+import { industries } from "@/app/(common)/industries/[slug]/page";
 
 const staticRoutes = [
   "/",

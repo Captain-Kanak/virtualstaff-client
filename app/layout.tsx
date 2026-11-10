@@ -50,9 +50,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: { children: React.ReactNode }) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="en" className={cn("h-full", "antialiased", poppins.variable, "font-sans")}>
+    <html
+      lang="en"
+      className={cn("h-full", "antialiased", poppins.variable, "font-sans")}
+    >
       <body className="min-h-full flex flex-col">
         <Navbar />
         <main className="flex-1">{children}</main>

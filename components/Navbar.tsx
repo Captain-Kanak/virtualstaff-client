@@ -34,24 +34,17 @@ const menuSvg = (
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b-2 border-slate-100 bg-white">
-      <div className="max-w-[1200px] mx-auto px-4 lg:px-8">
+      <div className="max-w-300 mx-auto px-4 lg:px-8">
         <div className="flex h-16 items-center justify-between lg:h-20">
-          <Link
-            href="/"
-            className="flex items-center gap-2"
-            aria-label={siteName}
-          >
+          <Link href="/" className="flex items-center" aria-label={siteName}>
             <Image
-              src="/logo.png"
-              alt={`${siteName} logo`}
-              width="32"
-              height="32"
-              className="h-8 w-8 rounded-lg object-cover"
+              src="/images/logo.png"
+              alt="RemoteStaff365"
+              width="2172"
+              height="724"
+              className="h-14 w-auto md:h-18"
               priority
             />
-            <span className="font-bold text-xl tracking-tight text-foreground">
-              {siteName}
-            </span>
           </Link>
 
           <div className="hidden lg:flex items-center gap-8">
@@ -68,7 +61,11 @@ export default function Navbar() {
               variant="brand"
               size="xl"
               nativeButton={false}
-              render={<a href={bookingUrl} target="_blank" rel="noopener noreferrer">Build Your Team</a>}
+              render={
+                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                  Build Your Team
+                </a>
+              }
             />
           </div>
 
@@ -83,7 +80,10 @@ export default function Navbar() {
                 </button>
               }
             />
-            <SheetContent side="right" className="lg:hidden p-0 border-none shadow-xl">
+            <SheetContent
+              side="right"
+              className="lg:hidden p-0 border-none shadow-xl"
+            >
               <SheetHeader className="px-6 py-4 border-b border-border">
                 <SheetTitle className="text-lg font-semibold text-foreground">
                   Menu
@@ -104,7 +104,15 @@ export default function Navbar() {
                   size="xl"
                   className="w-full mt-4"
                   nativeButton={false}
-                  render={<a href={bookingUrl} target="_blank" rel="noopener noreferrer">Build Your Team</a>}
+                  render={
+                    <a
+                      href={bookingUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Build Your Team
+                    </a>
+                  }
                 />
               </div>
             </SheetContent>
