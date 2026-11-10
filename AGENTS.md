@@ -1,9 +1,48 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# AGENTS.md
 
-## This is NOT the Next.js you know
+## Stack
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+- Next.js App Router
+- TypeScript
+- Tailwind v4
+- shadcn/ui
+- framer-motion
+- lucide-react
 
-This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+## shadcn/ui usage
 
-<!-- END:nextjs-agent-rules -->
+- ALWAYS use shadcn/ui components from `components/ui` (Button, Card, Badge,
+  Input, Textarea, Label, Select, Checkbox, Accordion, Table, Sheet, Form).
+- If a needed shadcn component is missing, add it with
+  `npx shadcn@latest add <name>`.
+- Never create custom versions of components shadcn already provides.
+
+## Buttons
+
+- Use `Button variant="brand"` for primary CTAs.
+- Use `Button variant="outline"` for secondary ones.
+- All booking CTAs link to `bookingUrl` from `lib/site.ts`.
+- This shadcn setup uses Base UI, NOT Radix. Never use `asChild`. For link
+  buttons use: <Button variant="brand" size="xl" render={<Link href="..." />}>
+  Label</Button>. For external links (bookingUrl) use
+  render={<a href={bookingUrl} target="_blank" rel="noopener noreferrer" />}.
+- Use Sheet, Accordion, Select etc. following Base UI conventions already used
+  in components/ui. Check an existing component before guessing the API.
+
+## Copy and assets
+
+- Write original copy; never copy text/images from `/reference`.
+- Use placeholder images.
+- `/reference` is for visual study only. Do not modify `/reference`.
+
+## Scope
+
+- No dashboards, admin panels, or login pages.
+
+## Data
+
+- Put page content in arrays at the top of each component file.
+
+## Build
+
+- Run `npm run build` after every task and fix errors.
