@@ -12,17 +12,17 @@ import Reveal from "@/components/Reveal";
 export default function Hero() {
   return (
     <Reveal>
-      <section className="bg-[#F1F9FC] py-20 lg:py-28 overflow-hidden">
+      <section className="bg-[#F1F9FC] pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="space-y-6">
               <Badge className="rounded-full bg-[#4289e0]/10 border border-[#4289e0]/20 px-4 py-2 text-xs font-semibold text-[#2563eb] uppercase tracking-wider">
                 Global Offshore Talent
               </Badge>
-              <h1 className="text-4xl lg:text-6xl font-bold tracking-tight text-foreground leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-bold tracking-tight text-foreground leading-tight">
                 Build Your Global Offshore Team, One Seat at a Time
               </h1>
-              <p className="text-lg text-muted leading-relaxed max-w-lg">
+              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
                 A better way for US companies to hire dedicated virtual
                 assistants from around the world.
               </p>
@@ -71,16 +71,18 @@ export default function Hero() {
                 ))}
               </div>
             </div>
-            <div className="relative hidden lg:block">
-              <div className="absolute inset-0 rounded-3xl bg-[#cbd5e1] blur-[40px]" />
-              <Image
-                src="/placeholder-hero.svg"
-                alt="Hero illustration"
-                width="600"
-                height="450"
-                className="max-w-full h-auto rounded-3xl border border-[#e2e8f0] bg-background shadow-xl z-10"
-                priority
-              />
+            <div className="relative lg:block">
+              <Reveal delay={0.2}>
+                <Image
+                  src="/images/banner.webp"
+                  alt="Remote team working with a US business"
+                  width="822"
+                  height="680"
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="h-auto w-full object-cover"
+                />
+              </Reveal>
             </div>
           </div>
         </div>

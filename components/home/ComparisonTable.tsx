@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { Check, X } from "lucide-react";
+import { CheckCircle2, XCircle, Minus } from "lucide-react";
 import {
   Table,
   TableHeader,
@@ -10,126 +10,136 @@ import {
   TableRow,
   TableCell,
 } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 import Reveal from "@/components/Reveal";
-
-const columns = [
-  { name: "Feature", key: "feature" },
-  { name: "RemoteStaff365", key: "remote" },
-  { name: "Traditional Agencies", key: "agency" },
-  { name: "Job Boards / Marketplaces", key: "marketplace" },
-];
-
-const remoteCol = "bg-[#F5F8FF] border-[#2563eb]";
 
 const rows = [
   {
     feature: "What you build",
-    remote: "Dedicated VA you choose",
-    agency: "Agency-assigned staff",
-    marketplace: "Freelancers you vet",
-    remoteCheck: true,
-    agencyCheck: false,
-    marketplaceCheck: false,
+    remote: "A dedicated team you choose yourself",
+    agency: "Staff assigned by the agency",
+    boards: "You find and screen everyone",
   },
   {
     feature: "Control",
-    remote: "You manage tasks & hours",
-    agency: "Agency controls staff",
-    marketplace: "You manage freelancers",
-    remoteCheck: true,
-    agencyCheck: false,
-    marketplaceCheck: true,
+    remote: "You choose people and set the salary",
+    agency: "Agency sets the process and rates",
+    boards: "Full control, but all the work is yours",
   },
   {
     feature: "Cost",
-    remote: "$99 seat fee + salary",
-    agency: "High markup on top",
-    marketplace: "Hourly rate, no seat fee",
-    remoteCheck: true,
-    agencyCheck: false,
-    marketplaceCheck: false,
+    remote: "Flat seat fee + salary, no markups",
+    agency: "Markups built into the rate",
+    boards: "Low listing fees, high time cost",
   },
   {
     feature: "Support after start",
-    remote: "Dedicated account manager",
-    agency: "Limited agency support",
-    marketplace: "No support",
-    remoteCheck: true,
-    agencyCheck: false,
-    marketplaceCheck: false,
+    remote: "Ongoing support from our team",
+    agency: "Often limited after placement",
+    boards: "None once you hire",
   },
   {
     feature: "Team growth",
-    remote: "Add seats anytime",
-    agency: "Renegotiate contract",
-    marketplace: "Hire more freelancers",
-    remoteCheck: true,
-    agencyCheck: false,
-    marketplaceCheck: true,
+    remote: "Add seats any time",
+    agency: "New contracts for each hire",
+    boards: "Repeat the hiring process",
   },
   {
     feature: "Problem resolution",
-    remote: "We mediate & replace",
-    agency: "Agency handles it",
-    marketplace: "You handle it",
-    remoteCheck: true,
-    agencyCheck: false,
-    marketplaceCheck: false,
+    remote: "We help fix issues quickly",
+    agency: "Goes through account managers",
+    boards: "You handle it alone",
   },
 ];
 
 export default function ComparisonTable() {
   return (
     <Reveal>
-      <section className="py-12 lg:py-24">
+      <section className="bg-white py-12 md:py-16 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5">
-          <div className="overflow-x-auto border border-solid border-[#e2e8f0] rounded-xl shadow-sm">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  {columns.map((col) => (
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold tracking-wider text-primary uppercase">
+              COMPARE
+            </p>
+            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
+              Why teams choose RemoteStaff365
+            </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto mt-4">
+              See how RemoteStaff365 stacks up against traditional agencies
+              and job boards.
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[2px_4px_12px_#00000014]">
+            <div className="overflow-x-auto">
+              <Table className="min-w-[760px]">
+                <TableHeader>
+                  <TableRow>
                     <TableHead
-                      key={col.key}
-                      className={
-                        col.key === "remote" ? remoteCol : "bg-[#F5F8FF]"
-                      }
+                      className="font-medium text-foreground py-4 px-4 border-b border-slate-100"
                     >
-                      {col.name}
+                      Feature
                     </TableHead>
-                  ))}
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {rows.map((row) => (
-                  <TableRow key={row.feature}>
-                    <TableCell className="font-medium text-foreground">
-                      {row.feature}
-                    </TableCell>
-                    <TableCell className={remoteCol}>
-                      {row.remoteCheck ? (
-                        <Check className="h-4 w-4 text-[#2563eb]" />
-                      ) : (
-                        <X className="h-4 w-4 text-muted" />
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      {row.agencyCheck ? (
-                        <Check className="h-4 w-4 text-[#2563eb]" />
-                      ) : (
-                        <X className="h-4 w-4 text-muted" />
-                      )}
-                    </TableCell>
-                    <TableCell>
-                      {row.marketplaceCheck ? (
-                        <Check className="h-4 w-4 text-[#2563eb]" />
-                      ) : (
-                        <X className="h-4 w-4 text-muted" />
-                      )}
-                    </TableCell>
+                    <TableHead
+                      className="bg-gradient-to-b from-[#4289e0] to-[#2563eb] text-white font-semibold py-4 px-4 border-b border-slate-100"
+                    >
+                      <div className="flex flex-col items-start gap-1">
+                        <Badge className="bg-white text-primary text-[10px] px-1.5 py-0">
+                          Best choice
+                        </Badge>
+                        <span>RemoteStaff365</span>
+                      </div>
+                    </TableHead>
+                    <TableHead
+                      className="bg-[#F5F8FF] text-slate-700 font-semibold py-4 px-4 border-b border-slate-100"
+                    >
+                      Traditional Agencies
+                    </TableHead>
+                    <TableHead
+                      className="bg-[#F5F8FF] text-slate-700 font-semibold py-4 px-4 border-b border-slate-100"
+                    >
+                      Job Boards / Marketplaces
+                    </TableHead>
                   </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+                </TableHeader>
+                <TableBody>
+                  {rows.map((row, i) => (
+                    <TableRow key={row.feature}>
+                      <TableCell
+                        className="py-4 px-4 font-medium text-foreground align-middle border-b border-slate-100"
+                      >
+                        {row.feature}
+                      </TableCell>
+                      <TableCell
+                        className={`py-4 px-4 bg-[#F5F8FF] text-foreground font-medium align-middle border-b border-slate-100 border-l-2 border-r-2 border-primary ${
+                          i === rows.length - 1 ? "rounded-b-xl" : ""
+                        }`}
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <CheckCircle2 className="h-4 w-4 text-[#2563eb]" />
+                          {row.remote}
+                        </div>
+                      </TableCell>
+                      <TableCell
+                        className="py-4 px-4 text-sm text-slate-600 align-middle border-b border-slate-100"
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <XCircle className="h-4 w-4 text-red-400" />
+                          {row.agency}
+                        </div>
+                      </TableCell>
+                      <TableCell
+                        className="py-4 px-4 text-sm text-slate-600 align-middle border-b border-slate-100"
+                      >
+                        <div className="flex items-center gap-1.5">
+                          <Minus className="h-4 w-4 text-amber-500" />
+                          {row.boards}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
           </div>
         </div>
       </section>

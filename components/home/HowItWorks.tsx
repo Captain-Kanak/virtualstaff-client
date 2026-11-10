@@ -10,51 +10,65 @@ const howItWorks = [
     number: "01",
     title: "Add a seat",
     text: "Tell us the role, skills, and hours you need. We match you with pre-vetted offshore virtual assistants.",
-    icon: <Plus className="h-5 w-5" />,
+    icon: <Plus className="h-6 w-6 text-white" />,
   },
   {
     number: "02",
     title: "Choose your hire",
     text: "Review profiles and interview candidates. Hire only when you are confident it is the right fit.",
-    icon: <UserCheck className="h-5 w-5" />,
+    icon: <UserCheck className="h-6 w-6 text-white" />,
   },
   {
     number: "03",
     title: "Integrate them into your team",
     text: "Your VA starts within 48 hours. We handle onboarding, time tracking, and ongoing support.",
-    icon: <Users className="h-5 w-5" />,
+    icon: <Users className="h-6 w-6 text-white" />,
   },
   {
     number: "04",
     title: "We stay with you",
     text: "Dedicated account management, SLA-backed response times, and volume pricing as you grow.",
-    icon: <ShieldCheck className="h-5 w-5" />,
+    icon: <ShieldCheck className="h-6 w-6 text-white" />,
   },
 ];
 
 export default function HowItWorks() {
   return (
     <Reveal>
-      <section className="py-12 lg:py-24">
+      <section className="bg-[#F5F8FF] py-12 md:py-16 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
-            How Seats Work
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {howItWorks.map((step) => (
-              <Card
-                key={step.title}
-                className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6 flex flex-col h-full items-center text-center"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#F1F9FC] flex items-center justify-center text-[#2563eb] mb-4">
-                  <span className="text-sm font-bold">{step.number}</span>
-                </div>
-                <div className="w-10 h-10 rounded-lg bg-[#F5F8FF] flex items-center justify-center text-[#2563eb] mb-4">
-                  {step.icon}
-                </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
-                <p className="text-muted leading-relaxed">{step.text}</p>
-              </Card>
+          <div className="text-center mb-10">
+            <p className="text-xs font-semibold tracking-wider text-primary uppercase">
+              HOW IT WORKS
+            </p>
+            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
+              How seats work
+            </h2>
+            <p className="text-slate-600 max-w-2xl mx-auto mt-4">
+              From selecting a seat to having your assistant start, here is how
+              the process works step by step.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {howItWorks.map((step, i) => (
+              <Reveal key={step.title} delay={i * 0.1}>
+                <Card
+                  className="relative rounded-2xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] hover:-translate-y-1 hover:shadow-lg transition duration-300 h-full"
+                >
+                  <span className="absolute right-5 top-4 text-4xl font-bold text-slate-100">
+                    {step.number}
+                  </span>
+                  <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-lg font-semibold text-foreground mt-5">
+                    {step.title}
+                  </h3>
+                  <p className="text-base leading-relaxed text-slate-600 mt-2">
+                    {step.text}
+                  </p>
+                </Card>
+              </Reveal>
             ))}
           </div>
         </div>
