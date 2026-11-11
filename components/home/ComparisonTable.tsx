@@ -11,6 +11,7 @@ import {
   TableCell,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 const rows = [
@@ -56,7 +57,7 @@ export default function ComparisonTable() {
   return (
     <Reveal>
       <section className="bg-white py-12 md:py-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div className="text-center mb-10">
             <p className="text-xs font-semibold tracking-wider text-primary uppercase">
               COMPARE
@@ -141,7 +142,7 @@ export default function ComparisonTable() {
               </Table>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

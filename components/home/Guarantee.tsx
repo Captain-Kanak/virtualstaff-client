@@ -4,6 +4,7 @@ import * as React from "react";
 import { CheckCircle, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 const guaranteeBullets = [
@@ -25,7 +26,7 @@ export default function Guarantee() {
   return (
     <Reveal>
       <section className="py-12 lg:py-24 text-center">
-        <div className="max-w-2xl mx-auto px-5">
+        <Container>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-6">
             30-day money-back guarantee
           </h2>
@@ -55,7 +56,7 @@ export default function Guarantee() {
               </a>
             }
           />
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

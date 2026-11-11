@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import Container from "@/components/ui/Container";
 import JobSeekerForm from "@/components/forms/JobSeekerForm";
 
 export const metadata = {
@@ -16,9 +17,9 @@ export default function ForJobSeekersPage() {
         subtitle="Apply for remote virtual assistant roles with US companies. Join our offshore talent team."
       />
       <section className="py-12 lg:py-24">
-        <div className="max-w-md mx-auto px-5">
-          <JobSeekerForm />
-        </div>
+      <Container>
+        <JobSeekerForm />
+        </Container>
       </section>
     </div>
   );

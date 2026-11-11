@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import Container from "@/components/ui/Container";
 import EmployerForm from "@/components/forms/EmployerForm";
 
 export const metadata = {
@@ -16,9 +17,9 @@ export default function ForEmployersPage() {
         subtitle="Hire dedicated offshore virtual assistants for your US business. Request a quote below."
       />
       <section className="py-12 lg:py-24">
-        <div className="max-w-md mx-auto px-5">
-          <EmployerForm />
-        </div>
+      <Container>
+        <EmployerForm />
+        </Container>
       </section>
     </div>
   );

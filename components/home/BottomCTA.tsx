@@ -3,13 +3,14 @@
 import * as React from "react";
 import { Button } from "@/components/ui/button";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 export default function BottomCTA() {
   return (
     <Reveal>
       <section className="py-16 lg:py-24 bg-gradient-to-r from-blue-600 to-blue-500 text-white">
-        <div className="max-w-6xl mx-auto px-5 text-center">
+        <Container className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold tracking-tight mb-6">
             Start Building Your Team Today
           </h2>
@@ -31,7 +32,7 @@ export default function BottomCTA() {
               </a>
             }
           />
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

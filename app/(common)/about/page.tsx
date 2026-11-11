@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/ui/Container";
 import { bookingUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -43,8 +44,8 @@ export default function AboutPage() {
 
       <Reveal>
         <section className="py-12 lg:py-24">
-          <div className="max-w-3xl mx-auto px-5 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-6">
+        <Container className="text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-6">
               Our mission
             </h2>
               <p className="text-lg text-muted leading-relaxed">
@@ -55,14 +56,14 @@ export default function AboutPage() {
                 including the Philippines, India, Latin America, Eastern Europe,
                 Africa, South Asia, and Southeast Asia.
               </p>
-          </div>
+        </Container>
         </section>
       </Reveal>
 
       <Reveal>
         <section className="py-12 lg:py-24 bg-[#F5F8FF]">
-          <div className="max-w-6xl mx-auto px-5">
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
+        <Container>
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
               What we stand for
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -78,14 +79,14 @@ export default function AboutPage() {
                 </Card>
               ))}
             </div>
-          </div>
+        </Container>
         </section>
       </Reveal>
 
       <Reveal>
         <section className="py-12 lg:py-24">
-          <div className="max-w-6xl mx-auto px-5 text-center">
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-10">
+        <Container className="text-center">
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-10">
               By the numbers
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-xl mx-auto">
@@ -98,7 +99,7 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
-          </div>
+        </Container>
         </section>
       </Reveal>
 

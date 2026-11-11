@@ -7,13 +7,14 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 export default function Hero() {
   return (
     <Reveal>
       <section className="bg-[#F1F9FC] pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="space-y-6">
               <Badge className="rounded-full bg-[#4289e0]/10 border border-[#4289e0]/20 px-4 py-2 text-xs font-semibold text-[#2563eb] uppercase tracking-wider">
@@ -85,7 +86,7 @@ export default function Hero() {
               </Reveal>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

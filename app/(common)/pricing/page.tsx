@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 export const metadata: Metadata = {
@@ -102,8 +103,8 @@ export default function PricingPage() {
 
       <Reveal>
         <section className="py-12 lg:py-24">
-          <div className="max-w-6xl mx-auto px-5">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <Container>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {pricingCards.map((card) => (
                 <Card
                   key={card.role}
@@ -154,14 +155,14 @@ export default function PricingPage() {
                 </Card>
               ))}
             </div>
-          </div>
+          </Container>
         </section>
       </Reveal>
 
       <Reveal>
         <section className="py-12 lg:py-24 bg-[#F5F8FF]">
-          <div className="max-w-3xl mx-auto px-5">
-            <div className="text-center mb-12">
+        <Container>
+          <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
                 What&apos;s included
               </h2>
@@ -177,14 +178,14 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </Container>
         </section>
       </Reveal>
 
       <Reveal>
         <section className="py-12 lg:py-24">
-          <div className="max-w-3xl mx-auto px-5">
-            <div className="text-center mb-10">
+        <Container>
+          <div className="text-center mb-10">
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
                 Frequently asked questions
               </h2>
@@ -199,7 +200,7 @@ export default function PricingPage() {
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </Container>
         </section>
       </Reveal>
 

@@ -4,13 +4,14 @@ import * as React from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 export default function MidCTA() {
   return (
     <Reveal>
       <section className="bg-white py-8 md:py-12">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div
             className="rounded-3xl bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-10 md:px-12 md:py-12 text-white shadow-[0_12px_28px_rgba(37,99,235,0.25)] flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-center md:text-left"
           >
@@ -39,7 +40,7 @@ export default function MidCTA() {
               }
             />
           </div>
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

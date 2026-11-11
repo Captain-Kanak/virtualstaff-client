@@ -16,7 +16,7 @@ export default function Section({
     <section
       className={[
         "py-20 lg:py-32 relative",
-        container ? "max-w-[1200px] mx-auto px-4 lg:px-8" : "",
+        container ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : "",
         className,
       ]
         .filter(Boolean)

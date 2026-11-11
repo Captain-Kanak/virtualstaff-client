@@ -14,6 +14,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 const pricingCards = [
@@ -65,7 +66,7 @@ export default function PricingCards() {
   return (
     <Reveal>
       <section className="bg-white py-12 md:py-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div className="text-center mb-10">
             <p className="text-xs font-semibold tracking-wider text-primary uppercase">
               PRICING
@@ -136,7 +137,7 @@ export default function PricingCards() {
               See all staff costs <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

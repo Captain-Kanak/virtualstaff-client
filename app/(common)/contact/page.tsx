@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import ContactForm from "@/components/forms/ContactForm";
 import { Card } from "@/components/ui/card";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -20,7 +21,7 @@ export default function ContactPage() {
         subtitle="Have questions about hiring offshore virtual assistants? Send us a message or book a call."
       />
       <section className="py-12 lg:py-24">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="space-y-8">
               <ContactForm />
@@ -66,7 +67,7 @@ export default function ContactPage() {
               </Link>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
     </div>
   );

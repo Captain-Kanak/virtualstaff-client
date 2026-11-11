@@ -6,6 +6,7 @@ import JobFilters from "@/components/jobs/JobFilters";
 import JobCard from "@/components/jobs/JobCard";
 import { jobs, categories, regions, jobTypes } from "@/lib/jobs";
 import type { Job } from "@/lib/jobs";
+import Container from "@/components/ui/Container";
 
 type Filters = {
   search: string;
@@ -69,7 +70,7 @@ export default function JobsList() {
 
   return (
     <section className="py-12 lg:py-24">
-      <div className="max-w-6xl mx-auto px-5">
+      <Container>
         <JobFilters
           filters={filters}
           onChange={onChange}
@@ -95,7 +96,7 @@ export default function JobsList() {
             ))
           )}
         </div>
-      </div>
-    </section>
+        </Container>
+      </section>
   );
 }

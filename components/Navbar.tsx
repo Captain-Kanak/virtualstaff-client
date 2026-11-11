@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
 
 const menuSvg = (
@@ -34,7 +35,7 @@ const menuSvg = (
 export default function Navbar() {
   return (
     <nav className="sticky top-0 z-50 w-full border-b-2 border-slate-100 bg-white">
-      <div className="max-w-300 mx-auto px-4 lg:px-8">
+      <Container>
         <div className="flex h-16 items-center justify-between lg:h-20">
           <Link href="/" className="flex items-center" aria-label={siteName}>
             <Image
@@ -118,7 +119,7 @@ export default function Navbar() {
             </SheetContent>
           </Sheet>
         </div>
-      </div>
+      </Container>
     </nav>
   );
 }

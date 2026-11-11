@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/ui/Container";
 
 const stats = [
   { number: "2,500+", label: "US businesses served" },
@@ -14,7 +15,7 @@ export default function TrustedBy() {
   return (
     <Reveal>
       <section className="bg-[#F5F8FF] py-12 md:py-14 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div className="text-center mb-8">
             <p className="text-base md:text-lg font-medium text-slate-600">
               Trusted by 2,500+ growing US businesses
@@ -30,7 +31,7 @@ export default function TrustedBy() {
               </div>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
     </Reveal>
   );

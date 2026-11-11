@@ -1,7 +1,39 @@
+"use client";
+
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { footerLinks, socialLinks, siteName } from "@/lib/site";
+import { Button } from "@/components/ui/button";
+import { bookingUrl, siteName, socialLinks } from "@/lib/site";
+import Container from "@/components/ui/Container";
+
+const year = new Date().getFullYear();
+
+const companyLinks = [
+  { name: "About", href: "/about" },
+  { name: "Case Studies", href: "/case-studies" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+];
+
+const servicesLinks = [
+  { name: "How It Works", href: "/how-it-works" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Enterprise", href: "/enterprise" },
+  { name: "Industries", href: "#" },
+];
+
+const resourcesLinks = [
+  { name: "FAQ", href: "#" },
+  { name: "What Is RemoteStaff365", href: "#" },
+];
+
+const contactItems = [
+  { label: "Email", value: "hello@remotestaff365.com" },
+  { label: "Serving", value: "US businesses worldwide" },
+];
+
+const regionalText = "Hire talent from 7 regions worldwide";
 
 const facebookSvg = (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -34,16 +66,22 @@ const socialIcons: Record<string, React.ReactNode> = {
   youtube: youtubeSvg,
 };
 
-function Column({ title, items }: { title: string; items: { name: string; href: string }[] }) {
+function FooterColumn({
+  title,
+  items,
+}: {
+  title: string;
+  items: { name: string; href: string }[];
+}) {
   return (
     <div>
-      <h3 className="mb-4 text-sm font-bold tracking-tight text-white uppercase">{title}</h3>
-      <ul className="space-y-2">
+      <h2 className="mb-6 text-sm font-semibold tracking-tight text-white uppercase">{title}</h2>
+      <ul className="space-y-3">
         {items.map((item) => (
           <li key={item.name}>
             <Link
               href={item.href}
-              className="text-sm text-white/80 transition-colors hover:text-white"
+              className="text-sm text-white/70 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
             >
               {item.name}
             </Link>
@@ -55,14 +93,37 @@ function Column({ title, items }: { title: string; items: { name: string; href: 
 }
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
-    <footer className="bg-gradient-to-r from-blue-600 to-blue-500 text-white">
-      <div className="max-w-[1200px] mx-auto px-4 lg:px-8 py-12 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-          <div className="lg:col-span-3">
-            <div className="flex items-center gap-2 mb-6">
+    <footer className="border-t border-white/10 bg-gradient-to-r from-blue-600 to-blue-500 text-white">
+      <Container className="py-16 lg:py-24">
+        <div className="border-b border-white/10 pb-12 lg:pb-16 mb-10 lg:mb-16 flex flex-col lg:flex-row items-center justify-between lg:items-start gap-6 lg:gap-0">
+          <div className="text-center lg:text-left max-w-lg">
+            <h2 className="text-xl lg:text-2xl font-bold text-white">Ready to build your global team?</h2>
+            <p className="text-sm text-white/70 mt-2 max-w-xs mx-auto lg:mx-0">
+              Offshore virtual assistants for US-based companies.
+            </p>
+          </div>
+          <div className="flex items-center gap-3">
+            <Button
+              variant="brand"
+              size="xl"
+              className="w-auto"
+              render={
+                <a
+                  href={bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a Call
+                </a>
+              }
+            />
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-10">
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2.5 mb-6">
               <Image
                 src="/logo.png"
                 alt={`${siteName} logo`}
@@ -74,43 +135,75 @@ export default function Footer() {
                 {siteName}
               </span>
             </div>
-            <p className="text-white/80 text-sm max-w-xs leading-relaxed">
-              Connecting US companies with top offshore virtual assistants.
+            <p className="text-sm text-white/70 leading-relaxed mb-6 max-w-xs">
+              Hire pre-vetted offshore virtual assistants for your US-based
+              business.
             </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  className="rounded-full bg-white/10 p-2 text-white hover:bg-white/20 focus-visible:ring-2 focus-visible:ring-white transition-colors"
+                >
+                  {socialIcons[social.icon]}
+                </a>
+              ))}
+            </div>
           </div>
 
-          <Column title="Company" items={footerLinks.company} />
-          <Column title="Build Your Team" items={footerLinks.hireTalent} />
-          <Column title="Industries" items={footerLinks.industries} />
-          <Column title="Legal" items={footerLinks.legal} />
+          <FooterColumn title="Company" items={companyLinks} />
+          <FooterColumn title="Services" items={servicesLinks} />
+          <FooterColumn title="Resources" items={resourcesLinks} />
+
+          <div>
+            <h2 className="mb-6 text-sm font-semibold tracking-tight text-white uppercase">Contact</h2>
+            <ul className="space-y-4 text-sm">
+              {contactItems.map((item) => (
+                <li key={item.label} className="flex items-start gap-3">
+                  <span className="text-white/50">{item.label}</span>
+                  <span className="text-white/80">
+                    {item.label === "Email" ? (
+                      <Link
+                        href={`mailto:${item.value}`}
+                        className="hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded-sm"
+                      >
+                        {item.value}
+                      </Link>
+                    ) : (
+                      item.value
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-12 lg:mt-16 pt-8 border-t border-white/20 flex flex-col lg:flex-row items-center justify-between gap-4 text-white/80 text-sm">
-          <p>&copy; {year} {siteName}. All rights reserved.</p>
-          <div className="flex gap-6">
-            <Link href="/terms" className="hover:text-white">
+        <div className="border-t border-white/10 pt-12 lg:pt-16 flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-0 text-xs text-white/60">
+          <p className="leading-relaxed">
+            &copy; {year} {siteName}. All rights reserved.
+          </p>
+          <nav aria-label="Footer legal" className="flex items-center gap-6">
+            <Link
+              href="/terms"
+              className="hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded-sm"
+            >
               Terms
             </Link>
-            <Link href="/privacy" className="hover:text-white">
+            <Link
+              href="/privacy"
+              className="hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded-sm"
+            >
               Privacy
             </Link>
-          </div>
-          <div className="flex gap-3">
-            {socialLinks.map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-white/20 p-2 text-white hover:bg-white/30 transition-colors"
-                aria-label={social.name}
-              >
-                {socialIcons[social.icon]}
-              </a>
-            ))}
-          </div>
+          </nav>
+          <p className="text-white/60">{regionalText}</p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

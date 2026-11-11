@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import CTASection from "@/components/CTASection";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/ui/Container";
 import { bookingUrl } from "@/lib/site";
 
 export const industries: Record<
@@ -112,8 +113,8 @@ export default async function IndustryPage({
 
       <Reveal>
         <section className="py-12 lg:py-24">
-          <div className="max-w-2xl mx-auto px-5">
-            <p className="text-lg text-muted leading-relaxed mb-10">
+        <Container>
+          <p className="text-lg text-muted leading-relaxed mb-10">
               {industry.intro}
             </p>
             <h2 className="text-2xl lg:text-3xl font-bold tracking-tight text-foreground mb-6">
@@ -134,7 +135,7 @@ export default async function IndustryPage({
                 </Card>
               ))}
             </div>
-          </div>
+          </Container>
         </section>
       </Reveal>
 

@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { bookingUrl } from "@/lib/site";
+import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 
 const tiers = [
@@ -37,7 +38,7 @@ export default function GrowthPath() {
   return (
     <Reveal>
       <section className="bg-[#F5F8FF] py-12 md:py-16 overflow-hidden">
-        <div className="max-w-6xl mx-auto px-5">
+        <Container>
           <div className="text-center mb-10">
             <p className="text-xs font-semibold tracking-wider text-primary uppercase">
               GROWTH PATH
@@ -116,7 +117,7 @@ export default function GrowthPath() {
               </Reveal>
             ))}
           </div>
-        </div>
+        </Container>
       </section>
     </Reveal>
   );
