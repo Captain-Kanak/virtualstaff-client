@@ -1,9 +1,8 @@
 "use client";
 
 import * as React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import { bookingUrl, navLinks, siteName } from "@/lib/site";
+import { bookingUrl, navLinks } from "@/lib/site";
 import {
   Sheet,
   SheetContent,
@@ -13,6 +12,7 @@ import {
 } from "@/components/ui/sheet";
 import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
+import Logo from "@/components/ui/Logo";
 
 const menuSvg = (
   <svg
@@ -37,16 +37,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b-2 border-slate-100 bg-white">
       <Container>
         <div className="flex h-16 items-center justify-between lg:h-20">
-          <Link href="/" className="flex items-center" aria-label={siteName}>
-            <Image
-              src="/images/logo.png"
-              alt="RemoteStaff365"
-              width="2172"
-              height="724"
-              className="h-14 w-auto md:h-18"
-              priority
-            />
-          </Link>
+          <Logo className="mr-2" />
 
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (

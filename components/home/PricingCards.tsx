@@ -129,13 +129,17 @@ export default function PricingCards() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-10 text-center">
-            <Link
-              href="/pricing"
-              className="text-primary font-medium flex items-center gap-1.5 hover:underline"
-            >
-              See all staff costs <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div className="mt-10 flex justify-center">
+            <Button
+              variant="brand"
+              size="xl"
+              nativeButton={false}
+              render={
+                <Link href="/pricing">
+                  See all staff costs <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              }
+            />
           </div>
         </Container>
       </section>

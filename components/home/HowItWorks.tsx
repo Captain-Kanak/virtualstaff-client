@@ -56,7 +56,7 @@ export default function HowItWorks() {
                 <Card
                   className="relative rounded-2xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] hover:-translate-y-1 hover:shadow-lg transition duration-300 h-full"
                 >
-                  <span className="absolute right-5 top-4 text-4xl font-bold text-slate-100">
+                  <span className="absolute right-5 top-4 text-4xl font-bold text-slate-200">
                     {step.number}
                   </span>
                   <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">

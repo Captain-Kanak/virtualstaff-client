@@ -2,6 +2,7 @@
 
 // PLACEHOLDER testimonials - replace with real client testimonials before launch
 import * as React from "react";
+import Image from "next/image";
 import { Quote } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/Container";
@@ -12,42 +13,42 @@ const testimonials = [
     name: "Sarah Chen",
     title: "Operations Manager",
     company: "HealthBridge Clinic",
-    initials: "SC",
+    avatar: "/images/user.jpg",
     quote: "Finding a reliable VA used to take weeks. Now we hire in 48 hours and the quality is outstanding.",
   },
   {
     name: "Marcus Reed",
     title: "Founder",
     company: "SwiftLogistics",
-    initials: "MR",
+    avatar: "/images/user.jpg",
     quote: "Our logistics VA handles dispatch and tracking flawlessly. We've added two more seats this year.",
   },
   {
     name: "Elena Torres",
     title: "Office Manager",
     company: "Prime Realty Group",
-    initials: "ET",
+    avatar: "/images/user.jpg",
     quote: "The back-office support has been a game-changer for our closings. Highly recommended.",
   },
   {
     name: "David Kim",
     title: "Practice Administrator",
     company: "Cedarwood Medical",
-    initials: "DK",
+    avatar: "/images/user.jpg",
     quote: "HIPAA-trained virtual assistants who actually understand healthcare billing. Worth every penny.",
   },
   {
     name: "Jessica Moore",
     title: "Owner",
     company: "Main Street Accounting",
-    initials: "JM",
+    avatar: "/images/user.jpg",
     quote: "Bookkeeping support that's responsive and affordable. No long-term contracts needed.",
   },
   {
     name: "Robert Liang",
     title: "COO",
     company: "Nexus Ecommerce",
-    initials: "RL",
+    avatar: "/images/user.jpg",
     quote: "Customer support coverage across time zones has let us scale without burning out our local team.",
   },
 ];
@@ -79,11 +80,14 @@ export default function Testimonials() {
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="border-t border-slate-100 pt-5 mt-6 flex items-center gap-3">
-                    <div className="h-11 w-11 rounded-full bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center shrink-0">
-                      <span className="text-sm font-semibold text-white">
-                        {t.initials}
-                      </span>
-                    </div>
+                    <Image
+                      src={t.avatar ?? "/images/user.jpg"}
+                      alt={t.name}
+                      width={40}
+                      height={40}
+                      className="rounded-full object-cover ring-2 ring-white shadow-sm shrink-0"
+                      loading="lazy"
+                    />
                     <div>
                       <p className="text-base font-semibold text-foreground">
                         {t.name}
