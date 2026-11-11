@@ -47,12 +47,14 @@ export default function AboutPage() {
             <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-6">
               Our mission
             </h2>
-            <p className="text-lg text-muted leading-relaxed">
-              We believe great talent shouldn&apos;t be limited by geography.
-              RemoteStaff365 helps US companies hire dedicated offshore virtual
-              assistants quickly, transparently, and affordably — without
-              long-term contracts or markups.
-            </p>
+              <p className="text-lg text-muted leading-relaxed">
+                We believe great talent shouldn&apos;t be limited by geography.
+                RemoteStaff365 helps US companies hire dedicated offshore virtual
+                assistants quickly, transparently, and affordably — without
+                long-term contracts or markups. Our talent is sourced worldwide,
+                including the Philippines, India, Latin America, Eastern Europe,
+                Africa, South Asia, and Southeast Asia.
+              </p>
           </div>
         </section>
       </Reveal>

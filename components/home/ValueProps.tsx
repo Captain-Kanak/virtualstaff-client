@@ -22,7 +22,7 @@ const valueProps = [
     icon: <BadgeDollarSign className="h-6 w-6 text-white" />,
     title: "One clear fee",
     text:
-      "Simple, transparent pricing with no long-term contracts. Upgrade or cancel anytime.",
+      "Simple, transparent pricing in USD with no long-term contracts. Upgrade or cancel anytime.",
   },
 ];
 

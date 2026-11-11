@@ -20,7 +20,15 @@ export const categories = [
   "Back-Office",
 ];
 
-export const regions = ["Asia", "Africa", "Latin America", "Eastern Europe"];
+export const regions = [
+  "Philippines",
+  "India",
+  "Latin America",
+  "Eastern Europe",
+  "Africa",
+  "South Asia",
+  "Southeast Asia",
+];
 
 export const jobTypes: JobType[] = ["Full-time", "Part-time", "Contract"];
 

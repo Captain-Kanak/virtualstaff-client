@@ -1,6 +1,7 @@
 export const siteName = "RemoteStaff365";
 
-export const bookingUrl = "https://calendly.com/your-link";
+export const bookingUrl =
+  process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/your-link";
 
 export const navLinks = [
   { name: "How It Works", href: "/how-it-works" },

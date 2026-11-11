@@ -18,7 +18,19 @@ import {
 import { Form, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { jobSeekerSchema, type JobSeekerFormValues } from "@/lib/validations";
 
-const countryOptions = ["United States", "Canada", "United Kingdom", "Australia", "Other"];
+const countryOptions = [
+  "Philippines",
+  "India",
+  "South Africa",
+  "Mexico",
+  "Colombia",
+  "Pakistan",
+  "Vietnam",
+  "United Kingdom",
+  "Canada",
+  "Australia",
+  "Other",
+];
 const experienceOptions = [
   { value: "0-1", label: "0-1 years" },
   { value: "1-3", label: "1-3 years" },

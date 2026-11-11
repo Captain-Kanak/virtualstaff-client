@@ -1,4 +1,9 @@
-# DESIGN_NOTES — Reference Study: virtualstaff.ph (HTTrack copy)
+# DESIGN_NOTES — Legacy Reference Study: virtualstaff.ph (HTTrack copy)
+
+NOT LIVE CONTENT. This document records a visual study of the Philippines-focused
+virtualstaff.ph competitor and is retained for reference only. The live
+RemoteStaff365 site (app/, components/, lib/) is global-focused and contains no
+Philippines-specific references.
 
 Source: `/reference/www.virtualstaff.ph/` — an HTTrack mirror of `https://www.virtualstaff.ph/`.
 Visual study only. Do not modify `/reference`.
