@@ -107,9 +107,7 @@ export default function Footer() {
       <Container className="py-10 md:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-8">
           <div className="flex flex-col gap-3 lg:flex lg:flex-col lg:gap-3">
-            <div className="rounded-xl bg-white p-3">
-              <Logo className="h-10 w-auto" />
-            </div>
+            <Logo variant="light" className="h-10 md:h-11" />
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.
@@ -132,9 +130,7 @@ export default function Footer() {
 
         <div className="lg:hidden grid grid-cols-2 gap-8 mt-8 pt-8 border-t border-white/10">
           <div className="col-span-2 flex flex-col gap-3">
-            <div className="rounded-xl bg-white p-3">
-              <Logo className="h-10 w-auto" />
-            </div>
+            <Logo variant="light" className="h-10 md:h-11" />
             <p className="text-sm text-white/70 leading-relaxed max-w-xs">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.

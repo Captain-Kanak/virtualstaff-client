@@ -37,7 +37,7 @@ export default function Navbar() {
     <nav className="sticky top-0 z-50 w-full border-b-2 border-slate-100 bg-white">
       <Container>
         <div className="flex h-16 items-center justify-between lg:h-20">
-          <Logo className="mr-2" />
+          <Logo variant="default" className="mr-2" />
 
           <div className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
