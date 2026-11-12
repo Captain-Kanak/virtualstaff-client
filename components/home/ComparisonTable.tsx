@@ -72,7 +72,7 @@ export default function ComparisonTable() {
           </div>
           <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[2px_4px_12px_#00000014]">
             <div className="overflow-x-auto">
-              <Table className="min-w-[760px]">
+              <Table className="min-w-190">
                 <TableHeader>
                   <TableRow>
                     <TableHead
@@ -81,7 +81,7 @@ export default function ComparisonTable() {
                       Feature
                     </TableHead>
                     <TableHead
-                      className="bg-gradient-to-b from-[#4289e0] to-[#2563eb] text-white font-semibold py-4 px-4 border-b border-slate-100"
+                      className="bg-linear-to-b from-[#4289e0] to-[#2563eb] text-white font-semibold py-4 px-4 border-b border-slate-100"
                     >
                       <div className="flex flex-col items-start gap-1">
                         <Badge className="bg-white text-primary text-[10px] px-1.5 py-0">
@@ -111,7 +111,7 @@ export default function ComparisonTable() {
                         {row.feature}
                       </TableCell>
                       <TableCell
-                        className={`py-4 px-4 bg-[#F5F8FF] text-foreground font-medium align-middle border-b border-slate-100 border-l-2 border-r-2 border-primary ${
+                        className={`py-4 px-4 bg-[#F5F8FF] text-foreground font-medium align-middle border-b border-slate-100 border-l-2 border-r-2 ${
                           i === rows.length - 1 ? "rounded-b-xl" : ""
                         }`}
                       >

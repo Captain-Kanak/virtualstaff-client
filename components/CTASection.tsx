@@ -37,7 +37,7 @@ export default function CTASection({
           </h2>
         )}
         {description && (
-          <p className="text-primary/100 leading-relaxed max-w-2xl mx-auto mb-8 lg:mb-10 text-lg">
+          <p className="text-primary leading-relaxed max-w-2xl mx-auto mb-8 lg:mb-10 text-lg">
             {description}
           </p>
         )}

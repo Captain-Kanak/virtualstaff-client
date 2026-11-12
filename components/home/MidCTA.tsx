@@ -13,7 +13,7 @@ export default function MidCTA() {
       <section className="bg-white py-8 md:py-12">
         <Container>
           <div
-            className="rounded-3xl bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-10 md:px-12 md:py-12 text-white shadow-[0_12px_28px_rgba(37,99,235,0.25)] flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-center md:text-left"
+            className="rounded-3xl bg-linear-to-r from-blue-600 to-blue-500 px-6 py-10 md:px-12 md:py-12 text-white shadow-[0_12px_28px_rgba(37,99,235,0.25)] flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-center md:text-left"
           >
             <div>
               <h2 className="text-2xl md:text-4xl font-semibold">

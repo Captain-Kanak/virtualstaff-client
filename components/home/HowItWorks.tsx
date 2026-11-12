@@ -59,7 +59,7 @@ export default function HowItWorks() {
                   <span className="absolute right-5 top-4 text-4xl font-bold text-slate-200">
                     {step.number}
                   </span>
-                  <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">
+                  <div className="h-12 w-12 rounded-xl bg-linear-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">
                     {step.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-foreground mt-5">

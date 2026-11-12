@@ -85,7 +85,7 @@ export default function GrowthPath() {
                     </Badge>
                   )}
                   <div
-                    className={`rounded-xl bg-gradient-to-br from-[#E8F0FE] to-[#F1F9FC] flex items-center justify-center px-4 mb-6 ${PANEL_HEIGHT}`}
+                    className={`rounded-xl bg-linear-to-br from-[#E8F0FE] to-[#F1F9FC] flex items-center justify-center px-4 mb-6 ${PANEL_HEIGHT}`}
                   >
                     {Array.from({ length: tier.seats }).map((_, j) => {
                       const isFirst = j === 0;

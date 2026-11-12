@@ -103,7 +103,7 @@ function SocialIcon({ icon: Icon, href, ariaLabel }: { icon: React.ElementType; 
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-gradient-to-r from-blue-600 to-blue-500 text-white">
+    <footer className="border-t border-white/10 bg-linear-to-r from-blue-600 to-blue-500 text-white">
       <Container className="py-10 md:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-8">
           <div className="flex flex-col gap-3 lg:flex lg:flex-col lg:gap-3">

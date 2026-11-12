@@ -9,7 +9,7 @@ import Reveal from "@/components/Reveal";
 export default function BottomCTA() {
   return (
     <Reveal>
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-blue-600 to-blue-500 text-white">
+      <section className="py-16 lg:py-24 bg-linear-to-r from-blue-600 to-blue-500 text-white">
         <Container className="text-center">
           <h2 className="text-3xl lg:text-5xl font-bold tracking-tight mb-6">
             Start Building Your Team Today
