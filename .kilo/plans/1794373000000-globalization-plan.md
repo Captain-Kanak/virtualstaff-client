@@ -10,7 +10,7 @@
 
 - Rendered content is already global (zero PH references in `app/`, `components/`, `lib/`).
 - `package.json` name is `virtualstaff-client` (legacy PH brand).
-- `DESIGN_NOTES.md` references `virtualstaff.ph` extensively (non-rendered, legacy reference).
+- Legacy reference notes file was deleted; virtualstaff.ph references removed from REFERENCE_NOTES.md.
 - `lib/site.ts:3` `bookingUrl = "https://calendly.com/your-link"` is a hardcoded placeholder used by every CTA.
 - `components/forms/JobSeekerForm.tsx:21` countryOptions omits Philippines explicitly (buried under "Other").
 - `lib/jobs.ts:23` `regions = ["Asia", "Africa", "Latin America", "Eastern Europe"]` — incomplete global coverage.
@@ -62,7 +62,7 @@ Do not make Philippines the first/default option; alphabetical or random order i
 - `app/(common)/about/page.tsx` — add "talent sourced worldwide" line + optional regions stat (no PH-specific text)
 - `components/home/TrustedBy.tsx` — keep "30+ countries with talent"; consider making regions more prominent
 - `components/home/ValueProps.tsx` — add USD note to "One clear fee" card text
-- `DESIGN_NOTES.md` — re-title as legacy reference only; replace `virtualstaff.ph` / `app.virtualstaff.ph` references with RemoteStaff365/global equivalents (non-rendered, but removes PH lineage)
+- (Legacy reference file deleted — no action needed)
 
 ### Metadata / SEO
 - `app/layout.tsx` — add explicit canonical link via `alternates.canonical`; add `openGraph.locale`/`alternates` if hreflang desired later; keep `lang="en"`
@@ -118,7 +118,7 @@ No per-button hardcoded links allowed after this change.
 **Risks:**
 - `bookingUrl` placeholder `https://calendly.com/your-link` is currently live on every CTA — must be replaced with real Calendly URL before launch (launch blocker, not PH-specific).
 - Renaming `package.json` may affect pnpm workspaces / lockfile; run `pnpm install` after to regenerate `pnpm-lock.yaml`.
-- `DESIGN_NOTES.md` is a reference document, not rendered content — updating it is low-risk but removes the PH lineage narrative.
+- (Legacy reference file deleted — no action needed)
 
 ---
 
@@ -131,7 +131,7 @@ No per-button hardcoded links allowed after this change.
 5. [ ] Expand `JobSeekerForm.tsx` `countryOptions` to include Philippines, India, South Africa, Mexico, Colombia, etc.
 6. [ ] Add explicit "USD — all pricing in US dollars" note to pricing/value-props copy
 7. [ ] Add "talent sourced worldwide / no single country dominant" line to About page
-8. [ ] Re-title `DESIGN_NOTES.md` as legacy reference; replace `virtualstaff.ph` references
+8. [ ] (Legacy reference file deleted — task complete)
 9. [ ] Verify no remaining `.ph`, `virtualstaff`, `Pinoy`, `Filipino`, `+63`, `peso`, `₱` in rendered code (re-run audit grep)
 10. [ ] Run `pnpm install` + `npm run build` to confirm no breakage (validation)
 

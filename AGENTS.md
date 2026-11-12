@@ -1,48 +1,42 @@
 # AGENTS.md
 
+## Always first
+- Read REFERENCE_NOTES.md before any task. Section 0 is the project direction:
+  similar to the reference site, never an exact clone.
+- Make small, focused changes. Only edit the files the task names.
+
 ## Stack
+Next.js App Router, TypeScript, Tailwind v4, shadcn/ui (Base UI, not Radix),
+framer-motion, lucide-react, react-hook-form + zod.
 
-- Next.js App Router
-- TypeScript
-- Tailwind v4
-- shadcn/ui
-- framer-motion
-- lucide-react
-
-## shadcn/ui usage
-
-- ALWAYS use shadcn/ui components from `components/ui` (Button, Card, Badge,
-  Input, Textarea, Label, Select, Checkbox, Accordion, Table, Sheet, Form).
-- If a needed shadcn component is missing, add it with
-  `npx shadcn@latest add <name>`.
-- Never create custom versions of components shadcn already provides.
-
-## Buttons
-
-- Use `Button variant="brand"` for primary CTAs.
-- Use `Button variant="outline"` for secondary ones.
-- All booking CTAs link to `bookingUrl` from `lib/site.ts`.
-- This shadcn setup uses Base UI, NOT Radix. Never use `asChild`. For link
-  buttons use: <Button variant="brand" size="xl" render={<Link href="..." />}>
-  Label</Button>. For external links (bookingUrl) use
+## shadcn/ui
+- Always use components from components/ui (Button, Card, Badge, Input,
+  Textarea, Label, Select, Checkbox, Accordion, Table, Sheet, Form).
+- Missing one? Add it with `npx shadcn@latest add <name>`.
+- Never build custom versions of components shadcn already provides.
+- Base UI: NEVER use asChild. For link buttons use
+  <Button render={<Link href="..." />}>Label</Button>, and for external links
   render={<a href={bookingUrl} target="_blank" rel="noopener noreferrer" />}.
-- Use Sheet, Accordion, Select etc. following Base UI conventions already used
-  in components/ui. Check an existing component before guessing the API.
+- Before using Select, Form, Sheet or Accordion, read the file in
+  components/ui to follow its API.
 
-## Copy and assets
+## Buttons and links
+- Primary CTAs: variant="brand". Secondary: variant="outline".
+- All booking/signup CTAs link to bookingUrl in lib/site.ts (Calendly
+  placeholder). No login or signup pages.
 
-- Write original copy; never copy text/images from `/reference`.
-- Use placeholder images.
-- `/reference` is for visual study only. Do not modify `/reference`.
+## Content and design
+- Original copy only. Never copy text, images, icons or logos from /reference.
+  /reference is read-only and for visual study.
+- Use placeholder images only when needed. Prefer lucide icons and CSS visuals.
+- Body text must be readable: use text-slate-600 or darker. Never use
+  opacity-* or very light colors on text.
+- Page content goes in arrays at the top of each component file.
+- Scroll animations use the Reveal component and must end at full opacity.
 
 ## Scope
-
 - No dashboards, admin panels, or login pages.
 
-## Data
-
-- Put page content in arrays at the top of each component file.
-
-## Build
-
+## Done means
 - Run `npm run build` after every task and fix errors.
+- Do not start the dev server unless asked.
