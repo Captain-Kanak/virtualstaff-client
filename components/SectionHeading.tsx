@@ -5,7 +5,7 @@ import Reveal from "@/components/Reveal";
 
 interface SectionHeadingProps {
   eyebrow?: string;
-  title: string;
+  title: React.ReactNode;
   subtitle?: string;
   align?: "center" | "left";
   tone?: "default" | "light";

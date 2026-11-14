@@ -243,6 +243,21 @@ body {
   }
 }
 
+.hero-img-wrap {
+  --hero-h: 460px;
+  --hero-ratio: calc(var(--img-w) / var(--img-h));
+  position: relative;
+  margin-inline: auto;
+  width: min(100%, calc(var(--hero-h) * var(--hero-ratio)));
+  aspect-ratio: var(--img-w) / var(--img-h);
+}
+@media (min-width: 1024px) {
+  .hero-img-wrap {
+    --hero-h: clamp(360px, calc(100svh - var(--nav-h) - 8rem), 560px);
+    margin-inline: auto 0;
+  }
+}
+
 .hero-bg {
   background:
     radial-gradient(60% 55% at 78% 42%, rgba(37,99,235,.16), transparent 70%),

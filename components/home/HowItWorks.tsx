@@ -1,68 +1,89 @@
 "use client";
 
-import * as React from "react";
-import { Plus, UserCheck, Users, ShieldCheck } from "lucide-react";
-import { Card } from "@/components/ui/card";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
 
-const howItWorks = [
+const steps = [
   {
-    number: "01",
-    title: "Add a seat",
-    text: "Tell us the role, skills, and hours you need. We match you with pre-vetted offshore virtual assistants.",
-    icon: <Plus className="h-6 w-6 text-white" />,
+    badge: "/images/process/01.png",
+    image: "/images/process/step-1.webp",
+    imageAlt: "Step 1: Add a seat to your team",
+    title: "Add a Seat",
+    text: "One seat gives you a place to add one part-time or full-time offshore assistant to your business.",
+    objectFit: "object-top",
   },
   {
-    number: "02",
-    title: "Choose your hire",
-    text: "Review profiles and interview candidates. Hire only when you are confident it is the right fit.",
-    icon: <UserCheck className="h-6 w-6 text-white" />,
+    badge: "/images/process/02.png",
+    image: "/images/process/step-2.webp",
+    imageAlt: "Step 2: Choose who fills your seat",
+    title: "Choose Who Fills Your Seat",
+    text: "We supply vetted candidates. You choose the person and tell us the salary you want them to receive. We handle contracts and payroll.",
+    objectFit: "object-top",
   },
   {
-    number: "03",
-    title: "Integrate them into your team",
-    text: "Your VA starts within 48 hours. We handle onboarding, time tracking, and ongoing support.",
-    icon: <Users className="h-6 w-6 text-white" />,
+    badge: "/images/process/03.png",
+    image: "/images/process/step-3.webp",
+    imageAlt: "Step 3: They plug into your business",
+    title: "They Plug Into Your Business",
+    text: "Your assistant works in your systems, follows your processes and reports to you, as part of your team.",
+    objectFit: "object-top",
   },
   {
-    number: "04",
-    title: "We stay with you",
-    text: "Dedicated account management, SLA-backed response times, and volume pricing as you grow.",
-    icon: <ShieldCheck className="h-6 w-6 text-white" />,
+    badge: "/images/process/04.png",
+    image: "/images/process/step-4.webp",
+    imageAlt: "Step 4: RemoteStaff365 stays behind the relationship",
+    title: "RemoteStaff365 Stays Behind the Relationship",
+    text: "Your seat stays active around that assistant, with our team behind the ongoing relationship as you grow.",
+    objectFit: "object-top",
   },
-];
+] as const;
 
 export default function HowItWorks() {
   return (
     <Reveal>
-      <section className="bg-[#F5F8FF] py-14 md:py-20 overflow-hidden">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#CFE0FB] via-[#E8F0FE] to-white py-14 md:py-20">
         <Container>
           <SectionHeading
-            eyebrow="HOW IT WORKS"
-            title="How seats work"
-            subtitle="From selecting a seat to having your assistant start, here is how the process works step by step."
+            title={
+              <>
+                A simple, structured way to
+                <br />
+                <span className="text-primary">add global talent to your team</span>
+              </>
+            }
+            subtitle="From first match to long-term team member, here's how a RemoteStaff365 seat works."
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {howItWorks.map((step, i) => (
+          <div className="mt-14 grid items-stretch gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.1}>
-                <Card
-                  className="relative rounded-2xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] hover:-translate-y-1 hover:shadow-lg transition duration-300 h-full"
-                >
-                  <span className="absolute right-5 top-4 text-4xl font-bold text-slate-200">
-                    {step.number}
-                  </span>
-                  <div className="h-12 w-12 rounded-xl bg-linear-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">
-                    {step.icon}
+                <div className="flex h-full flex-col">
+                  <div className="relative flex flex-1 flex-col rounded-3xl bg-white p-5 pt-10 shadow-[0_10px_30px_rgba(37,99,235,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+                    <Image
+                      src={step.badge}
+                      alt={`Step ${i + 1}`}
+                      width={216}
+                      height={212}
+                      className="absolute left-1/2 top-0 z-10 h-14 w-auto -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_6px_12px_rgba(37,99,235,0.35)]"
+                    />
+                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-slate-100">
+                      <Image
+                        src={step.image}
+                        alt={step.imageAlt}
+                        fill
+                        sizes="(min-width: 1024px) 22vw, (min-width: 640px) 45vw, 90vw"
+                        className={`object-cover ${step.objectFit}`}
+                      />
+                    </div>
+                    <h3 className="mt-5 text-xl font-semibold leading-snug text-foreground">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-base leading-relaxed text-slate-600">
+                      {step.text}
+                    </p>
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground mt-5">
-                    {step.title}
-                  </h3>
-                  <p className="text-base leading-relaxed text-slate-600 mt-2">
-                    {step.text}
-                  </p>
-                </Card>
+                </div>
               </Reveal>
             ))}
           </div>

@@ -842,3 +842,4 @@ margins.
   headings and text-white/90 for body.
 - Headings use Poppins bold (700), card titles semibold (600). No other
   weights for headings.
+- Logo strip variant: heading text-2xl md:text-3xl lg:text-4xl, section padding py-10 md:py-14.

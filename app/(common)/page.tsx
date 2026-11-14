@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import Hero from "@/components/home/Hero";
+import PartnerLogos from "@/components/home/PartnerLogos";
 import ValueProps from "@/components/home/ValueProps";
-import TrustedBy from "@/components/home/TrustedBy";
 import MidCTA from "@/components/home/MidCTA";
 import HowItWorks from "@/components/home/HowItWorks";
 import GrowthPath from "@/components/home/GrowthPath";
@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
+      <PartnerLogos />
       <ValueProps />
-      <TrustedBy />
       <MidCTA />
       <HowItWorks />
       <GrowthPath />

@@ -44,7 +44,7 @@ const stickers = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden hero-offset hero-bg pb-12 md:pb-20">
+    <section className="relative overflow-hidden hero-offset hero-bg pb-10 lg:pb-12">
       <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
         <div className="hero-grid absolute inset-0" />
         <div className="absolute -left-24 top-24 size-72 rounded-full bg-cyan-400/20 blur-3xl" />
@@ -64,11 +64,11 @@ export default function Hero() {
       </div>
 
       <Container className="relative z-10">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
 
           {/* Left column */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+            <h1 className="text-[clamp(2.5rem,4.6vw,4.5rem)] font-extrabold tracking-tight leading-[1.05] text-foreground">
               Global talent
               <br />
               <span className="bg-gradient-to-r from-[#2563eb] to-[#06b6d4] bg-clip-text text-transparent">
@@ -76,12 +76,12 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-slate-600 max-w-xl mt-6">
+            <p className="text-[clamp(1rem,1.45vw,1.25rem)] text-slate-600 max-w-xl mt-4 lg:mt-5">
               Recruitment, EOR, BPO & HR outsourcing across Africa, Europe,
               America and the Middle East.
             </p>
 
-            <div className="flex flex-wrap items-center gap-5 mt-8">
+            <div className="flex flex-wrap items-center gap-5 mt-6 lg:mt-7">
               <Button
                 variant="brand"
                 size="xl"
@@ -107,47 +107,46 @@ export default function Hero() {
 
           {/* Right column */}
           <div className="relative">
-            <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
-              <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />
-              <div className="col-start-1 row-start-1 aspect-square rounded-full w-[136%] border border-dashed border-primary/30 animate-orbit">
-                <div className="absolute left-1/2 -top-1.5 size-3 -translate-x-1/2 rounded-full bg-[#E8CF4B] shadow-[0_0_14px_rgba(232,207,75,0.8)]" />
-                <div className="absolute bottom-[14%] right-[6%] size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
+            <div className="hero-img-wrap" style={{ "--img-w": 724, "--img-h": 701 } as React.CSSProperties}>
+              <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
+                <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />
+                <div className="col-start-1 row-start-1 aspect-square rounded-full w-[136%] border border-dashed border-primary/30 animate-orbit">
+                  <div className="absolute left-1/2 -top-1.5 size-3 -translate-x-1/2 rounded-full bg-[#E8CF4B] shadow-[0_0_14px_rgba(232,207,75,0.8)]" />
+                  <div className="absolute bottom-[14%] right-[6%] size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
+                </div>
+                <div className="col-start-1 row-start-1 aspect-square rounded-full w-[160%] border border-cyan-500/15 animate-orbit-reverse">
+                  <div className="absolute left-[8%] top-[22%] size-2 rounded-full bg-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.7)]" />
+                </div>
               </div>
-              <div className="col-start-1 row-start-1 aspect-square rounded-full w-[160%] border border-cyan-500/15 animate-orbit-reverse">
-                <div className="absolute left-[8%] top-[22%] size-2 rounded-full bg-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.7)]" />
-              </div>
-            </div>
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/15 blur-3xl -z-10"
-            />
+              <div
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/15 blur-3xl -z-10"
+              />
 
-            <div className="relative">
               <div className="absolute z-0 bottom-0 left-1/2 -translate-x-1/2 aspect-square w-[88%] rounded-full bg-gradient-to-b from-[#BFD7FF] to-[#E8F0FE]" />
               <Image
                 src="/images/banner-2.png"
                 alt="Offshore virtual assistant working with a US business"
-                width={724}
-                height={701}
-                priority
+                fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
-                className="relative z-10 h-auto w-full lg:max-h-[560px] object-contain object-bottom"
+                priority
+                className="object-contain object-bottom z-10"
               />
-            </div>
 
-            {stickers.map((s) => (
-              <div
-                key={s.number}
-                className={`animate-float-soft absolute z-20 rounded-xl border-2 border-slate-900 px-4 py-3 whitespace-nowrap ${s.shadow} ${s.bg} ${s.text} ${s.rotate} ${s.pos}`}
-                style={{ animationDelay: s.delay }}
-              >
-                <span className={`text-2xl font-extrabold leading-none ${s.text}`}>
-                  {s.number}
-                </span>
-                <span className={`text-[11px] font-semibold uppercase tracking-wide mt-1 block ${s.text}`}>
-                  {s.label}
-                </span>
-              </div>
-            ))}
+              {stickers.map((s) => (
+                <div
+                  key={s.number}
+                  className={`animate-float-soft absolute z-20 rounded-xl border-2 border-slate-900 px-3 py-2 2xl:px-4 2xl:py-3 whitespace-nowrap ${s.shadow} ${s.bg} ${s.text} ${s.rotate} ${s.pos}`}
+                  style={{ animationDelay: s.delay }}
+                >
+                  <span className={`text-[clamp(1.125rem,1.6vw,1.5rem)] font-extrabold leading-none ${s.text}`}>
+                    {s.number}
+                  </span>
+                  <span className={`text-[10px] font-semibold uppercase tracking-wide mt-1 block ${s.text}`}>
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
 
         </div>
