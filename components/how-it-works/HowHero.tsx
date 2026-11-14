@@ -15,17 +15,34 @@ const avatarInitials = [
 
 export default function HowHero() {
   return (
-    <section
-      className="relative overflow-x-clip hero-offset bg-gradient-to-br from-[#F1F9FC] via-white to-[#E8F0FE] pb-12 md:pb-16"
-    >
-      <div className="absolute inset-0 opacity-60 pointer-events-none [background-image:radial-gradient(#cbd5e1_1px,_transparent_1px)] [background-size:24px_24px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-      <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[70%] h-[70%] rounded-full bg-primary/20 blur-3xl -z-10" />
+    <section className="hero-bg-alt hero-offset relative overflow-hidden pb-12 md:pb-16">
+      <div className="aria-hidden pointer-events-none select-none absolute inset-0 z-0">
+        <div className="hero-dots absolute inset-0" />
+        <div
+          className="absolute -top-1/4 left-[35%] h-[150%] w-24 rotate-[25deg] bg-gradient-to-b from-white/70 to-transparent blur-md hidden md:block"
+        />
+        <div className="absolute -right-20 top-10 size-72 rounded-full bg-cyan-300/20 blur-3xl" />
+        <div className="absolute left-0 bottom-0 size-80 rounded-full bg-indigo-300/20 blur-3xl" />
+        <div className="absolute right-[8%] top-[18%] relative size-4">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-[8px] bg-primary/30" />
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[8px] h-px bg-primary/30" />
+        </div>
+        <div className="absolute left-[46%] top-[12%] relative size-4">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-[8px] bg-primary/30" />
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[8px] h-px bg-primary/30" />
+        </div>
+        <div className="absolute right-[30%] bottom-[16%] relative size-4">
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-px h-[8px] bg-primary/30" />
+          <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[8px] h-px bg-primary/30" />
+        </div>
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-[#EEF4FF]" />
+      </div>
 
-      <Container>
+      <Container className="relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-          {/* Left column */}
-          <div className="space-y-6">
+          {/* Text column */}
+          <div className="lg:order-2 space-y-6">
             <p className="text-xs font-semibold tracking-wider text-primary uppercase">
               HOW REMOTESTAFF365 WORKS
             </p>
@@ -39,7 +56,7 @@ export default function HowHero() {
             </h1>
 
             <p className="text-lg text-slate-600 max-w-xl">
-              Flat monthly seat fee plus the assistant&apos;s salary. You
+              Flat monthly seat fee plus the assistant{"'"}s salary. You
               choose the person.
             </p>
 
@@ -93,24 +110,47 @@ export default function HowHero() {
             </div>
           </div>
 
-          {/* Right column */}
-          <div className="relative mt-10 lg:mt-0">
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] h-[60%] lg:h-[45%] rounded-full bg-[#E8F0FE] -z-10 blur-[60px]" />
+          {/* Image column */}
+          <div className="lg:order-1 relative mt-10 lg:mt-0">
+            <div
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] h-[60%] lg:h-[45%] rounded-full bg-[#E8F0FE] -z-10 blur-[60px]"
+            />
 
             <div className="relative">
-              <Image
-                src="/images/career-hero.webp"
-                alt="Offshore virtual assistant working with a US business"
-                width={518}
-                height={542}
-                priority
-                sizes="(min-width: 1024px) 45vw, 100vw"
-                className="relative z-10 h-auto w-full lg:max-h-[560px] object-contain object-bottom drop-shadow-[0_20px_30px_rgba(37,99,235,0.18)]"
-              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center"
+              >
+                <div className="col-start-1 row-start-1 aspect-square rounded-full w-[100%] border border-primary/15" />
+                <div className="col-start-1 row-start-1 aspect-square rounded-full w-[122%] border-2 border-dotted border-primary/30 animate-orbit">
+                  <div
+                    className="absolute left-1/2 -top-1.5 size-3 -translate-x-1/2 rounded-full bg-indigo-500 shadow-[0_0_14px_rgba(99,102,241,0.8)]"
+                  />
+                  <div
+                    className="absolute bottom-[12%] left-[8%] size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]"
+                  />
+                </div>
+                <div className="col-start-1 row-start-1 aspect-square rounded-full w-[146%] border-2 border-transparent border-t-primary/30 border-r-cyan-400/30 animate-orbit-reverse" />
+              </div>
+
+              <div className="relative">
+                <div
+                  className="absolute z-0 bottom-0 left-1/2 -translate-x-1/2 aspect-square w-[85%] rounded-full bg-gradient-to-b from-[#C7D2FE] to-[#E0F2FE]"
+                />
+                <Image
+                  src="/images/va-banner-image.png"
+                  alt="Offshore virtual assistant working with a US business"
+                  width={645}
+                  height={662}
+                  priority
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="relative z-10 h-auto w-full lg:max-h-[560px] object-contain object-bottom"
+                />
+              </div>
 
               {/* Floating card 1: Virtual Assistant */}
               <div
-                className="animate-float-soft absolute z-20 bg-white/85 backdrop-blur-md rounded-2xl border border-white/70 ring-1 ring-slate-900/5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] p-3 pr-4 flex items-center gap-3 whitespace-nowrap left-2 top-[38%] md:-left-8"
+                className="animate-float-soft absolute z-20 bg-white/85 backdrop-blur-md rounded-2xl border border-white/70 ring-1 ring-slate-900/5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] p-3 pr-4 flex items-center gap-3 whitespace-nowrap left-2 top-[30%] md:-left-6"
                 style={{ animationDelay: "0s" }}
               >
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center text-white shrink-0">
@@ -128,7 +168,7 @@ export default function HowHero() {
 
               {/* Floating card 2: Matched in 48 hours */}
               <div
-                className="animate-float-soft absolute z-20 bg-white/85 backdrop-blur-md rounded-2xl border border-white/70 ring-1 ring-slate-900/5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] p-3 pr-4 flex items-center gap-3 whitespace-nowrap right-2 top-[18%] md:-right-3"
+                className="animate-float-soft absolute z-20 bg-white/85 backdrop-blur-md rounded-2xl border border-white/70 ring-1 ring-slate-900/5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] p-3 pr-4 flex items-center gap-3 whitespace-nowrap right-2 top-[14%]"
                 style={{ animationDelay: "-2s" }}
               >
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center text-white shrink-0">
@@ -152,7 +192,7 @@ export default function HowHero() {
 
               {/* Floating card 3: 3 team members */}
               <div
-                className="animate-float-soft absolute z-20 bg-white/85 backdrop-blur-md rounded-2xl border border-white/70 ring-1 ring-slate-900/5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] p-3 pr-4 flex items-center gap-3 whitespace-nowrap left-2 bottom-[8%] md:-left-6"
+                className="animate-float-soft absolute z-20 bg-white/85 backdrop-blur-md rounded-2xl border border-white/70 ring-1 ring-slate-900/5 shadow-[0_12px_32px_rgba(15,23,42,0.12)] p-3 pr-4 flex items-center gap-3 whitespace-nowrap left-2 bottom-[8%] md:-left-4"
                 style={{ animationDelay: "-4s" }}
               >
                 <div className="w-10 h-10 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center text-white shrink-0">

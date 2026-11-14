@@ -1,21 +1,24 @@
 "use client";
 
 import * as React from "react";
-import { Badge } from "@/components/ui/badge";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Reveal from "@/components/Reveal";
+import { HelpCircleIcon, PlusIcon } from "lucide-react";
+import { bookingUrl } from "@/lib/site";
 import Container from "@/components/Container";
+import styles from "./HowFAQ.module.css";
 
 const faqs = [
   {
     q: "What is a seat fee?",
     a:
-      "The seat fee is a flat monthly charge that covers hiring, onboarding, and ongoing support for one offshore assistant. You pay this in addition to the assistant&apos;s salary, which you agree on directly. It keeps pricing simple with no hidden markups.",
+      "The seat fee is a flat monthly charge that covers hiring, onboarding, and ongoing support for one offshore assistant. You pay this in addition to the assistant's salary, which you agree on directly. It keeps pricing simple with no hidden markups.",
   },
   {
     q: "How quickly can I hire an assistant?",
@@ -30,7 +33,7 @@ const faqs = [
   {
     q: "Who handles payroll and compliance?",
     a:
-      "We do. We manage onboarding, payroll, taxes, and compliance so you can focus on growing your business instead of paperwork. You simply pay the seat fee and the assistant&apos;s salary.",
+      "We do. We manage onboarding, payroll, taxes, and compliance so you can focus on growing your business instead of paperwork. You simply pay the seat fee and the assistant's salary.",
   },
   {
     q: "What if my assistant is not the right fit?",
@@ -45,52 +48,166 @@ const faqs = [
 ];
 
 export default function HowFAQ() {
-  return (
-    <section className="bg-[#F5F8FF] py-12 md:py-16">
-      <Container>
-        <div className="max-w-3xl mx-auto">
-          <Reveal>
-            <p className="text-xs font-semibold tracking-wider text-primary uppercase mb-4">
-              FAQ
-            </p>
-          </Reveal>
-          <Reveal>
-            <h2 className="text-3xl md:text-5xl font-semibold text-foreground mb-4">
-              Questions about seats and hiring
-            </h2>
-          </Reveal>
+  const [open, setOpen] = React.useState<string | null>(faqs[0]?.q ?? null);
 
-          <Accordion
-            className="max-w-3xl mx-auto"
-            defaultValue={[faqs[0].q]}
-          >
-            {faqs.map((faq, index) => (
-              <Reveal key={faq.q} delay={index * 0.05}>
-                <AccordionItem
-                  className="rounded-2xl border border-slate-100 bg-white shadow-[2px_4px_12px_#00000014] mb-4"
-                  value={faq.q}
+  return (
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/40">
+      <Container>
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
+            <div className="mb-8">
+              <p className="text-xs font-semibold tracking-wider text-blue-600 uppercase mb-3">
+                FAQ
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+                Questions about seats and hiring
+              </h2>
+              <p className="text-slate-600 text-base leading-relaxed">
+                Everything you need to know about seat fees, hiring timelines,
+                US-hours coverage, payroll, replacements, and scaling your
+                team.
+              </p>
+            </div>
+
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+              <div className="flex items-start gap-4 mb-5">
+                <div className="flex-shrink-0 size-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                  <HelpCircleIcon size="5" strokeWidth={2} />
+                </div>
+                <div>
+                  <p className="font-semibold text-slate-900 text-sm">
+                    Still have questions?
+                  </p>
+                  <p className="text-sm text-slate-600 mt-1">
+                    Not sure which seat fits your team? Let&rsquo;s talk.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-2">
+                <Link
+                  href={bookingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-semibold text-blue-600 hover:underline flex items-center gap-1"
                 >
-                  <AccordionTrigger
-                    className="flex items-start justify-between gap-4 px-6 py-4 text-base md:text-lg font-medium text-foreground"
+                  Book a call <span className="text-xs">→</span>
+                </Link>
+                <Link
+                  href="/contact"
+                  className="text-sm font-semibold text-slate-600 hover:underline"
+                >
+                  Contact us
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-8">
+            <Accordion
+              className="space-y-3 md:space-y-4"
+              value={open ? [open] : []}
+              onValueChange={(value) => setOpen(value[0] ?? null)}
+            >
+              {faqs.map((faq, index) => {
+                const isOpen = open === faq.q;
+
+                return (
+                  <div
+                    key={faq.q}
+                    className="faqItemFadeUp"
+                    style={{ animationDelay: `${index * 0.08}s` }}
                   >
-                    <div className="flex items-center gap-3">
-                      <Badge variant="outline" className="text-xs">
-                        {(index + 1).toString().padStart(2, "0")}
-                      </Badge>
-                      <span>{faq.q}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent
-                    className="px-6 pb-6 text-base leading-relaxed text-slate-600"
-                  >
-                    {faq.a}
-                  </AccordionContent>
-                </AccordionItem>
-              </Reveal>
-            ))}
-          </Accordion>
+                    <AccordionItem
+                      className={cn(
+                        "relative rounded-2xl border border-slate-200/80 bg-white shadow-sm overflow-hidden border-b-0 transition-all duration-300",
+                        "hover:border-blue-200 hover:shadow-md",
+                        isOpen
+                          ? "border-blue-300 ring-1 ring-blue-100 shadow-lg shadow-blue-600/5"
+                          : ""
+                      )}
+                      value={faq.q}
+                    >
+                      {isOpen && (
+                        <div className="absolute left-0 inset-y-0 w-[3px] bg-gradient-to-b from-blue-500 to-sky-400" />
+                      )}
+                      <AccordionTrigger
+                        className={cn(
+                          "flex items-center justify-between gap-4 px-5 md:px-7 py-5 text-base md:text-lg font-semibold",
+                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+                          styles.hideShadcnTriggerIcons,
+                          isOpen ? "text-blue-700" : "text-slate-900"
+                        )}
+                      >
+                        <div className="flex items-center gap-4 flex-1">
+                          <span
+                            className={cn(
+                              "size-9 rounded-full flex items-center justify-center font-semibold text-sm",
+                              isOpen
+                                ? "bg-blue-600 text-white"
+                                : "bg-slate-100 text-slate-500"
+                            )}
+                          >
+                            {(index + 1).toString().padStart(2, "0")}
+                          </span>
+                          <span>{faq.q}</span>
+                        </div>
+                        <div
+                          className={cn(
+                            "size-9 rounded-full flex items-center justify-center border transition-transform duration-200",
+                            isOpen
+                              ? "bg-blue-600 border-transparent text-white"
+                              : "bg-slate-50 border-slate-200 text-slate-600"
+                          )}
+                        >
+                          <PlusIcon
+                            size="5"
+                            className={cn(
+                              "transition-transform duration-200",
+                              isOpen ? "rotate-45" : ""
+                            )}
+                          />
+                        </div>
+                      </AccordionTrigger>
+                      <AccordionContent
+                        className="overflow-hidden"
+                      >
+                        <div
+                          className={cn(
+                            "grid overflow-hidden pt-4 pb-6 pr-5 md:pr-7 border-t border-slate-100 text-base leading-7 text-slate-600",
+                            "[grid-template-rows:0fr] transition-[grid-template-rows] duration-300 ease-out",
+                            "pl-[calc(1.25rem+36px+1rem)] md:pl-[calc(1.75rem+36px+1rem)]",
+                            isOpen ? "[grid-template-rows:1fr]" : ""
+                          )}
+                        >
+                          {faq.a}
+                        </div>
+                      </AccordionContent>
+                    </AccordionItem>
+                  </div>
+                );
+              })}
+            </Accordion>
+          </div>
         </div>
       </Container>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.q,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.a,
+              },
+            })),
+          }),
+        }}
+      />
     </section>
   );
 }

@@ -76,7 +76,7 @@ export default function EmployerForm() {
           Request received
         </h2>
         <p className="text-muted">
-          Thanks for reaching out. We&apos;ll review your request and get back to you within one business day.
+          Thanks for reaching out. We{"'"}ll review your request and get back to you within one business day.
         </p>
       </div>
     );

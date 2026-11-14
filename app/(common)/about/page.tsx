@@ -49,7 +49,7 @@ export default function AboutPage() {
               Our mission
             </h2>
               <p className="text-lg text-muted leading-relaxed">
-                We believe great talent shouldn&apos;t be limited by geography.
+                We believe great talent shouldn{"'"}t be limited by geography.
                 RemoteStaff365 helps US companies hire dedicated offshore virtual
                 assistants quickly, transparently, and affordably — without
                 long-term contracts or markups. Our talent is sourced worldwide,

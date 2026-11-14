@@ -96,7 +96,7 @@ export default function JobSeekerForm() {
           Application received
         </h2>
         <p className="text-muted">
-          Thanks for applying. Our team will review your profile and reach out if there&apos;s a match.
+          Thanks for applying. Our team will review your profile and reach out if there{"'"}s a match.
         </p>
       </div>
     );

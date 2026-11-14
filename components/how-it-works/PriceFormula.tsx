@@ -62,12 +62,12 @@ export default function PriceFormula() {
           </Reveal>
           <Reveal>
             <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              One seat fee. Plus the assistant&apos;s salary.
+              One seat fee. Plus the assistant{"'"}s salary.
             </h2>
           </Reveal>
           <Reveal>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Flat monthly seat fee plus the assistant&apos;s salary. You
+              Flat monthly seat fee plus the assistant{"'"}s salary. You
               choose the person.
             </p>
           </Reveal>

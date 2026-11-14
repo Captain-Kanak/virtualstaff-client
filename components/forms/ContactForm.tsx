@@ -59,7 +59,7 @@ export default function ContactForm() {
           Message received
         </h2>
         <p className="text-muted">
-          Thanks for reaching out. We&apos;ll review your message and get back to you within one business day.
+          Thanks for reaching out. We{"'"}ll review your message and get back to you within one business day.
         </p>
       </div>
     );
