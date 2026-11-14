@@ -3,6 +3,7 @@
 import * as React from "react";
 import Reveal from "@/components/Reveal";
 import Container from "@/components/ui/Container";
+import SectionHeading from "@/components/SectionHeading";
 
 const stats = [
   { number: "2,500+", label: "US businesses served" },
@@ -14,13 +15,12 @@ const stats = [
 export default function TrustedBy() {
   return (
     <Reveal>
-      <section className="bg-[#F5F8FF] py-12 md:py-14 overflow-hidden">
+      <section className="bg-[#F5F8FF] py-14 md:py-20 overflow-hidden">
         <Container>
-          <div className="text-center mb-8">
-            <p className="text-base md:text-lg font-medium text-slate-600">
-              Trusted by 2,500+ growing US businesses
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="TRUSTED BY"
+            title="2,500+ growing US businesses"
+          />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:divide-x divide-slate-200">
             {stats.map((stat) => (
               <div key={stat.number} className="text-center">

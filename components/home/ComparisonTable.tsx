@@ -13,6 +13,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const rows = [
   {
@@ -56,20 +57,13 @@ const rows = [
 export default function ComparisonTable() {
   return (
     <Reveal>
-      <section className="bg-white py-12 md:py-16 overflow-hidden">
+      <section className="bg-white py-14 md:py-20 overflow-hidden">
         <Container>
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold tracking-wider text-primary uppercase">
-              COMPARE
-            </p>
-            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
-              Why teams choose RemoteStaff365
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto mt-4">
-              See how RemoteStaff365 stacks up against traditional agencies
-              and job boards.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="COMPARE"
+            title="Why teams choose RemoteStaff365"
+            subtitle="See how RemoteStaff365 stacks up against traditional agencies and job boards."
+          />
           <div className="rounded-2xl overflow-hidden border border-slate-100 shadow-[2px_4px_12px_#00000014]">
             <div className="overflow-x-auto">
               <Table className="min-w-190">

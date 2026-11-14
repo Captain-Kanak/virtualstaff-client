@@ -5,6 +5,7 @@ import { Plus, UserCheck, Users, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const howItWorks = [
   {
@@ -36,20 +37,13 @@ const howItWorks = [
 export default function HowItWorks() {
   return (
     <Reveal>
-      <section className="bg-[#F5F8FF] py-12 md:py-16 overflow-hidden">
+      <section className="bg-[#F5F8FF] py-14 md:py-20 overflow-hidden">
         <Container>
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold tracking-wider text-primary uppercase">
-              HOW IT WORKS
-            </p>
-            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
-              How seats work
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto mt-4">
-              From selecting a seat to having your assistant start, here is how
-              the process works step by step.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="HOW IT WORKS"
+            title="How seats work"
+            subtitle="From selecting a seat to having your assistant start, here is how the process works step by step."
+          />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {howItWorks.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.1}>
@@ -62,7 +56,7 @@ export default function HowItWorks() {
                   <div className="h-12 w-12 rounded-xl bg-linear-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">
                     {step.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground mt-5">
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground mt-5">
                     {step.title}
                   </h3>
                   <p className="text-base leading-relaxed text-slate-600 mt-2">

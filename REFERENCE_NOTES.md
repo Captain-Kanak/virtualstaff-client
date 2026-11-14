@@ -823,3 +823,22 @@ uppercase; body text text-slate-600 or darker (never text-muted or opacity);
 Reveal wraps each small ITEM (heading, card, row), NEVER a tall container or
 the whole section, with viewport once amount 0.1; no fixed heights or negative
 margins.
+
+## 10. Typography and spacing scale
+- Section padding: py-14 md:py-20
+- Section header wrapper: text-center mb-10 md:mb-14
+- Eyebrow: text-xs md:text-sm font-semibold uppercase tracking-widest
+  text-primary mb-3
+- H2: text-3xl md:text-4xl lg:text-[2.75rem] font-bold tracking-tight
+  leading-[1.15] text-foreground
+- Subtitle: text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl
+  mx-auto mt-4
+- Card title (h3): text-lg md:text-xl font-semibold text-foreground
+- Card body: text-base leading-relaxed text-slate-600
+- Small labels and chips: text-sm
+- Hero h1 is the only larger heading: text-5xl md:text-6xl xl:text-7xl
+  font-extrabold tracking-tight leading-[1.05] (unchanged)
+- On blue or dark panels (CTA banners): same sizes, with text-white for
+  headings and text-white/90 for body.
+- Headings use Poppins bold (700), card titles semibold (600). No other
+  weights for headings.

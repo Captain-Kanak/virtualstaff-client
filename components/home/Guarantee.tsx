@@ -5,7 +5,7 @@ import { CheckCircle2, ShieldCheck, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bookingUrl } from "@/lib/site";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const guaranteeBullets = [
   {
@@ -24,23 +24,17 @@ const guaranteeBullets = [
 
 export default function Guarantee() {
   return (
-    <Reveal>
-      <section className="bg-white py-12 md:py-16 text-center">
+    <section className="bg-white py-10 md:py-14 text-center">
         <Container className="max-w-6xl mx-auto px-5">
           <div className="rounded-3xl bg-gradient-[linear,180deg,_#4289e0,_#2563eb] border border-slate-100 px-6 py-10 md:px-12 md:py-14 text-center">
             <div className="w-16 h-16 rounded-2xl bg-gradient-[linear,180deg,_#4289e0,_#2563eb] flex items-center justify-center mx-auto mb-4">
               <ShieldCheck className="size-8 text-white" />
             </div>
-            <p className="text-xs font-semibold tracking-wider text-primary mt-5">
-              OUR PROMISE
-            </p>
-            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
-              30-day money-back guarantee
-            </h2>
-            <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto mt-4">
-              Hire with confidence. If your first virtual assistant isn&rsquo;t
-              the right fit, we&rsquo;ll make it right or refund your seat fee.
-            </p>
+            <SectionHeading
+              eyebrow="OUR PROMISE"
+              title="30-day money-back guarantee"
+              subtitle="Hire with confidence. If your first virtual assistant isn&rsquo;t the right fit, we&rsquo;ll make it right or refund your seat fee."
+            />
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8">
               {guaranteeBullets.map((b) => (
                 <div
@@ -74,6 +68,5 @@ export default function Guarantee() {
           </div>
         </Container>
       </section>
-    </Reveal>
   );
 }

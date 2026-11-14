@@ -6,24 +6,21 @@ import { Button } from "@/components/ui/button";
 import { bookingUrl } from "@/lib/site";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 export default function MidCTA() {
   return (
     <Reveal>
-      <section className="bg-white py-8 md:py-12">
+      <section className="bg-white py-14 md:py-20">
         <Container>
           <div
             className="rounded-3xl bg-linear-to-r from-blue-600 to-blue-500 px-6 py-10 md:px-12 md:py-12 text-white shadow-[0_12px_28px_rgba(37,99,235,0.25)] flex flex-col gap-6 md:flex-row md:items-center md:justify-between text-center md:text-left"
           >
-            <div>
-              <h2 className="text-2xl md:text-4xl font-semibold">
-                Ready to start?
-              </h2>
-              <p className="text-white/90 text-base mt-2">
-                Book a free consultation and get your first seat filled with a
-                vetted offshore assistant from RemoteStaff365.
-              </p>
-            </div>
+            <SectionHeading
+              title="Ready to start?"
+              subtitle="Book a free consultation and get your first seat filled with a vetted offshore assistant from RemoteStaff365."
+              tone="light"
+            />
             <Button
               variant="secondary"
               size="xl"

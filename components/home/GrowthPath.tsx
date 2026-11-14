@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { bookingUrl } from "@/lib/site";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const tiers = [
   {
@@ -53,19 +54,13 @@ const avatarSize = (seats: number) => {
 export default function GrowthPath() {
   return (
     <Reveal>
-      <section className="bg-[#F5F8FF] py-12 md:py-16 overflow-hidden">
+      <section className="bg-[#F5F8FF] py-14 md:py-20 overflow-hidden">
         <Container>
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold tracking-wider text-primary uppercase">
-              GROWTH PATH
-            </p>
-            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
-              Start small, grow at your pace
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto mt-4">
-              Pick the plan that fits your team and scale up as you grow.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="GROWTH PATH"
+            title="Start small, grow at your pace"
+            subtitle="Pick the plan that fits your team and scale up as you grow."
+          />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
             {tiers.map((tier, i) => (
               <Reveal key={tier.name} delay={i * 0.1}>
@@ -103,7 +98,7 @@ export default function GrowthPath() {
                       );
                     })}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">
+                  <h3 className="text-lg md:text-xl font-semibold text-foreground">
                     {tier.name}
                   </h3>
                   <Badge

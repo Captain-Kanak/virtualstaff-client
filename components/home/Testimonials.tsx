@@ -7,6 +7,7 @@ import { Quote } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
+import SectionHeading from "@/components/SectionHeading";
 
 const testimonials = [
   {
@@ -56,19 +57,13 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <Reveal>
-      <section className="bg-[#F5F8FF] py-12 md:py-16 overflow-hidden">
+      <section className="bg-[#F5F8FF] py-14 md:py-20 overflow-hidden">
         <Container>
-          <div className="text-center mb-10">
-            <p className="text-xs font-semibold tracking-wider text-primary uppercase">
-              TESTIMONIALS
-            </p>
-            <h2 className="text-2xl md:text-4xl font-semibold text-foreground mt-2">
-              What our clients say
-            </h2>
-            <p className="text-slate-600 max-w-2xl mx-auto mt-4">
-              Hear from teams that scaled with RemoteStaff365.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="TESTIMONIALS"
+            title="What our clients say"
+            subtitle="Hear from teams that scaled with RemoteStaff365."
+          />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {testimonials.map((t, i) => (
               <Reveal key={t.name} delay={i * 0.1}>
@@ -76,7 +71,7 @@ export default function Testimonials() {
                   className="flex flex-col h-full rounded-2xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] hover:-translate-y-1 hover:shadow-lg transition duration-300"
                 >
                   <Quote className="h-7 w-7 text-primary/30 mb-4" />
-                  <p className="text-base leading-relaxed text-slate-700 mt-4 flex-1">
+                  <p className="text-base leading-relaxed text-slate-600 mt-4 flex-1">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="border-t border-slate-100 pt-5 mt-6 flex items-center gap-3">
@@ -93,7 +88,7 @@ export default function Testimonials() {
                         {t.name}
                       </p>
                       <p className="text-sm text-slate-600">{t.title}</p>
-                      <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                      <p className="text-sm font-semibold uppercase tracking-wide text-primary">
                         {t.company}
                       </p>
                     </div>
