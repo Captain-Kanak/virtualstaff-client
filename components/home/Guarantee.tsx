@@ -40,16 +40,15 @@ export default function Guarantee() {
   return (
     <section className="py-12 md:py-16 bg-blue-50">
       <Container className="relative z-10">
-        <div className="relative overflow-hidden rounded-[32px] border border-white bg-gradient-to-br from-blue-100/70 via-blue-50 to-white shadow-xl shadow-blue-900/5 grid lg:grid-cols-[0.9fr_1.1fr] items-center gap-8 lg:gap-12 p-6 md:p-10 lg:p-12">
+        <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-r from-[#eaf6fe] via-blue-50 to-white shadow-[0_20px_60px_rgba(37,99,235,0.12)] ring-1 ring-white/70 grid lg:grid-cols-[0.9fr_1.1fr] items-center gap-8 lg:gap-12 p-6 md:p-10 lg:p-12">
           {/* Left: 30-day badge image */}
-          <div className="relative w-full max-w-[560px] mx-auto lg:mx-auto h-auto">
-            <div className="absolute inset-0 bg-blue-200/40 blur-3xl -z-10 pointer-events-none" />
+          <div className="relative w-full max-w-[560px] mx-auto h-auto">
             <Image
               src="/images/icons/30-day.png"
               alt="30-day money-back guarantee badge"
               width={1144}
               height={1375}
-              className="w-full max-w-[560px] h-auto object-contain"
+              className="w-full max-w-[560px] h-auto object-contain [mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_62%,transparent_100%)] [-webkit-mask-image:radial-gradient(ellipse_80%_80%_at_50%_50%,#000_62%,transparent_100%)]"
               sizes="(min-width: 1024px) 45vw, 90vw"
             />
           </div>
@@ -61,7 +60,7 @@ export default function Guarantee() {
               <span className="text-blue-600 relative inline-block">
                 30 days, risk-free
                 <svg
-                  className="absolute -bottom-[3px] left-0 w-full h-3"
+                  className="absolute -bottom-0.75 left-0 w-full h-3"
                   viewBox="0 0 100 6"
                   preserveAspectRatio="none"
                 >
@@ -109,7 +108,7 @@ export default function Guarantee() {
             <Button
               variant="brand"
               size="xl"
-              className="mt-4 w-full sm:w-auto sm:min-w-[320px] h-14 px-8 rounded-xl bg-gradient-to-b from-blue-500 to-blue-600 text-white text-lg font-semibold shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 cursor-pointer hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="mt-4 w-full sm:w-auto sm:min-w-[320px] h-14 px-8 rounded-xl bg-linear-to-b from-blue-500 to-blue-600 text-white text-lg font-semibold shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 cursor-pointer hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500"
               nativeButton={false}
               render={
                 <a href={bookingUrl} target="_blank" rel="noopener noreferrer">

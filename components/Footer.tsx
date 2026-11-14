@@ -58,9 +58,11 @@ function FooterColumn({
   }[];
 }) {
   return (
-    <div className="flex flex-col gap-2">
-      <h2 className="text-xs font-semibold tracking-wide uppercase text-white">{title}</h2>
-      <ul className="space-y-2">
+    <div className="flex flex-col gap-5">
+      <h2 className="text-sm font-semibold uppercase tracking-wider text-white mb-5">
+        {title}
+      </h2>
+      <ul className="space-y-3">
         {items.map((item) => {
           const isLink = item.asLink !== false && !!item.href;
           if (isLink) {
@@ -68,7 +70,7 @@ function FooterColumn({
               <li key={item.name}>
                 <Link
                   href={item.href!}
-                  className="text-sm text-slate-300 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
+                  className="text-base text-slate-300 py-0.5 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
                 >
                   {item.name}
                 </Link>
@@ -76,7 +78,7 @@ function FooterColumn({
             );
           }
           return (
-            <li key={item.name} className="text-sm text-slate-400">
+            <li key={item.name} className="text-base text-slate-400 py-0.5">
               {item.name}
             </li>
           );
@@ -103,38 +105,16 @@ function SocialIcon({ icon: Icon, href, ariaLabel }: { icon: React.ElementType; 
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-slate-900 text-white">
-      <Container className="py-10 md:py-12">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-8">
-          <div className="flex flex-col gap-3 lg:flex lg:flex-col lg:gap-3">
+      <Container className="py-12 md:py-14">
+        <div className="lg:grid lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.2fr] lg:gap-x-8 lg:gap-y-8">
+          <div className="flex flex-col gap-5 lg:col-span-1">
             <Logo variant="light" className="h-10 md:h-11" />
-            <p className="text-sm text-slate-300 leading-relaxed max-w-xs mt-4">
+            <p className="text-base leading-7 text-slate-300 max-w-xs mt-4">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.
             </p>
-            <p className="text-xs text-slate-500">{regionalText}</p>
-            <div className="flex gap-3 mt-4">
-              {socialLinks.map((social) => (
-                <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
-              ))}
-            </div>
-          </div>
-
-          <div className="hidden lg:flex gap-8 flex-1 justify-between">
-            <FooterColumn title="Company" items={companyLinks} />
-            <FooterColumn title="Services" items={servicesLinks} />
-            <FooterColumn title="Resources" items={resourcesLinks} />
-            <FooterColumn title="Contact" items={contactItems} />
-          </div>
-        </div>
-
-        <div className="lg:hidden grid grid-cols-2 gap-8 mt-8 pt-8 border-t border-white/10">
-          <div className="col-span-2 flex flex-col gap-3">
-            <Logo variant="light" className="h-10 md:h-11" />
-            <p className="text-sm text-slate-300 leading-relaxed max-w-xs mt-4">
-              Hire pre-vetted offshore virtual assistants for your US-based
-              business.
-            </p>
-            <div className="flex gap-3 mt-4">
+            <p className="text-sm text-slate-400">{regionalText}</p>
+            <div className="flex gap-3 mt-6">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
               ))}
@@ -146,7 +126,27 @@ export default function Footer() {
           <FooterColumn title="Contact" items={contactItems} />
         </div>
 
-        <div className="border-t border-white/10 pt-5 flex items-center justify-between gap-4 text-sm text-slate-400">
+        <div className="lg:hidden grid grid-cols-2 gap-8 mt-6 pt-6 border-t border-white/10">
+          <div className="col-span-2 flex flex-col gap-5">
+            <Logo variant="light" className="h-10 md:h-11" />
+            <p className="text-base leading-7 text-slate-300 max-w-xs mt-4">
+              Hire pre-vetted offshore virtual assistants for your US-based
+              business.
+            </p>
+            <p className="text-sm text-slate-400">{regionalText}</p>
+            <div className="flex gap-3 mt-6">
+              {socialLinks.map((social) => (
+                <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
+              ))}
+            </div>
+          </div>
+          <FooterColumn title="Company" items={companyLinks} />
+          <FooterColumn title="Services" items={servicesLinks} />
+          <FooterColumn title="Resources" items={resourcesLinks} />
+          <FooterColumn title="Contact" items={contactItems} />
+        </div>
+
+        <div className="border-t border-white/10 py-5 flex items-center justify-between gap-4 text-sm md:text-[15px] text-slate-400">
           <p>&copy; {year} {siteName}. All rights reserved.</p>
           <nav aria-label="Footer legal" className="flex items-center gap-4">
             <Link
