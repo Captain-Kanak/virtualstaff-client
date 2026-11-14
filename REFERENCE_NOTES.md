@@ -741,3 +741,72 @@ Fixed: Removed `<Image>` silhouettes from PricingCards, replaced with role-color
 8. [ ] Add Reveal to pages missing it
 9. [x] Replace placeholder prices and testimonials
 10. [ ] Run `npm run build` and fix all errors
+
+## 9. /how-it-works redesign spec (similar to reference, NOT a clone)
+Reference order: split hero with staff photo cards; "You + provider" two
+cards; 3-card price formula; example rates banner; 5-step process row; team
+sizes 1/3/5; numbered FAQ cards; CTA banner.
+Ours: components in components/how-it-works/, composed in
+app/how-it-works/page.tsx (no PageHeader on this page). Order and backgrounds:
+9.1 HowHero (gradient white to #F1F9FC)
+9.2 Partnership (gradient #F5F8FF to #E8F0FE)
+9.3 PriceFormula (white)
+9.4 ProcessSteps (#F5F8FF)
+9.5 Regions (white)
+9.6 HowFAQ (#F5F8FF)
+9.7 CTASection (shared)
+
+9.1 HowHero: 2 columns on lg, stacked on mobile. Left: eyebrow "HOW REMOTESTAFF365
+WORKS", h1 "One seat adds one dedicated offshore assistant to your team" with
+"dedicated offshore assistant" in text-primary, paragraph (flat monthly seat
+fee plus the assistant's salary, you choose the person), brand Button "Book a
+free call" (bookingUrl, ArrowRight), and a proof row: 3 overlapping initials
+circles + "Hiring from 4 regions worldwide". Right: rounded-3xl bg-[#E8F0FE] panel
+with 3 white mini cards in a row (gradient icon tile, role name Virtual
+Assistant / Bookkeeper / Customer Support, Badge "1 seat"), a thin connector
+line below them, and a white pill "3 team members = 3 seats". All built in
+code, no images.
+
+9.2 Partnership: eyebrow "WHO DOES WHAT", h2 "You lead the work. We run the
+back end.", subtitle. Two white rounded-3xl cards side by side with a circular
+"+" between them (between stacked cards on mobile). Left card "You" (5 check
+items: describe the role you need; choose your assistant; agree the salary;
+manage daily work; set your standards). Right card "RemoteStaff365" (5 check
+items: supply vetted candidates; handle contracts and onboarding; process
+payroll; track attendance and hours; provide ongoing support). Each card has a
+gradient icon tile in the header (User / Building2).
+
+9.3 PriceFormula: eyebrow "SIMPLE PRICING", h2 "One seat fee. Plus the
+assistant's salary." 3 cards in a row with a circular "+" then "=" between
+(desktop; stacked with symbols on mobile): "$99 / month" seat fee;
+"Salary" agreed by you and the assistant; "Zero markup" (card tinted
+green-50 with a green check). Below: a slim link "See example roles and
+rates" to /pricing. Numbers are placeholders.
+
+9.4 ProcessSteps: eyebrow "THE PROCESS", h2 "From first call to first day in
+four steps". Horizontal stepper on lg: a dashed line behind 4 numbered gradient
+circles, each with a Card below. Vertical on mobile with a left line. Steps:
+1 Book a call (CalendarCheck): tell us the role, hours and skills you need.
+2 Meet matched candidates (Users): get vetted profiles within 48 hours.
+3 Choose and onboard (UserCheck): you pick the person and agree the salary,
+we handle contracts and setup. 4 Grow with support (TrendingUp): add seats
+any time, our team stays on hand.
+
+9.5 Regions: eyebrow "GLOBAL TALENT", h2 "Talent from four regions, working
+your hours". 4 cards (Asia, Africa, Latin America, Eastern Europe), each with
+a Globe icon tile, one-line description and a "US-hours overlap" Badge
+(placeholder).
+
+9.6 HowFAQ: eyebrow "FAQ", h2 "Questions about seats and hiring". shadcn
+Accordion, max-w-3xl, each item is its own white rounded-2xl card with a
+number badge (01, 02...), question text-base md:text-lg font-medium, answers
+text-base text-slate-600 (2-3 original sentences), first item open. 6
+questions.
+
+Rules for every section: shadcn components only (see AGENTS.md); original
+copy; link buttons use render with bookingUrl, never asChild; container
+max-w-6xl mx-auto px-5; section padding py-12 md:py-16; eyebrow text-xs
+font-semibold tracking-wider text-primary uppercase; body text text-slate-600
+or darker (never text-muted or opacity); Reveal wraps each small ITEM
+(heading, card, row), NEVER a tall container or the whole section, with
+viewport once amount 0.1; no fixed heights or negative margins.
