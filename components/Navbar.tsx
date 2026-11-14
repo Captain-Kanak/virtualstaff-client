@@ -19,7 +19,7 @@ function HamburgerIcon({ open }: { open: boolean }) {
     >
       <div
         className={cn(
-          "absolute left-1/2 top-0 -translate-x-1/2 w-5 h-[2px] bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
+          "absolute left-1/2 top-0 -translate-x-1/2 w-5 h-0.5 bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
           open
             ? "translate-y-2 rotate-45 bg-blue-600"
             : "translate-y-0 rotate-0"
@@ -27,13 +27,13 @@ function HamburgerIcon({ open }: { open: boolean }) {
       />
       <div
         className={cn(
-          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-[2px] bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out",
+          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out",
           open ? "opacity-0 scale-0" : "opacity-100 scale-100"
         )}
       />
       <div
         className={cn(
-          "absolute left-1/2 bottom-0 -translate-x-1/2 w-5 h-[2px] bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
+          "absolute left-1/2 bottom-0 -translate-x-1/2 w-5 h-0.5 bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
           open
             ? "-translate-y-2 -rotate-45 bg-blue-600"
             : "translate-y-0 rotate-0"
@@ -68,7 +68,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] flex items-center transition-colors duration-300 ease-out ${scrolled ? "border-b-2 border-slate-100 bg-white/90 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"}`}
+        className={`fixed inset-x-0 top-0 z-50 h-(--nav-h) flex items-center transition-colors duration-300 ease-out ${scrolled ? "border-b-2 border-slate-100 bg-white/90 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"}`}
       >
         <Container className="flex h-full w-full items-center justify-between">
           <Logo variant="default" className="h-10 md:h-11" />
@@ -103,7 +103,7 @@ export default function Navbar() {
             aria-expanded={open}
             aria-controls="mobile-menu-drawer"
             className={cn(
-              "lg:hidden cursor-pointer size-[44px] rounded-xl flex items-center justify-center transition-all duration-200",
+              "lg:hidden cursor-pointer size-11 rounded-xl flex items-center justify-center transition-all duration-200",
               "hover:bg-slate-100 active:scale-95",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
             )}
@@ -120,7 +120,7 @@ export default function Navbar() {
           <button
             onClick={closeMenu}
             className={cn(
-              "cursor-pointer size-[44px] rounded-full flex items-center justify-center transition-colors duration-200",
+              "cursor-pointer size-11 rounded-full flex items-center justify-center transition-colors duration-200",
               "bg-slate-100 hover:bg-slate-200",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
             )}
@@ -144,7 +144,7 @@ export default function Navbar() {
                 >
                   {active && (
                     <span
-                      className="absolute left-0 top-0 bottom-0 w-[3px] bg-blue-600 rounded-l-xl"
+                      className="absolute left-0 top-0 bottom-0 w-0.75 bg-blue-600 rounded-l-xl"
                     />
                   )}
                   <Link

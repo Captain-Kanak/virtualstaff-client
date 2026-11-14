@@ -284,3 +284,11 @@ body {
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 80%);
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 0%, transparent 80%);
 }
+
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}

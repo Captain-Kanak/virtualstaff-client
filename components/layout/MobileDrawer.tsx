@@ -38,8 +38,8 @@ export default function MobileDrawer({ open, onClose, children }: Props) {
       aria-hidden={!open}
       className={
         open
-          ? "fixed inset-0 z-[60] transition-[visibility] duration-500 visible delay-0"
-          : "fixed inset-0 z-[60] transition-[visibility] duration-500 invisible delay-500"
+          ? "fixed inset-0 z-60 transition-[visibility] duration-500 visible delay-0"
+          : "fixed inset-0 z-60 transition-[visibility] duration-500 invisible delay-500"
       }
     >
       {/* Overlay */}

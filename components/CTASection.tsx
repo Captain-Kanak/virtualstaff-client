@@ -56,7 +56,7 @@ export default function CTASection({
               <Button
                 variant="outline"
                 size="xl"
-                className="w-full sm:w-auto border-white text-white hover:bg-white/10 transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-out"
+                className="w-full sm:w-auto border border-white/40 bg-white/10 text-white hover:bg-white/20 hover:text-white transition-[background-color,border-color,color] duration-300 ease-out"
                 nativeButton={false}
                 render={
                   <Link
