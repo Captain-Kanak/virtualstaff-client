@@ -4,6 +4,7 @@ import * as React from "react";
 import { CalendarCheck, TrendingUp, UserCheck, Users } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/Container";
 
 const processSteps = [
   {
@@ -41,7 +42,7 @@ const connector = () => (
 export default function ProcessSteps() {
   return (
     <section className="bg-[#F5F8FF] py-12 md:py-16">
-      <div className="max-w-6xl mx-auto px-5">
+      <Container>
         <div className="text-center mb-16 md:mb-20">
           <Reveal>
             <p className="text-xs font-semibold tracking-wider text-primary uppercase mb-4">
@@ -78,7 +79,7 @@ export default function ProcessSteps() {
             </React.Fragment>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

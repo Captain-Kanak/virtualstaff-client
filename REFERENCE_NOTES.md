@@ -761,20 +761,27 @@ WORKS", h1 "One seat adds one dedicated offshore assistant to your team" with
 "dedicated offshore assistant" in text-primary, paragraph (flat monthly seat
 fee plus the assistant's salary, you choose the person), brand Button "Book a
 free call" (bookingUrl, ArrowRight), and a proof row: 3 overlapping initials
-circles + "Hiring from 4 regions worldwide". Right: rounded-3xl bg-[#E8F0FE] panel
-with 3 white mini cards in a row (gradient icon tile, role name Virtual
-Assistant / Bookkeeper / Customer Support, Badge "1 seat"), a thin connector
-line below them, and a white pill "3 team members = 3 seats". All built in
-code, no images.
+circles + "Hiring from 4 regions worldwide". Right: /images/user.jpg in a
+rounded frame (rounded-[2rem] overflow-hidden object-cover object-top,
+aspect-[4/5], max-h-[560px], border-4 border-white, shadow), with a soft blue
+shape behind (absolute, rounded-[2rem], bg-[#E8F0FE], rotate-3, inset-0
+scale-95) and 2 decorative dots/rings (bg-primary/10). Floating cards (white,
+rounded-2xl, shadow, p-3) overlapping the photo: top-left gradient icon tile +
+"Virtual Assistant" + Badge "1 seat", bottom-right "3 team members = 3 seats"
+with Users icon, small pill top-right Clock icon + "Matched in 48 hours".
 
 9.2 Partnership: eyebrow "WHO DOES WHAT", h2 "You lead the work. We run the
-back end.", subtitle. Two white rounded-3xl cards side by side with a circular
-"+" between them (between stacked cards on mobile). Left card "You" (5 check
-items: describe the role you need; choose your assistant; agree the salary;
-manage daily work; set your standards). Right card "RemoteStaff365" (5 check
-items: supply vetted candidates; handle contracts and onboarding; process
-payroll; track attendance and hours; provide ongoing support). Each card has a
-gradient icon tile in the header (User / Building2).
+back end.", subtitle. Two white rounded-3xl split cards side by side with a
+48px circular "+" (brand gradient) between them (between stacked cards on
+mobile). Each card has an image area plus content area (flex flex-col
+md:flex-row, h-full): Card 1 "You" image on LEFT (partner-you.webp, placeholder
+fallback: gradient panel with large User icon); Card 2 "RemoteStaff365" image
+on RIGHT on md+ (partner-team.webp, placeholder fallback: gradient panel with
+large Users icon), images alternate left/right; on mobile image goes on top for
+both. Each card: image area md:w-[40%] min-h-56 bg-gradient-to-b from-[#E8F0FE]
+to-[#F1F9FC], content area p-6 md:p-8 with gradient icon tile + title + small
+label ("Your side" / "Our side") + 5-item checklist (blue CheckCircle2,
+text-base text-slate-700).
 
 9.3 PriceFormula: eyebrow "SIMPLE PRICING", h2 "One seat fee. Plus the
 assistant's salary." 3 cards in a row with a circular "+" then "=" between
@@ -804,9 +811,11 @@ text-base text-slate-600 (2-3 original sentences), first item open. 6
 questions.
 
 Rules for every section: shadcn components only (see AGENTS.md); original
-copy; link buttons use render with bookingUrl, never asChild; container
-max-w-6xl mx-auto px-5; section padding py-12 md:py-16; eyebrow text-xs
-font-semibold tracking-wider text-primary uppercase; body text text-slate-600
-or darker (never text-muted or opacity); Reveal wraps each small ITEM
-(heading, card, row), NEVER a tall container or the whole section, with
-viewport once amount 0.1; no fixed heights or negative margins.
+copy; link buttons use render with bookingUrl, never asChild; all sections use
+<Container> from components/Container.tsx (same width as the navbar,
+mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8); section padding py-12
+md:py-16; eyebrow text-xs font-semibold tracking-wider text-primary
+uppercase; body text text-slate-600 or darker (never text-muted or opacity);
+Reveal wraps each small ITEM (heading, card, row), NEVER a tall container or
+the whole section, with viewport once amount 0.1; no fixed heights or negative
+margins.

@@ -8,7 +8,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaYoutube } from "react-icons/fa";
 import { siteName } from "@/lib/site";
-import Container from "@/components/ui/Container";
+import Container from "@/components/Container";
 import Logo from "@/components/ui/Logo";
 
 const year = new Date().getFullYear();

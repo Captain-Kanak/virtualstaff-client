@@ -1,9 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Building2, Check, Plus, User } from "lucide-react";
+import { Plus, User, Users, CircleCheck } from "lucide-react";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
+import Container from "@/components/Container";
 
 const youChecks = [
   "Describe the role you need",
@@ -21,69 +23,125 @@ const remoteStaffChecks = [
   "Provide ongoing support",
 ];
 
+function ImagePanel({
+  src,
+  alt,
+}: {
+  src: string;
+  alt: string;
+}) {
+  return (
+    <div className="relative shrink-0 w-full h-64 md:h-auto md:w-[38%] rounded-2xl overflow-hidden isolate transform-gpu">
+      <Image
+        fill
+        src={src}
+        alt={alt}
+        sizes="(min-width: 768px) 20vw, 90vw"
+        className="object-cover object-center transition-transform duration-500 ease-out transform-gpu group-hover:scale-[1.03]"
+      />
+    </div>
+  );
+}
+
 export default function Partnership() {
   return (
-    <section className="bg-gradient-to-b from-[#F5F8FF] to-[#E8F0FE] py-12 md:py-16">
-      <div className="max-w-6xl mx-auto px-5">
-        <Reveal>
-          <div className="text-center mb-16 md:mb-20">
-            <p className="text-xs font-semibold tracking-wider text-primary uppercase mb-4">
-              WHO DOES WHAT
-            </p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-foreground mb-4">
-              You lead the work. We run the back end.
-            </h2>
-            <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto">
-              Split the work so you stay focused on growing while we handle the
-              employment side.
-            </p>
-          </div>
-        </Reveal>
+    <section
+      className="relative overflow-hidden bg-gradient-to-b from-[#EEF4FF] via-[#E3ECFD] to-[#D8E5FB] py-14 md:py-20"
+    >
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1150px] h-[1150px] rounded-full border border-white/60 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-white/60 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] rounded-full border border-white/60 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-white/60 pointer-events-none" />
 
-        <div className="flex lg:flex-row flex-col gap-8 items-start lg:items-center">
-          <Reveal>
-            <Card className="rounded-3xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] flex-1 lg:flex-1">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center text-white mb-4">
-                <User className="size-5" />
+      <Container>
+        <div className="text-center mb-12 md:mb-16">
+          <p className="text-xs font-semibold tracking-widest text-primary uppercase mb-4">
+            WHO DOES WHAT
+          </p>
+          <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+            You lead the work. We run the back end.
+          </h2>
+          <p className="text-base md:text-lg text-slate-700 max-w-3xl mx-auto">
+            Split the work so you stay focused on growing while we handle the
+            employment side.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-[1fr_auto_1fr] items-stretch gap-4 lg:gap-6">
+          {/* Card 1: You */}
+          <Reveal delay={0}>
+            <Card
+              className="rounded-[2rem] bg-white p-3 md:p-4 shadow-[0_10px_30px_rgba(37,99,235,0.10)] group border border-transparent hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col md:flex-row items-stretch gap-4 md:min-h-[420px] h-full"
+            >
+              <ImagePanel
+                src="/images/me.webp"
+                alt="Business owner working on a laptop"
+              />
+              <div className="flex-1 p-3 md:p-6 flex flex-col justify-center">
+                <div className="flex items-center gap-3">
+                  <div className="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                    <User className="size-28 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold tracking-wide text-foreground uppercase">
+                      YOU
+                    </h3>
+                  </div>
+                </div>
+                <ul className="space-y-3.5 mt-6">
+                  {youChecks.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-base md:text-lg font-medium text-slate-800 leading-snug">
+                      <CircleCheck className="size-6 shrink-0 fill-primary text-white" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">You</h3>
-              <ul className="space-y-3">
-                {youChecks.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-slate-600 leading-relaxed">
-                    <Check className="size-5 shrink-0 text-[#2563eb] mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </Card>
           </Reveal>
 
-          <Reveal>
-            <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold shrink-0">
-              <Plus className="size-4" />
+          {/* Plus circle */}
+          <div className="flex flex-col items-center justify-center">
+            <div
+              className="size-14 rounded-full bg-gradient-to-b from-[#4289e0] to-[#2563eb] text-white ring-4 ring-white/70 shadow-[0_8px_18px_rgba(37,99,235,0.35)] z-10 flex items-center justify-center"
+            >
+              <Plus strokeWidth={3} size={28} />
             </div>
-          </Reveal>
+          </div>
 
-          <Reveal>
-            <Card className="rounded-3xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] flex-1 lg:flex-1">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center text-white mb-4">
-                <Building2 className="size-5" />
+          {/* Card 2: RemoteStaff365 */}
+          <Reveal delay={0.15}>
+            <Card
+              className="rounded-[2rem] bg-white p-3 md:p-4 shadow-[0_10px_30px_rgba(37,99,235,0.10)] group border border-transparent hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col md:flex-row-reverse items-stretch gap-4 md:min-h-[420px] h-full"
+            >
+              <ImagePanel
+                src="/images/va.webp"
+                alt="Offshore virtual assistant working on a laptop"
+              />
+              <div className="flex-1 p-3 md:p-6 flex flex-col justify-center">
+                <div className="flex items-center gap-3">
+                  <div className="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
+                    <Users className="size-28 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold tracking-wide text-foreground uppercase">
+                      REMOTESTAFF365
+                    </h3>
+                  </div>
+                </div>
+                <ul className="space-y-3.5 mt-6">
+                  {remoteStaffChecks.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-base md:text-lg font-medium text-slate-800 leading-snug">
+                      <CircleCheck className="size-6 shrink-0 fill-primary text-white" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-4">
-                RemoteStaff365
-              </h3>
-              <ul className="space-y-3">
-                {remoteStaffChecks.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-base text-slate-600 leading-relaxed">
-                    <Check className="size-5 shrink-0 text-[#2563eb] mt-0.5" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
             </Card>
           </Reveal>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }
