@@ -31,11 +31,22 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative isolate overflow-hidden py-12 md:py-16 bg-blue-50" aria-roledescription="carousel" aria-label="Client testimonials">
+    <section
+      className="relative isolate overflow-hidden py-12 md:py-16 bg-blue-50"
+      aria-roledescription="carousel"
+      aria-label="Client testimonials"
+    >
       {/* Layer 1: background image */}
-      <div aria-hidden className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/images/testimonial-bg.png')" }} />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/images/testimonial-bg.png')" }}
+      />
       {/* Layer 2: gradient overlay */}
-      <div aria-hidden className="absolute inset-0 -z-10 pointer-events-none bg-gradient-to-b from-white via-blue-50/40 to-white" />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 pointer-events-none bg-linear-to-b from-white via-blue-50/40 to-white"
+      />
 
       <Container className="relative z-10">
         <div className="text-center mb-4">
@@ -50,7 +61,7 @@ export default function Testimonials() {
         </div>
 
         {/* Swiper wrapper with side padding for arrows */}
-        <div className="relative mt-20 lg:px-[72px]">
+        <div className="relative mt-20 lg:px-18">
           {/* Clipping div so tabs and shadows show but neighbors stay hidden */}
           <div className="[clip-path:inset(-56px_-16px_-32px_-16px)]">
             <Swiper
@@ -59,9 +70,17 @@ export default function Testimonials() {
               speed={700}
               grabCursor
               keyboard={{ enabled: true }}
-              autoplay={reducedMotion ? false : { delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
+              autoplay={
+                reducedMotion
+                  ? false
+                  : {
+                      delay: 5000,
+                      disableOnInteraction: false,
+                      pauseOnMouseEnter: true,
+                    }
+              }
               breakpoints={breakpoints as SwiperOptions["breakpoints"]}
-              className="!overflow-visible"
+              className="overflow-visible!"
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
               }}
@@ -69,10 +88,10 @@ export default function Testimonials() {
               {testimonials.map((t) => {
                 const quoteParts = t.quote.split("RemoteStaff365");
                 return (
-                  <SwiperSlide key={t.name} className="!h-auto">
-                    <div className="relative flex h-full flex-col items-center text-center rounded-[32px] bg-white px-6 pb-6 pt-[52px] text-center shadow-[0_10px_30px_rgba(30,64,175,0.10)]">
+                  <SwiperSlide key={t.name} className="h-auto!">
+                    <div className="relative flex h-full flex-col items-center text-center rounded-[32px] bg-white px-6 pb-6 pt-13 shadow-[0_10px_30px_rgba(30,64,175,0.10)]">
                       {/* Logo tab */}
-                      <div className="absolute left-1/2 top-0 z-10 flex h-[76px] w-[150px] -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[22px] bg-white shadow-[0_8px_28px_rgba(15,23,42,0.10)]">
+                      <div className="absolute left-1/2 top-0 z-10 flex h-19 w-37.5 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-[22px] bg-white shadow-[0_8px_28px_rgba(15,23,42,0.10)]">
                         {t.logo ? (
                           <Image
                             src={t.logo}
@@ -117,9 +136,13 @@ export default function Testimonials() {
 
                       {/* Author block */}
                       <div className="mt-auto pt-5 flex flex-col items-center text-center w-full">
-                        <p className="text-base font-semibold text-slate-900">{t.name}</p>
+                        <p className="text-base font-semibold text-slate-900">
+                          {t.name}
+                        </p>
                         <p className="mt-1 text-sm text-slate-700">{t.title}</p>
-                        <p className="mt-1 text-sm font-medium text-blue-600">{t.company}</p>
+                        <p className="mt-1 text-sm font-medium text-blue-600">
+                          {t.company}
+                        </p>
                       </div>
                     </div>
                   </SwiperSlide>
@@ -131,14 +154,14 @@ export default function Testimonials() {
           {/* Arrows outside cards */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="hidden lg:flex absolute top-1/2 z-20 size-[52px] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_rgba(15,23,42,0.12)] cursor-pointer transition hover:bg-blue-600 hover:text-white active:scale-95 left-0"
+            className="hidden lg:flex absolute top-1/2 z-20 size-13 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_rgba(15,23,42,0.12)] cursor-pointer transition hover:bg-blue-600 hover:text-white active:scale-95 left-0"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="size-22 text-slate-900" />
           </button>
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="hidden lg:flex absolute top-1/2 z-20 size-[52px] -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_rgba(15,23,42,0.12)] cursor-pointer transition hover:bg-blue-600 hover:text-white active:scale-95 right-0"
+            className="hidden lg:flex absolute top-1/2 z-20 size-13 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow-[0_8px_24px_rgba(15,23,42,0.12)] cursor-pointer transition hover:bg-blue-600 hover:text-white active:scale-95 right-0"
             aria-label="Next testimonial"
           >
             <ChevronRight className="size-22 text-slate-900" />
