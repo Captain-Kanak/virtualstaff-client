@@ -114,7 +114,7 @@ export default function Footer() {
               business.
             </p>
             <p className="text-sm text-slate-400">{regionalText}</p>
-            <div className="flex gap-3 mt-6">
+            <div className="flex flex-wrap gap-3 pb-2 mt-6">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
               ))}
@@ -134,7 +134,7 @@ export default function Footer() {
               business.
             </p>
             <p className="text-sm text-slate-400">{regionalText}</p>
-            <div className="flex gap-3 mt-6">
+            <div className="flex flex-wrap gap-3 pb-2 mt-6">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
               ))}
@@ -146,7 +146,7 @@ export default function Footer() {
           <FooterColumn title="Contact" items={contactItems} />
         </div>
 
-        <div className="border-t border-white/10 py-5 flex items-center justify-between gap-4 text-sm md:text-[15px] text-slate-400">
+        <div className="border-t border-white/10 mt-10 md:mt-12 pt-6 pb-6 flex items-center justify-between gap-4 text-sm md:text-[15px] text-slate-400">
           <p>&copy; {year} {siteName}. All rights reserved.</p>
           <nav aria-label="Footer legal" className="flex items-center gap-4">
             <Link
