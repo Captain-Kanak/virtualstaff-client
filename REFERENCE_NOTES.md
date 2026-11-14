@@ -727,6 +727,10 @@ Fixed: Removed `<Image>` silhouettes from PricingCards, replaced with role-color
 
 10. **Run `npm run build` and fix all errors** — Validate the entire codebase compiles after all fixes.
 
+11. **Home hero redesign** — `components/home/Hero.tsx` redesigned: bold short headline ("Global talent, on your team."), CTA + text link row, photo with tilted sticker stats. Style idea from outsourcerecruiter, own copy. `npm run build` passes clean.
+
+Home hero: bold short headline, CTA + text link, photo with tilted sticker stats (style idea from outsourcerecruiter, own copy).
+
 ---
 
 ### Gap Fix Checklist

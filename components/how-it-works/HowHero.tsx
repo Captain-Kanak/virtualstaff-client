@@ -16,7 +16,7 @@ const avatarInitials = [
 export default function HowHero() {
   return (
     <section
-      className="relative overflow-x-clip bg-gradient-to-br from-[#F1F9FC] via-white to-[#E8F0FE] pt-8 md:pt-12 pb-12 md:pb-16"
+      className="relative overflow-x-clip hero-offset bg-gradient-to-br from-[#F1F9FC] via-white to-[#E8F0FE] pb-12 md:pb-16"
     >
       <div className="absolute inset-0 opacity-60 pointer-events-none [background-image:radial-gradient(#cbd5e1_1px,_transparent_1px)] [background-size:24px_24px] [mask-image:linear-gradient(to_bottom,black,transparent)]" />
       <div className="absolute -top-[20%] left-1/2 -translate-x-1/2 w-[70%] h-[70%] rounded-full bg-primary/20 blur-3xl -z-10" />

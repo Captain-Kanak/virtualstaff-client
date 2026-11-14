@@ -42,6 +42,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --nav-h: 4.5rem;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 5rem;
+  }
 }
 
 @theme inline {
@@ -223,4 +230,37 @@ body {
   .animate-float-soft {
     animation: none;
   }
+}
+
+.hero-offset {
+  margin-top: calc(var(--nav-h) * -1);
+  padding-top: calc(var(--nav-h) + 2rem);
+}
+
+@media (min-width: 768px) {
+  .hero-offset {
+    padding-top: calc(var(--nav-h) + 3rem);
+  }
+}
+
+.hero-bg {
+  background:
+    radial-gradient(60% 55% at 78% 42%, rgba(37,99,235,.16), transparent 70%),
+    radial-gradient(45% 45% at 8% 0%, rgba(6,182,212,.14), transparent 70%),
+    radial-gradient(40% 40% at 55% 100%, rgba(99,102,241,.12), transparent 70%),
+    linear-gradient(135deg, #ffffff 0%, #F1F9FC 45%, #DCE9FF 100%);
+}
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(37,99,235,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37,99,235,.07) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 72% 40%, #000 0%, transparent 75%);
+  mask-image: radial-gradient(ellipse 70% 60% at 72% 40%, #000 0%, transparent 75%);
+}
+@keyframes orbit-spin { to { transform: rotate(360deg); } }
+.animate-orbit { animation: orbit-spin 80s linear infinite; }
+.animate-orbit-reverse { animation: orbit-spin 120s linear infinite reverse; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-orbit, .animate-orbit-reverse { animation: none; }
 }

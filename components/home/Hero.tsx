@@ -3,91 +3,155 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Check } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { bookingUrl } from "@/lib/site";
-import Container from "@/components/ui/Container";
-import Reveal from "@/components/Reveal";
+import Container from "@/components/Container";
+
+const stickers = [
+  // placeholder stats, confirm with client
+  {
+    number: "4-day",
+    label: "SHORTLISTS",
+    bg: "bg-[#3A64E6]",
+    text: "text-white",
+    rotate: "-rotate-6",
+    shadow: "shadow-[4px_4px_0_#0f172a]",
+    pos: "left-0 top-[16%] md:-left-4",
+    delay: "0s",
+  },
+  {
+    number: "Top 5%",
+    label: "SHORTLISTS",
+    bg: "bg-[#E8CF4B]",
+    text: "text-slate-900",
+    rotate: "rotate-3",
+    shadow: "shadow-[4px_4px_0_#0f172a]",
+    pos: "right-0 top-[38%] md:-right-3",
+    delay: "-2s",
+  },
+  {
+    number: "40-70%",
+    label: "COST SAVINGS",
+    bg: "bg-[#0F1B3D]",
+    text: "text-white",
+    rotate: "-rotate-3",
+    shadow: "shadow-[4px_4px_0_#E8CF4B]",
+    pos: "right-4 bottom-[8%]",
+    delay: "-4s",
+  },
+];
 
 export default function Hero() {
   return (
-    <Reveal>
-      <section className="bg-[#F1F9FC] pt-8 pb-12 md:pt-10 md:pb-16 lg:pt-12 lg:pb-20 overflow-hidden">
-        <Container>
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            <div className="space-y-6">
-              <Badge className="rounded-full bg-[#4289e0]/10 border border-[#4289e0]/20 px-4 py-2 text-xs font-semibold text-[#2563eb] uppercase tracking-wider">
-                Global Offshore Talent
-              </Badge>
-              <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[3.5rem] font-bold tracking-tight text-foreground leading-tight">
-                Build Your Global Offshore Team, One Seat at a Time
-              </h1>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-lg">
-                A better way for US companies to hire dedicated virtual
-                assistants from around the world.
-              </p>
-              <ul className="space-y-3 py-2">
-                {[
-                  "You choose the person",
-                  "We handle payroll and compliance",
-                  "One flat monthly fee, no markups",
-                ].map((item) => (
-                  <li key={item} className="flex items-center gap-3 text-foreground">
-                    <Check className="h-5 w-5 text-[#2563eb]" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button
-                  variant="brand"
-                  size="xl"
-                  nativeButton={false}
-                  render={
-                    <a
-                      href={bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Build Your Team
-                    </a>
-                  }
-                />
-                <Button variant="outline" size="xl" nativeButton={false} render={<Link href="/how-it-works">How It Works</Link>} />
-              </div>
-              <div className="flex flex-wrap gap-2 mt-8">
-                {[
-                  "Professional staff",
-                  "Full-time or part-time",
-                  "Ongoing support",
-                  "Transparent monthly costs",
-                ].map((label) => (
-                  <Badge
-                    key={label}
-                    className="rounded-lg bg-[#4289e0]/10 border border-[#4289e0]/20 px-4 py-2 text-xs font-medium text-[#2563eb]"
-                  >
-                    {label}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-            <div className="relative lg:block">
-              <Reveal delay={0.2}>
-                <Image
-                  src="/images/banner.webp"
-                  alt="Remote team working with a US business"
-                  width="822"
-                  height="680"
-                  priority
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="h-auto w-full object-cover"
-                />
-              </Reveal>
+    <section className="relative overflow-hidden hero-offset hero-bg pb-12 md:pb-20">
+      <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
+        <div className="hero-grid absolute inset-0" />
+        <div className="absolute -left-24 top-24 size-72 rounded-full bg-cyan-400/20 blur-3xl" />
+        <div className="absolute right-0 bottom-0 size-96 rounded-full bg-indigo-400/15 blur-3xl" />
+        <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white" />
+        <div className="absolute -left-16 top-8 h-px w-[420px] origin-left rotate-[35deg] bg-gradient-to-r from-primary/30 to-transparent">
+          <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
+          <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
+        </div>
+        <div className="absolute -right-16 bottom-12 h-px w-[420px] origin-right -rotate-[35deg] bg-gradient-to-l from-primary/30 to-transparent">
+          <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
+          <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
+        </div>
+        <div className="absolute left-[8%] top-[12%] size-3 rounded-full border border-primary/25" />
+        <div className="absolute right-[42%] top-[8%] size-5 rounded-full border border-primary/25" />
+        <div className="absolute left-[46%] bottom-[10%] size-10 rounded-full border border-primary/25" />
+      </div>
+
+      <Container className="relative z-10">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+
+          {/* Left column */}
+          <div className="space-y-4">
+            <h1 className="text-5xl md:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.05] text-foreground">
+              Global talent
+              <br />
+              <span className="bg-gradient-to-r from-[#2563eb] to-[#06b6d4] bg-clip-text text-transparent">
+                partner.
+              </span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-slate-600 max-w-xl mt-6">
+              Recruitment, EOR, BPO & HR outsourcing across Africa, Europe,
+              America and the Middle East.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-5 mt-8">
+              <Button
+                variant="brand"
+                size="xl"
+                nativeButton={false}
+                render={
+                  <Link href="/jobs">
+                    Browse talent
+                    <ArrowRight className="size-4 ml-2" />
+                  </Link>
+                }
+              />
+              <a
+                href={bookingUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-base font-semibold text-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
+              >
+                Book a 15-min call
+                <ArrowUpRight className="size-4" />
+              </a>
             </div>
           </div>
-        </Container>
-      </section>
-    </Reveal>
+
+          {/* Right column */}
+          <div className="relative">
+            <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
+              <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />
+              <div className="col-start-1 row-start-1 aspect-square rounded-full w-[136%] border border-dashed border-primary/30 animate-orbit">
+                <div className="absolute left-1/2 -top-1.5 size-3 -translate-x-1/2 rounded-full bg-[#E8CF4B] shadow-[0_0_14px_rgba(232,207,75,0.8)]" />
+                <div className="absolute bottom-[14%] right-[6%] size-2 rounded-full bg-cyan-400 shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
+              </div>
+              <div className="col-start-1 row-start-1 aspect-square rounded-full w-[160%] border border-cyan-500/15 animate-orbit-reverse">
+                <div className="absolute left-[8%] top-[22%] size-2 rounded-full bg-indigo-400 shadow-[0_0_12px_rgba(99,102,241,0.7)]" />
+              </div>
+            </div>
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/15 blur-3xl -z-10"
+            />
+
+            <div className="relative">
+              <div className="absolute z-0 bottom-0 left-1/2 -translate-x-1/2 aspect-square w-[88%] rounded-full bg-gradient-to-b from-[#BFD7FF] to-[#E8F0FE]" />
+              <Image
+                src="/images/banner-2.png"
+                alt="Offshore virtual assistant working with a US business"
+                width={724}
+                height={701}
+                priority
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                className="relative z-10 h-auto w-full lg:max-h-[560px] object-contain object-bottom"
+              />
+            </div>
+
+            {stickers.map((s) => (
+              <div
+                key={s.number}
+                className={`animate-float-soft absolute z-20 rounded-xl border-2 border-slate-900 px-4 py-3 whitespace-nowrap ${s.shadow} ${s.bg} ${s.text} ${s.rotate} ${s.pos}`}
+                style={{ animationDelay: s.delay }}
+              >
+                <span className={`text-2xl font-extrabold leading-none ${s.text}`}>
+                  {s.number}
+                </span>
+                <span className={`text-[11px] font-semibold uppercase tracking-wide mt-1 block ${s.text}`}>
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </Container>
+    </section>
   );
 }

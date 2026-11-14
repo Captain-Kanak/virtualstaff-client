@@ -16,7 +16,7 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <Reveal>
-      <section className="bg-gradient-to-b from-[#F1F9FC] to-white py-12 md:py-16 text-center">
+      <section className="hero-offset bg-gradient-to-b from-[#F1F9FC] to-white pb-12 md:pb-16 text-center">
         <div className="max-w-2xl mx-auto px-5">
           {eyebrow && (
             <p className="text-xs font-semibold tracking-wider text-primary mb-3">

@@ -33,45 +33,57 @@ const menuSvg = (
 );
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 8);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="sticky top-0 z-50 w-full border-b-2 border-slate-100 bg-white">
-      <Container>
-        <div className="flex h-16 items-center justify-between lg:h-20">
-          <Logo variant="default" className="mr-2" />
+    <nav
+      className={`fixed inset-x-0 top-0 z-50 h-[var(--nav-h)] flex items-center transition-colors duration-300 ease-out ${scrolled ? "border-b-2 border-slate-100 bg-white/90 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"}`}
+    >
+      <Container className="flex h-full w-full items-center justify-between">
+        <Logo variant="default" className="h-10 md:h-11" />
 
-          <div className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-base font-normal text-foreground transition-all duration-300 hover:text-blue-600"
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-base font-normal text-foreground transition-all duration-300 hover:text-blue-600"
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Button
+            variant="brand"
+            size="xl"
+            nativeButton={false}
+            render={
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                Build Your Team
+              </a>
+            }
+          />
+        </div>
+
+        <Sheet>
+          <SheetTrigger
+            render={
+              <button
+                className="lg:hidden p-2 rounded-md text-foreground hover:bg-slate-100"
+                aria-label="Open menu"
               >
-                {link.name}
-              </Link>
-            ))}
-            <Button
-              variant="brand"
-              size="xl"
-              nativeButton={false}
-              render={
-                <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                  Build Your Team
-                </a>
-              }
-            />
-          </div>
-
-          <Sheet>
-            <SheetTrigger
-              render={
-                <button
-                  className="lg:hidden p-2 rounded-md text-foreground hover:bg-slate-100"
-                  aria-label="Open menu"
-                >
-                  {menuSvg}
-                </button>
-              }
-            />
+                {menuSvg}
+              </button>
+            }
+          />
             <SheetContent
               side="right"
               className="lg:hidden p-0 border-none shadow-xl"
@@ -109,8 +121,7 @@ export default function Navbar() {
               </div>
             </SheetContent>
           </Sheet>
-        </div>
-      </Container>
-    </nav>
+        </Container>
+      </nav>
   );
 }
