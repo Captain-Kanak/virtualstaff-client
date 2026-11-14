@@ -6,7 +6,6 @@ export const bookingUrl =
 export const navLinks = [
   { name: "How It Works", href: "/how-it-works" },
   { name: "Pricing", href: "/pricing" },
-  { name: "Case Studies", href: "/case-studies" },
   { name: "Enterprise", href: "/enterprise" },
   { name: "Jobs", href: "/jobs" },
 ];
@@ -14,7 +13,6 @@ export const navLinks = [
 export const footerLinks = {
   company: [
     { name: "About", href: "/about" },
-    { name: "Case Studies", href: "/case-studies" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
   ],

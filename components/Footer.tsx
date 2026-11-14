@@ -15,7 +15,6 @@ const year = new Date().getFullYear();
 
 const companyLinks = [
   { name: "About", href: "/about" },
-  { name: "Case Studies", href: "/case-studies" },
   { name: "Blog", href: "/blog" },
   { name: "Contact", href: "/contact" },
 ];
