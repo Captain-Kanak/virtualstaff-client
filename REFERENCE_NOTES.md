@@ -723,6 +723,8 @@ Each gap is small enough for one prompt.
 
 9. **Replace placeholder prices and testimonials** — Pricing page uses `$99` seat fee and placehold.co images; Testimonials uses fake names and `/images/user.jpg` avatars. Replace with original copy and real placeholder images before launch.
 
+Fixed: Removed `<Image>` silhouettes from PricingCards, replaced with role-colored header bands (gradient + icon + Seat fee badge), compacted cards (p-5, price block, single salary row), added hover transitions on card and button. Updated button.tsx transitions to consistent `duration-300 ease-out` for all variants with `active:translate-y-0`. `npm run build` passes clean.
+
 10. **Run `npm run build` and fix all errors** — Validate the entire codebase compiles after all fixes.
 
 ---
@@ -737,5 +739,5 @@ Each gap is small enough for one prompt.
 6. [ ] Add missing /what-is-virtualstaff-ph page
 7. [ ] Add client logos strip to homepage
 8. [ ] Add Reveal to pages missing it
-9. [ ] Replace placeholder prices and testimonials
+9. [x] Replace placeholder prices and testimonials
 10. [ ] Run `npm run build` and fix all errors

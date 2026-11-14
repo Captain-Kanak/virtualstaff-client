@@ -69,7 +69,7 @@ function FooterColumn({
               <li key={item.name}>
                 <Link
                   href={item.href!}
-                  className="text-sm text-white/70 transition-colors hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
+                  className="text-sm text-slate-300 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
                 >
                   {item.name}
                 </Link>
@@ -77,7 +77,7 @@ function FooterColumn({
             );
           }
           return (
-            <li key={item.name} className="text-sm text-white/80">
+            <li key={item.name} className="text-sm text-slate-400">
               {item.name}
             </li>
           );
@@ -94,7 +94,7 @@ function SocialIcon({ icon: Icon, href, ariaLabel }: { icon: React.ElementType; 
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className="size-10 rounded-full bg-white/10 text-white hover:bg-white hover:text-blue-600 focus-visible:ring-2 focus-visible:ring-white transition-colors flex items-center justify-center"
+      className="size-9 rounded-full bg-white/10 text-white hover:bg-primary transition-colors duration-300 flex items-center justify-center"
     >
       <Icon size={18} />
     </a>
@@ -103,17 +103,17 @@ function SocialIcon({ icon: Icon, href, ariaLabel }: { icon: React.ElementType; 
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-linear-to-r from-blue-600 to-blue-500 text-white">
+    <footer className="border-t border-white/10 bg-slate-900 text-white">
       <Container className="py-10 md:py-12">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-8">
           <div className="flex flex-col gap-3 lg:flex lg:flex-col lg:gap-3">
             <Logo variant="light" className="h-10 md:h-11" />
-            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
+            <p className="text-sm text-slate-300 leading-relaxed max-w-xs mt-4">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.
             </p>
-            <p className="text-xs text-white/60">{regionalText}</p>
-            <div className="flex gap-3 mt-3">
+            <p className="text-xs text-slate-500">{regionalText}</p>
+            <div className="flex gap-3 mt-4">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
               ))}
@@ -131,11 +131,11 @@ export default function Footer() {
         <div className="lg:hidden grid grid-cols-2 gap-8 mt-8 pt-8 border-t border-white/10">
           <div className="col-span-2 flex flex-col gap-3">
             <Logo variant="light" className="h-10 md:h-11" />
-            <p className="text-sm text-white/70 leading-relaxed max-w-xs">
+            <p className="text-sm text-slate-300 leading-relaxed max-w-xs mt-4">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.
             </p>
-            <div className="flex gap-3 mt-3">
+            <div className="flex gap-3 mt-4">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
               ))}
@@ -147,18 +147,18 @@ export default function Footer() {
           <FooterColumn title="Contact" items={contactItems} />
         </div>
 
-        <div className="border-t border-white/10 pt-5 flex items-center justify-between gap-4 text-xs text-white/60">
+        <div className="border-t border-white/10 pt-5 flex items-center justify-between gap-4 text-sm text-slate-400">
           <p>&copy; {year} {siteName}. All rights reserved.</p>
           <nav aria-label="Footer legal" className="flex items-center gap-4">
             <Link
               href="/terms"
-              className="hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded-sm"
+              className="text-slate-300 hover:text-white transition-colors duration-300"
             >
               Terms
             </Link>
             <Link
               href="/privacy"
-              className="hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:rounded-sm"
+              className="text-slate-300 hover:text-white transition-colors duration-300"
             >
               Privacy
             </Link>

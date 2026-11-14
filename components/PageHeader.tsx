@@ -16,18 +16,20 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <Reveal>
-      <section className="bg-[#F1F9FC] py-16">
-        <div className="max-w-4xl mx-auto px-5 text-center">
+      <section className="bg-gradient-to-b from-[#F1F9FC] to-white py-12 md:py-16 text-center">
+        <div className="max-w-2xl mx-auto px-5">
           {eyebrow && (
-            <p className="text-xs font-semibold uppercase tracking-wider text-[#2563eb] mb-3">
+            <p className="text-xs font-semibold tracking-wider text-primary mb-3">
               {eyebrow}
             </p>
           )}
-          <h1 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
+          <h1 className="text-3xl md:text-5xl font-semibold text-foreground mb-4">
             {title}
           </h1>
           {subtitle && (
-            <p className="text-lg text-muted leading-relaxed">{subtitle}</p>
+            <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto mt-4">
+              {subtitle}
+            </p>
           )}
         </div>
       </section>
