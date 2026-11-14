@@ -5,6 +5,8 @@ export type RolePricing = {
   iconColor: string;
   total: string;
   salary: string;
+  seatFee: number;
+  image?: string;
 };
 
 export const roles: RolePricing[] = [
@@ -15,6 +17,7 @@ export const roles: RolePricing[] = [
     iconColor: "text-blue-600",
     total: "$1,200 - $1,600",
     salary: "$1,000 - $1,400",
+    seatFee: 99,
   },
   {
     role: "Admin & Operations",
@@ -23,6 +26,7 @@ export const roles: RolePricing[] = [
     iconColor: "text-teal-600",
     total: "$1,400 - $1,900",
     salary: "$1,200 - $1,700",
+    seatFee: 99,
   },
   {
     role: "Bookkeeping",
@@ -31,6 +35,7 @@ export const roles: RolePricing[] = [
     iconColor: "text-indigo-600",
     total: "$1,600 - $2,100",
     salary: "$1,400 - $1,900",
+    seatFee: 99,
   },
   {
     role: "Inbound Sales & CRM",
@@ -39,6 +44,7 @@ export const roles: RolePricing[] = [
     iconColor: "text-sky-600",
     total: "$1,500 - $2,000",
     salary: "$1,300 - $1,800",
+    seatFee: 99,
   },
   {
     role: "Back-Office",
@@ -47,6 +53,7 @@ export const roles: RolePricing[] = [
     iconColor: "text-cyan-600",
     total: "$1,300 - $1,700",
     salary: "$1,100 - $1,500",
+    seatFee: 99,
   },
   {
     role: "Social Media & Marketing",
@@ -55,5 +62,6 @@ export const roles: RolePricing[] = [
     iconColor: "text-violet-600",
     total: "$1,400 - $1,900",
     salary: "$1,200 - $1,700",
+    seatFee: 99,
   },
 ];

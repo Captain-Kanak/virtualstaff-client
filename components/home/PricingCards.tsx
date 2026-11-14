@@ -1,45 +1,173 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { roles } from "@/lib/pricing";
-import RolePricingCard from "@/components/pricing/RolePricingCard";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/Container";
-import Reveal from "@/components/Reveal";
-import SectionHeading from "@/components/SectionHeading";
+
+const mainRoles = roles.slice(0, 4);
+
+const formatMoney = (amount: number) =>
+  new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    maximumFractionDigits: 0,
+  }).format(amount);
+
+const parseRange = (range: string): [number, number] => {
+  const nums = range.match(/\d[\d,]*/g);
+  if (!nums) return [0, 0];
+  return [Number(nums[0].replace(/,/g, "")), Number(nums[1].replace(/,/g, ""))] as [number, number];
+};
 
 export default function PricingCards() {
   return (
-    <Reveal>
-      <section className="bg-white py-14 md:py-20 overflow-hidden">
-        <Container>
-          <SectionHeading
-            eyebrow="PRICING"
-            title="What it costs by role"
-            subtitle="Transparent monthly pricing by role, with no long-term contracts."
+    <section className="relative bg-gradient-to-b from-white via-blue-50/70 to-white py-20 md:py-24 overflow-hidden scroll-mt-24">
+      <div className="absolute -top-24 -left-24 size-72 bg-blue-200/40 blur-3xl rounded-full -z-10 pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 size-96 bg-blue-200/40 blur-3xl rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 size-64 bg-blue-200/30 blur-3xl rounded-full -z-10 pointer-events-none" />
+
+      <Container>
+        <div className="text-center mb-12 md:mb-14">
+          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">
+            PRICING
+          </p>
+          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight inline-block relative">
+            What it costs
+            <span className="text-blue-600 relative inline-block ml-1">
+              by role
+              <svg
+                className="absolute -bottom-[3px] left-0 w-full h-3"
+                viewBox="0 0 100 6"
+                preserveAspectRatio="none"
+              >
+                <path
+                  d="M0,3 Q50,1 100,3"
+                  stroke="currentColor"
+                  strokeWidth="5"
+                  fill="none"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </span>
+            <span className="text-blue-600 ml-1">✦</span>
+          </h2>
+          <p className="text-slate-600 text-lg mt-4">
+            Transparent monthly pricing by role, with no long-term contracts.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 items-stretch">
+          {mainRoles.map((role) => {
+            const [salaryMin, salaryMax] = parseRange(role.salary);
+            const seatFee = role.seatFee ?? 99;
+
+            return (
+              <div
+                key={role.role}
+                className="relative flex flex-col h-full rounded-3xl border border-slate-100 bg-white shadow-lg shadow-blue-900/5 overflow-hidden transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-900/10"
+              >
+                <div className="h-20 w-full bg-gradient-to-b from-blue-50 to-white" />
+                <div className="relative -mt-6 flex justify-center">
+                  <Image
+                    src={role.image ?? "/images/user.jpg"}
+                    width={112}
+                    height={112}
+                    alt={role.role}
+                    className="size-28 rounded-full object-cover ring-4 ring-white shadow-md"
+                  />
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-slate-900 text-center">
+                  {role.role}
+                </h3>
+                <div className="mt-3 px-6 text-center">
+                  <p className="text-xs uppercase tracking-wide text-slate-500">
+                    Total per month
+                  </p>
+                  <p className="mt-1 whitespace-nowrap text-lg lg:text-xl xl:text-2xl font-bold text-blue-600 tracking-tight">
+                    {role.total}
+                  </p>
+                </div>
+                <div className="mt-5 mx-5 mb-5 rounded-2xl border border-slate-100 bg-slate-50 p-4 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-slate-500">Staff salary</span>
+                    <span className="text-sm font-semibold text-slate-800 whitespace-nowrap">
+                      {formatMoney(salaryMin)} - {formatMoney(salaryMax)}
+                    </span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-sm text-slate-500">Seat fee</span>
+                    <span className="text-sm font-semibold text-blue-600 whitespace-nowrap">
+                      + ${seatFee}/month
+                    </span>
+                  </div>
+                  <div className="border-t border-dashed border-slate-200" />
+                  <p className="text-xs text-slate-500 text-center">
+                    Powered by a RemoteStaff365 Seat
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-10 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-slate-200">
+            <div className="flex items-center gap-5 p-6 md:p-8 border-b md:border-b-0 md:border-r">
+              <Image
+                src="/images/team/money.png"
+                width={64}
+                height={64}
+                alt=""
+                className="shrink-0 object-contain rounded-2xl"
+                sizes="64px"
+              />
+              <div>
+                <p className="text-base font-semibold text-foreground">
+                  Add more seats as your needs grow
+                </p>
+                <p className="mt-1 text-sm text-slate-600">
+                  Each $99 / month seat supports one ongoing team member.
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-5 p-6 md:p-8">
+              <Image
+                src="/images/team/team.png"
+                width={64}
+                height={64}
+                alt=""
+                className="shrink-0 object-contain rounded-2xl"
+                sizes="64px"
+              />
+              <div>
+                <p className="text-base font-semibold text-foreground">
+                  Over time, seats become part of how your business grows
+                </p>
+                <p className="mt-1 text-sm text-slate-600">
+                  A simple way to keep building your team month after month.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-10 text-center">
+          <Button
+            size="xl"
+            className="rounded-xl bg-gradient-to-b from-blue-500 to-blue-600 text-white font-semibold shadow-lg shadow-blue-600/25 hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
+            nativeButton={false}
+            render={
+              <Link href="/pricing">
+                See all staff costs
+                <ArrowRight className="size-4 ml-2 transition-transform hover:translate-x-0.5" />
+              </Link>
+            }
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch pb-8">
-            {roles.map((role, i) => (
-              <Reveal key={role.role} delay={i * 0.1}>
-                <RolePricingCard role={role} />
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-10 flex justify-center">
-            <Button
-              variant="brand"
-              size="xl"
-              nativeButton={false}
-              render={
-                <Link href="/pricing">
-                  See all staff costs <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              }
-            />
-          </div>
-        </Container>
-      </section>
-    </Reveal>
+        </div>
+      </Container>
+    </section>
   );
 }

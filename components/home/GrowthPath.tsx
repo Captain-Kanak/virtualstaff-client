@@ -2,143 +2,212 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { Check } from "lucide-react";
+import { ArrowDown, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { bookingUrl } from "@/lib/site";
 import Container from "@/components/ui/Container";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
+import { bookingUrl } from "@/lib/site";
 
-const tiers = [
+// replace with distinct portraits later
+const plans = [
   {
-    name: "Start",
+    tag: "START",
+    title: "Your First Assistant",
     seats: 1,
-    seatsLabel: "1 seat",
-    text: "Perfect for trying out a virtual assistant part-time.",
-    checks: ["Choose your own hire", "Full-time or part-time", "Cancel anytime"],
+    label: "Seat",
+    text: "Add one assistant when you're ready.",
+    avatars: [{ photo: "/images/user.jpg" }],
+    size: "lg",
   },
   {
-    name: "Grow",
+    tag: "GROW",
+    title: "Build Your Core Team",
     seats: 3,
-    seatsLabel: "3 seats",
-    text: "Ideal for a small team that needs ongoing support.",
-    checks: ["Build a small dedicated team", "Priority support", "Flexible scheduling"],
-    featured: true,
+    label: "Seats",
+    text: "Add more seats as your business needs more capacity.",
+    avatars: [
+      { photo: "/images/user.jpg" },
+      { photo: "/images/user.jpg" },
+      { photo: "/images/user.jpg" },
+    ],
+    size: "md",
   },
   {
-    name: "Scale",
+    tag: "SCALE",
+    title: "Grow Your Team Over Time",
     seats: 5,
-    seatsLabel: "5 seats",
-    text: "Built for growing teams that want full-time coverage.",
-    checks: ["Full-time team coverage", "Dedicated account manager", "Custom onboarding"],
+    label: "Seats",
+    text: "Keep growing your team over time.",
+    avatars: [
+      { photo: "/images/user.jpg" },
+      { photo: "/images/user.jpg" },
+      { photo: "/images/user.jpg" },
+      { photo: "/images/user.jpg" },
+      { photo: "/images/user.jpg" },
+    ],
+    size: "sm",
   },
-];
+] as const;
 
-const PANEL_HEIGHT = "h-[180px] md:h-[200px]";
-
-const avatarSize = (seats: number) => {
-  switch (seats) {
-    case 1:
-      return { w: "w-24 h-24", smW: "sm:w-32 sm:h-32", ml: "-ml-3", smMl: "-ml-5" };
-    case 3:
-      return { w: "w-16 h-16", smW: "sm:w-22 sm:h-22", ml: "-ml-4", smMl: "-ml-5" };
-    case 5:
-      return { w: "w-14 h-14", smW: "sm:w-16 sm:h-16", ml: "-ml-3", smMl: "-ml-6" };
-    default:
-      return { w: "w-16 h-16", smW: "sm:w-20 sm:h-20", ml: "-ml-4", smMl: "-ml-5" };
-  }
+const avatarSizes = {
+  lg: "size-32 md:size-36",
+  md: "size-24 md:size-28",
+  sm: "size-[4.25rem] md:size-20",
 };
+
+interface PlanAvatar {
+  photo?: string;
+}
+
+interface Plan {
+  tag: string;
+  title: string;
+  seats: number;
+  label: string;
+  text: string;
+  avatars: PlanAvatar[];
+  size: keyof typeof avatarSizes;
+}
+
+function Avatar({ photo, size, index }: { photo?: string; size: keyof typeof avatarSizes; index: number }) {
+  return (
+    <span
+      className={`relative inline-block shrink-0 overflow-hidden rounded-full bg-slate-200 ring-4 ring-white shadow-md ${avatarSizes[size]} ${index > 0 ? "-ml-3" : ""}`}
+    >
+      <Image
+        src={photo ?? "/images/user.jpg"}
+        alt=""
+        fill
+        className="object-cover"
+        sizes="144px"
+      />
+    </span>
+  );
+}
 
 export default function GrowthPath() {
   return (
-    <Reveal>
-      <section className="bg-[#F5F8FF] py-14 md:py-20 overflow-hidden">
-        <Container>
+    <section className="bg-white py-14 md:py-20">
+      <Container>
+        <Reveal>
           <SectionHeading
-            eyebrow="GROWTH PATH"
-            title="Start small, grow at your pace"
-            subtitle="Pick the plan that fits your team and scale up as you grow."
+            title={
+              <>
+                Start with one great assistant
+                <br />
+                <span className="text-primary">Build the team your business needs</span>
+              </>
+            }
+            subtitle="Add one seat when you're ready, then keep growing your global team over time."
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-            {tiers.map((tier, i) => (
-              <Reveal key={tier.name} delay={i * 0.1}>
-                <Card
-                  className={`
-                    flex flex-col h-full rounded-2xl border-2 border-slate-100 bg-white p-6
-                    shadow-[2px_4px_12px_#00000014] hover:-translate-y-1 transition duration-300
-                    ${tier.featured ? "border-primary relative" : "border-slate-100 relative"}
-                  `}
-                >
-                  {tier.featured && (
-                    <Badge
-                      className="absolute top-3 right-3 z-10 bg-primary text-white"
-                      variant="default"
-                    >
-                      Most popular
-                    </Badge>
-                  )}
-                  <div
-                    className={`rounded-xl bg-linear-to-br from-[#E8F0FE] to-[#F1F9FC] flex items-center justify-center px-4 mb-6 ${PANEL_HEIGHT}`}
-                  >
-                    {Array.from({ length: tier.seats }).map((_, j) => {
-                      const isFirst = j === 0;
-                      const size = avatarSize(tier.seats);
-                      return (
-                        <Image
+        </Reveal>
+
+        <div className="mt-12 flex flex-col gap-8 lg:grid lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch lg:gap-4">
+          {plans.map((plan, i) => (
+            <React.Fragment key={plan.tag}>
+              <Reveal key={`${plan.tag}-card`} delay={i * 0.1}>
+                <div className="flex h-full flex-col">
+                  <div className="relative flex flex-1 flex-col rounded-3xl bg-white p-6 text-center border border-slate-100 shadow-[0_10px_30px_rgba(15,23,42,0.07)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+                    <div className="mx-auto inline-flex w-fit items-center rounded-full bg-blue-50 px-4 py-1 text-xs font-semibold tracking-wide text-primary mb-2">
+                      {plan.tag}
+                    </div>
+                    <h3 className="mt-3 text-xl font-semibold text-foreground">
+                      {plan.title}
+                    </h3>
+                    <div className="mt-6 flex min-h-[9.5rem] items-center justify-center">
+                      {plan.avatars.map((avatar, j) => (
+                        <Avatar
                           key={j}
-                          src="/images/user.jpg"
-                          alt={isFirst ? "Virtual assistant" : ""}
-                          width={128}
-                          height={128}
-                          className={`rounded-full object-cover ring-4 ring-white shadow-sm relative ${size.w} ${size.smW} ${isFirst ? "" : `${size.ml} sm:${size.smMl} z-10`}`}
-                          loading="lazy"
+                          photo={avatar.photo}
+                          size={plan.size}
+                          index={j}
                         />
-                      );
-                    })}
+                      ))}
+                    </div>
+                    <div className="mt-auto pt-6 min-h-[7.5rem] rounded-2xl bg-[#EAF1FF] px-5 py-4 flex items-center gap-4 text-left">
+                      <span className="text-5xl font-extrabold text-primary leading-none">
+                        {plan.seats}
+                      </span>
+                      <div>
+                        <div className="flex items-center gap-1 text-base font-semibold text-foreground">
+                          RemoteStaff365
+                          <span className="text-primary">{plan.label === "Seat" ? " Seat" : " Seats"}</span>
+                        </div>
+                        <p className="mt-1 text-sm text-slate-600">{plan.text}</p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-lg md:text-xl font-semibold text-foreground">
-                    {tier.name}
-                  </h3>
-                  <Badge
-                    className="bg-blue-50 text-primary"
-                    variant="default"
-                  >
-                    {tier.seatsLabel}
-                  </Badge>
-                  <p className="text-base leading-relaxed text-slate-600 mt-4">
-                    {tier.text}
-                  </p>
-                  <ul className="mt-5 space-y-2">
-                    {tier.checks.map((check) => (
-                      <li key={check} className="flex items-start gap-2 text-sm text-slate-700">
-                        <Check className="h-4 w-4 text-[#2563eb] shrink-0 mt-0.5" />
-                        {check}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    variant={tier.featured ? "brand" : "outline"}
-                    size="xl"
-                    className={`w-full mt-auto ${!tier.featured ? "border-primary text-primary" : ""}`}
-                    nativeButton={false}
-                    render={
-                      <a
-                        href={bookingUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Build Your Team
-                      </a>
-                    }
-                  />
-                </Card>
+                </div>
               </Reveal>
-            ))}
+
+              {i < plans.length - 1 && (
+                <div className="lg:self-center lg:justify-self-center hidden lg:block">
+                  <ArrowRight className="size-8 text-primary" />
+                </div>
+              )}
+              {i < plans.length - 1 && (
+                <div className="lg:hidden">
+                  <ArrowDown className="size-8 text-primary mx-auto" />
+                </div>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+
+        <div className="mt-8 rounded-[2rem] bg-white border border-slate-100 shadow-[0_8px_24px_rgba(15,23,42,0.06)] grid md:grid-cols-2 md:divide-x divide-slate-100">
+          <div className="flex items-center gap-4 md:gap-5 p-6 md:p-7">
+              <Image
+                src="/images/team/money.png"
+                width={64}
+                height={64}
+                alt=""
+                className="shrink-0 object-contain rounded-2xl"
+                sizes="64px"
+              />
+            <div>
+              <p className="text-base font-semibold text-foreground">
+                Add more seats as your needs grow
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                Each $99 / month seat supports one ongoing team member.
+              </p>
+            </div>
           </div>
-        </Container>
-      </section>
-    </Reveal>
+          <div className="flex items-center gap-4 md:gap-5 p-6 md:p-7">
+              <Image
+                src="/images/team/team.png"
+                width={64}
+                height={64}
+                alt=""
+                className="shrink-0 object-contain rounded-2xl"
+                sizes="64px"
+              />
+            <div>
+              <p className="text-base font-semibold text-foreground">
+                Over time, seats become part of how your business grows
+              </p>
+              <p className="mt-1 text-sm text-slate-600">
+                A simple way to keep building your team month after month.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 text-center">
+          <Button
+            variant="brand"
+            size="xl"
+            nativeButton={false}
+            render={
+              <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                Add your first seat
+                <ArrowRight className="size-4 ml-2" />
+              </a>
+            }
+          />
+        </div>
+      </Container>
+    </section>
   );
 }
