@@ -56,20 +56,6 @@ const avatarSizes = {
   sm: "size-[4.25rem] md:size-20",
 };
 
-interface PlanAvatar {
-  photo?: string;
-}
-
-interface Plan {
-  tag: string;
-  title: string;
-  seats: number;
-  label: string;
-  text: string;
-  avatars: PlanAvatar[];
-  size: keyof typeof avatarSizes;
-}
-
 function Avatar({ photo, size, index }: { photo?: string; size: keyof typeof avatarSizes; index: number }) {
   return (
     <span

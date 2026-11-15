@@ -10,7 +10,6 @@ interface CTASectionProps {
   secondaryLabel?: string;
   primaryHref?: string;
   secondaryHref?: string;
-  className?: string;
 }
 
 export default function CTASection({
@@ -20,7 +19,6 @@ export default function CTASection({
   secondaryLabel = "View Pricing",
   primaryHref = "https://calendly.com/your-link",
   secondaryHref = "#pricing",
-  className,
 }: CTASectionProps) {
   return (
     <section className="bg-white py-12 md:py-16 text-center">
