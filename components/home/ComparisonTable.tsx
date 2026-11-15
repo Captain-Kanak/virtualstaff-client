@@ -11,6 +11,29 @@ const iconSizes = {
   check: { w: 22, h: 22 },
 };
 
+// Natural pixel dimensions of each row icon, used to preserve aspect ratio
+// when rendering at a fixed width (avoids Next.js width/height warnings).
+const iconDims: Record<string, { w: number; h: number }> = {
+  "/images/icons/np-icon1.png": { w: 96, h: 73 },
+  "/images/icons/np-icon2.png": { w: 96, h: 96 },
+  "/images/icons/np-icon3.png": { w: 96, h: 97 },
+  "/images/icons/np-icon4.png": { w: 96, h: 89 },
+  "/images/icons/np-icon5.png": { w: 96, h: 87 },
+  "/images/icons/np-icon6.png": { w: 352, h: 352 },
+  "/images/icons/np-icon7.png": { w: 352, h: 352 },
+  "/images/icons/np-icon8.png": { w: 352, h: 352 },
+  "/images/icons/WarningIconBlue.png": { w: 96, h: 95 },
+  "/images/icons/check-icon.png": { w: 48, h: 48 },
+};
+
+function rowIconSize(icon: string) {
+  const d = iconDims[icon] ?? iconSizes.row;
+  return {
+    width: iconSizes.row.w,
+    height: Math.max(1, Math.round((iconSizes.row.w * d.h) / d.w)),
+  };
+}
+
 export default function ComparisonTable() {
   return (
     <section className="bg-white py-16 md:py-24 overflow-hidden">
@@ -126,8 +149,8 @@ export default function ComparisonTable() {
                         <div className="flex items-start gap-3">
                           <Image
                             src={row.icon}
-                            width={iconSizes.row.w}
-                            height={iconSizes.row.h}
+                            width={rowIconSize(row.icon).width}
+                            height={rowIconSize(row.icon).height}
                             alt=""
                             className="object-contain shrink-0"
                           />
@@ -249,8 +272,8 @@ export default function ComparisonTable() {
                 <div className="flex items-start gap-3 mb-4">
                   <Image
                     src={row.icon}
-                    width={iconSizes.row.w}
-                    height={iconSizes.row.h}
+                    width={rowIconSize(row.icon).width}
+                    height={rowIconSize(row.icon).height}
                     alt=""
                     className="object-contain shrink-0"
                   />
