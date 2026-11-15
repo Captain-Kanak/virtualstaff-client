@@ -360,7 +360,10 @@ body {
 @media (min-width: 1024px) {
   .standard-edge {
     right: -40px;
-    clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 97% 100%, 0 100%);
+  }
+  .standard-photo {
+    clip-path: polygon(0 0, calc(100% - 4px) 0, calc(97% - 4px) 100%, 0 100%);
   }
 }
 

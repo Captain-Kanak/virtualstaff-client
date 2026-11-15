@@ -30,7 +30,7 @@ export default function ImageFeatureSection({
     <section id={id} className="bg-white py-10 md:py-14">
       <Container>
         <div className="relative overflow-hidden rounded-3xl border border-line-soft bg-linear-to-br from-white to-brand-tint shadow-card">
-          <div className="grid gap-8 lg:gap-0 items-center grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+          <div className="grid gap-8 lg:gap-0 items-center grid-cols-1 lg:grid-cols-[minmax(0,5.2fr)_minmax(0,7fr)]">
             {/* Left: image panel */}
             <div className="relative h-64 sm:h-80 lg:min-h-[380px] overflow-visible">
               <div className="standard-edge z-0" aria-hidden={true} />
@@ -40,7 +40,7 @@ export default function ImageFeatureSection({
                   src={image.src}
                   alt={image.alt}
                   sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                  className="object-cover object-[40%_top]"
+                  className="object-cover object-right-top"
                   priority
                 />
               </div>

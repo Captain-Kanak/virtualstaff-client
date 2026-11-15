@@ -56,14 +56,14 @@ export default function Standard({
               <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-84 overflow-visible">
                 {imageMode === "photo" ? (
                   <div
-                    className="standard-photo z-10 bottom-0 left-0 h-full w-full overflow-hidden lg:clip-path-[polygon(0_0,_100%_0,_94%_100%,_0_100%)]"
+                    className="standard-photo z-10 bottom-0 left-0 h-full w-full overflow-hidden lg:clip-path-[polygon(0_0,_100%_0,_97%_100%,_0_100%)]"
                   >
                     <Image
                       fill
                       src={image.src}
                       alt={image.alt}
                       sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                      className="object-cover object-[40%_top]"
+                      className="object-cover object-right-top"
                       priority
                     />
                   </div>
@@ -76,7 +76,7 @@ export default function Standard({
                         src={image.src}
                         alt={image.alt}
                         sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                        className="object-cover object-[40%_top]"
+                        className="object-cover object-right-top"
                         priority
                       />
                     </div>
@@ -126,19 +126,19 @@ export default function Standard({
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1.5fr_1.1fr] items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.4fr_1.5fr_1.1fr] items-center">
               {/* Photo column */}
               <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-84 overflow-visible">
                 {imageMode === "photo" ? (
                   <div
-                    className="standard-photo z-10 bottom-0 left-0 h-full w-full overflow-hidden lg:clip-path-[polygon(0_0,_100%_0,_94%_100%,_0_100%)]"
+                    className="standard-photo z-10 bottom-0 left-0 h-full w-full overflow-hidden lg:clip-path-[polygon(0_0,_100%_0,_97%_100%,_0_100%)]"
                   >
                     <Image
                       fill
                       src={image.src}
                       alt={image.alt}
                       sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                      className="object-cover object-[40%_top]"
+                      className="object-cover object-right-top"
                       priority
                     />
                   </div>
@@ -151,7 +151,7 @@ export default function Standard({
                         src={image.src}
                         alt={image.alt}
                         sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                        className="object-cover object-[40%_top]"
+                        className="object-cover object-right-top"
                         priority
                       />
                     </div>
