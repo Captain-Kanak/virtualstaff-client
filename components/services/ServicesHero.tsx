@@ -123,7 +123,7 @@ export default function ServicesHero() {
           </div>
 
           {/* Right column */}
-          <div className="relative">
+          <div className="relative self-start">
             <div className="hero-img-wrap" style={{ "--img-w": 724, "--img-h": 701 } as React.CSSProperties}>
               <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
                 <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />
