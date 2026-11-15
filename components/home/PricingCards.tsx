@@ -9,10 +9,15 @@ type PricingCard = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   title: string;
   priceLabel: string;
-  price: string;
-  priceClass: string;
+  priceDollars: string;
+  priceSuffix: string;
+  isCustom?: boolean;
   accentClass: string;
+  accentBgClass: string;
   tintClass: string;
+  gradientClass: string;
+  shadowClass: string;
+  badge?: boolean;
   checklist: string[];
 };
 
@@ -21,12 +26,13 @@ const cards: PricingCard[] = [
     icon: User,
     title: "Part-Time Support",
     priceLabel: "Starting at",
-    price: "$7/Hour",
-    priceClass:
-      "text-[color-mix(in_srgb,var(--brand-success)_70%,var(--brand-primary))] text-4xl lg:text-[44px] font-extrabold leading-none",
-    accentClass:
-      "text-[color-mix(in_srgb,var(--brand-success)_70%,var(--brand-primary))]",
+    priceDollars: "$7",
+    priceSuffix: "/hour",
+    accentClass: "text-brand-success",
+    accentBgClass: "bg-brand-success",
     tintClass: "bg-[color-mix(in_srgb,var(--brand-success)_12%,white)]",
+    gradientClass: "bg-gradient-to-b from-brand-success to-brand-primary-light",
+    shadowClass: "shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)]",
     checklist: [
       "Up to 20 hours per week",
       "Dedicated, managed support",
@@ -37,11 +43,14 @@ const cards: PricingCard[] = [
     icon: Users,
     title: "Full-Time Support",
     priceLabel: "Starting at",
-    price: "$7/Hour",
-    priceClass:
-      "text-brand-primary text-4xl lg:text-[44px] font-extrabold leading-none",
+    priceDollars: "$7",
+    priceSuffix: "/hour",
     accentClass: "text-brand-primary",
+    accentBgClass: "bg-brand-primary",
     tintClass: "bg-[var(--brand-soft)]",
+    gradientClass: "bg-gradient-to-b from-brand-primary to-brand-primary-light",
+    shadowClass: "shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_8%,transparent)]",
+    badge: true,
     checklist: [
       "Up to 40 hours per week",
       "Dedicated, managed professional",
@@ -52,10 +61,14 @@ const cards: PricingCard[] = [
     icon: Star,
     title: "Specialized Support",
     priceLabel: "",
-    price: "Custom Quote",
-    priceClass: "text-brand-secondary text-3xl lg:text-4xl font-extrabold leading-none",
+    priceDollars: "",
+    priceSuffix: "",
+    isCustom: true,
     accentClass: "text-brand-secondary",
+    accentBgClass: "bg-brand-secondary",
     tintClass: "bg-[color-mix(in_srgb,var(--brand-primary)_12%,white)]",
+    gradientClass: "bg-gradient-to-b from-brand-secondary to-brand-primary",
+    shadowClass: "shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)]",
     checklist: [
       "For specialized or senior-level roles",
       "Tailored to your specific requirements",
@@ -72,80 +85,143 @@ export default function PricingCards() {
           <p className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-primary mb-3">
             PRICING
           </p>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight text-text-heading">
-            Global Talent. Affordable Rates. Flexible Options.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-text-heading">
+            Global Talent. Affordable Rates.{" "}
+            <span className="text-brand-primary">Flexible Options.</span>
           </h2>
-          <p className="text-base md:text-lg text-text-body mt-3 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-text-body mt-3 max-w-2xl mx-auto text-balance">
             Choose a managed team solution that fits your business needs and budget.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 items-stretch">
-          {cards.map((card) => (
-            <article
-              key={card.title}
-              className="flex flex-col h-full rounded-3xl p-6 lg:p-8 border border-white/60 shadow-lg transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_20px_40px_color-mix(in_srgb,var(--brand-secondary)_10%,transparent)]"
-              aria-labelledby={`pricing-title-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              <div className="flex items-start gap-5">
-                <card.icon
-                  className={`size-12 shrink-0 stroke-[1.75] ${card.accentClass}`}
-                  strokeWidth={1.75}
-                  aria-hidden="true"
-                />
-                <div>
-                  <h3
-                    id={`pricing-title-${card.title.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="text-xl font-bold text-text-heading"
-                  >
-                    {card.title}
-                  </h3>
-                  {card.priceLabel && (
-                    <p className="text-base text-text-body">
-                      {card.priceLabel}
-                    </p>
-                  )}
-                  <p className={card.priceClass}>{card.price}</p>
-                </div>
-              </div>
-
-              <div className="mt-6 space-y-3">
-                {card.checklist.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <Check
-                      className="size-20 shrink-0 text-brand-secondary stroke-[2.5]"
-                      aria-hidden="true"
-                    />
-                    <span className="text-[15px] md:text-base leading-6 text-text-heading">
-                      {item}
-                    </span>
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 items-stretch">
+          {cards.map((card, i) => {
+            const Icon = card.icon;
+            const isPopular = card.badge;
+            return (
+              <article
+                key={card.title}
+                className={[
+                  "flex flex-col h-full rounded-3xl p-6 lg:p-8 border border-white/70",
+                  card.tintClass,
+                  "shadow-lg transition-all duration-300 ease-out",
+                  isPopular
+                    ? "hover:-translate-y-1 hover:shadow-[0_20px_40px_color-mix(in_srgb,var(--brand-primary)_15%,transparent)] ring-2 ring-brand-primary ring-offset-2"
+                    : "hover:-translate-y-1 hover:shadow-lg",
+                  card.shadowClass,
+                ]
+                  .filter(Boolean)
+                  .join(" ")}
+                aria-labelledby={`pricing-title-${i}`}
+              >
+                {isPopular && (
+                  <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 inline-flex items-center rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold tracking-wide text-primary border border-brand-primary ring-1 ring-white">
+                    Most popular
                   </div>
-                ))}
-              </div>
+                )}
+                <div className="relative z-10 flex flex-col">
+                  <div className="flex items-start gap-5">
+                    <div className={`grid size-14 place-items-center rounded-2xl shrink-0 ${card.gradientClass}`}>
+                      <Icon className="size-26 text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3
+                        id={`pricing-title-${i}`}
+                        className="text-xl font-bold text-text-heading"
+                      >
+                        {card.title}
+                      </h3>
+                    </div>
+                  </div>
 
-              <div className="mt-auto pt-8">
-                <Button
-                  variant="outline"
-                  size="xl"
-                  className="w-full h-14 rounded-xl bg-brand-secondary text-white font-semibold text-base md:text-lg flex items-center justify-center gap-3 cursor-pointer hover:-translate-y-0.5 hover:bg-[color-mix(in_srgb,var(--brand-secondary)_88%,white)] hover:shadow-lg focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
-                  nativeButton={false}
-                  render={
-                    <a
-                      href={bookingUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <CalendarCheck
-                        className="size-22 text-white"
-                        aria-hidden="true"
-                      />
-                      Book a Free Consultation
-                    </a>
-                  }
-                />
-              </div>
-            </article>
-          ))}
+                  <div className="mt-5 lg:mt-6 rounded-2xl bg-white/70 border border-white p-4 lg:p-5">
+                    <div className="flex flex-col items-baseline">
+                      <span
+                        className={`text-sm text-text-body ${card.isCustom ? "opacity-0" : ""}`}
+                      >
+                        {card.priceLabel || "Starting at"}
+                      </span>
+                      <div className="flex items-baseline gap-1">
+                        {card.isCustom ? (
+                          <span
+                            className={`${card.accentClass} text-3xl font-extrabold leading-none whitespace-nowrap`}
+                          >
+                            Custom Quote
+                          </span>
+                        ) : (
+                          <>
+                            <span className={`${card.accentClass} text-5xl font-extrabold leading-none`}>
+                              {card.priceDollars}
+                            </span>
+                            <span className="text-lg font-semibold text-text-body">
+                              {card.priceSuffix}
+                            </span>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 space-y-3.5">
+                    {card.checklist.map((item) => (
+                      <div key={item} className="flex items-start gap-3">
+                        <div
+                          className={`grid size-6 place-items-center rounded-full shrink-0 ${card.accentBgClass}`}
+                        >
+                          <Check
+                            className="size-3.5 text-white"
+                            strokeWidth={2.5}
+                            aria-hidden="true"
+                          />
+                        </div>
+                        <span className="text-[15px] md:text-base leading-6 text-text-heading">
+                          {item}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto pt-8">
+                    <Button
+                      variant="brand"
+                      className="w-full h-12 md:h-13 rounded-xl text-base md:text-lg font-semibold whitespace-nowrap px-4 cursor-pointer hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                      nativeButton={false}
+                      render={
+                        <a
+                          href={bookingUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <CalendarCheck
+                            className="size-[18px] text-white"
+                            aria-hidden="true"
+                          />
+                          Book a Free Consultation
+                        </a>
+                      }
+                    />
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+
+        <div className="mt-8 text-center gap-4 text-sm text-text-body flex items-center justify-center">
+          <span className="flex items-center gap-1.5">
+            <Check className="size-4 text-brand-primary" aria-hidden="true" />
+            No long-term contracts
+          </span>
+          <span className="mx-1">·</span>
+          <span className="flex items-center gap-1.5">
+            <Check className="size-4 text-brand-primary" aria-hidden="true" />
+            30-day money-back guarantee
+          </span>
+          <span className="mx-1">·</span>
+          <span className="flex items-center gap-1.5">
+            <Check className="size-4 text-brand-primary" aria-hidden="true" />
+            Free consultation
+          </span>
         </div>
       </Container>
     </section>
