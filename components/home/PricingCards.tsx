@@ -24,7 +24,7 @@ const parseRange = (range: string): [number, number] => {
 
 export default function PricingCards() {
   return (
-    <section id="services" className="relative bg-gradient-to-b from-white via-brand-soft/70 to-white py-20 md:py-24 overflow-hidden scroll-mt-24">
+    <section className="relative bg-gradient-to-b from-white via-brand-soft/70 to-white py-20 md:py-24 overflow-hidden scroll-mt-24">
       <div className="absolute -top-24 -left-24 size-72 bg-brand-primary/40 blur-3xl rounded-full -z-10 pointer-events-none" />
       <div className="absolute -bottom-24 -right-24 size-96 bg-brand-primary/40 blur-3xl rounded-full -z-10 pointer-events-none" />
       <div className="absolute top-1/4 left-1/4 size-64 bg-brand-primary/30 blur-3xl rounded-full -z-10 pointer-events-none" />

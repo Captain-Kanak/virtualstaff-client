@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import Hero from "@/components/home/Hero";
 import HeroFeatures from "@/components/home/HeroFeatures";
+import Services from "@/components/home/Services";
 import PartnerLogos from "@/components/home/PartnerLogos";
 import ValueProps from "@/components/home/ValueProps";
 import MidCTA from "@/components/home/MidCTA";
@@ -26,6 +27,7 @@ export default function Home() {
         <Hero />
         <HeroFeatures />
       </div>
+      <Services />
       <PartnerLogos />
       <ValueProps />
       <MidCTA />
