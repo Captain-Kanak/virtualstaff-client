@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import InnerHero from "@/components/InnerHero";
+import LargerTeamBar from "@/components/pricing/LargerTeamBar";
 import PricingCards from "@/components/home/PricingCards";
 import PricingPageContent from "@/components/pricing/PricingPageContent";
+import WhatsIncluded from "@/components/pricing/WhatsIncluded";
 import { bookingUrl } from "@/lib/site";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -64,6 +66,8 @@ export default function PricingPage() {
         ]}
       />
       <PricingCards id="plans" />
+      <LargerTeamBar />
+      <WhatsIncluded />
       <PricingPageContent />
     </div>
   );
