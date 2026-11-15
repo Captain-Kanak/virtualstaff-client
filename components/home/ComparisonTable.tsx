@@ -148,15 +148,13 @@ export default function ComparisonTable() {
                         style={{ width: "24%" }}
                       >
                         <div className="flex items-start gap-3">
-                          <div className="overflow-hidden rounded-full">
-                            <Image
-                              src={row.icon}
-                              width={rowIconSize(row.icon).width}
-                              height={rowIconSize(row.icon).height}
-                              alt=""
-                              className="rounded-full object-cover mix-blend-multiply"
-                            />
-                          </div>
+                          <Image
+                            src={row.icon}
+                            width={rowIconSize(row.icon).width}
+                            height={rowIconSize(row.icon).height}
+                            alt=""
+                            className="size-10 shrink-0 object-contain"
+                          />
                           <div>
                             <div className="text-[15px] font-semibold text-text-heading leading-5">
                               {row.title}
@@ -279,15 +277,13 @@ export default function ComparisonTable() {
             return (
               <div key={row.title} className="rounded-2xl border border-line-soft bg-white p-5">
                 <div className="flex items-start gap-3 mb-4">
-                          <div className="overflow-hidden rounded-full">
-                            <Image
-                              src={row.icon}
-                              width={rowIconSize(row.icon).width}
-                              height={rowIconSize(row.icon).height}
-                              alt=""
-                              className="rounded-full object-cover mix-blend-multiply"
-                            />
-                          </div>
+                          <Image
+                            src={row.icon}
+                            width={rowIconSize(row.icon).width}
+                            height={rowIconSize(row.icon).height}
+                            alt=""
+                            className="size-10 shrink-0 object-contain"
+                          />
                     <div>
                     <div className="text-[15px] font-semibold text-text-heading leading-5">
                       {row.title}
