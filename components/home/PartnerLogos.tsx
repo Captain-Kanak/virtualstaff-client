@@ -17,7 +17,7 @@ const partners = [
 
 export default function PartnerLogos() {
   return (
-    <Container className="bg-white py-10 md:py-14">
+    <Container className="bg-white pt-14 md:pt-20 pb-10 md:pb-14">
       <Reveal>
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto gap-2 mb-10 md:mb-14">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight leading-[1.2] text-foreground">
