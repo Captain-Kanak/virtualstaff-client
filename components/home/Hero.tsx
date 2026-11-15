@@ -3,16 +3,16 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { bookingUrl } from "@/lib/site";
+import { bookingUrl, navLinks } from "@/lib/site";
 import Container from "@/components/Container";
 
 const stickers = [
   // placeholder stats, confirm with client
   {
-    number: "4-day",
-    label: "SHORTLISTS",
+    number: "Top 1%",
+    label: "GLOBAL TALENT",
     bg: "bg-brand-tag-blue",
     text: "text-white",
     rotate: "-rotate-6",
@@ -21,8 +21,8 @@ const stickers = [
     delay: "0s",
   },
   {
-    number: "Top 5%",
-    label: "SHORTLISTS",
+    number: "$7/hr",
+    label: "STARTING AT",
     bg: "bg-brand-accent",
     text: "text-text-heading",
     rotate: "rotate-3",
@@ -31,8 +31,8 @@ const stickers = [
     delay: "-2s",
   },
   {
-    number: "40-70%",
-    label: "COST SAVINGS",
+    number: "Ongoing",
+    label: "SUPPORT",
     bg: "bg-brand-secondary",
     text: "text-white",
     rotate: "-rotate-3",
@@ -68,17 +68,21 @@ export default function Hero() {
 
           {/* Left column */}
           <div className="space-y-4">
-            <h1 className="text-[clamp(2.5rem,4.6vw,4.5rem)] font-extrabold tracking-tight leading-[1.05] text-foreground">
-              Global talent
+            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.05] text-text-heading">
+              Hire Exceptional Global Talent
               <br />
               <span className="bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
-                partner.
+                Starting at $7/Hour
               </span>
             </h1>
 
-            <p className="text-[clamp(1rem,1.45vw,1.25rem)] text-text-body max-w-xl mt-4 lg:mt-5">
-              Recruitment, EOR, BPO & HR outsourcing across Africa, Europe,
-              America and the Middle East.
+            <p className="mt-5 text-xl md:text-2xl font-semibold text-text-heading">
+              Grow Your Team, Not Your Overhead.
+            </p>
+            <p className="mt-3 max-w-xl text-base md:text-lg leading-relaxed text-text-body">
+              Get reliable, pre-vetted remote professionals who work under
+              RemoteStaff365. We handle the hiring, payroll, and day-to-day
+              management, so you get skilled support without the hassle.
             </p>
 
             <div className="flex flex-wrap items-center gap-5 mt-6 lg:mt-7">
@@ -87,20 +91,18 @@ export default function Hero() {
                 size="xl"
                 nativeButton={false}
                 render={
-                  <Link href="/jobs">
-                    Browse talent
-                    <ArrowRight className="size-4 ml-2" />
-                  </Link>
+                  <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
+                    <CalendarDays className="size-4 mr-2" />
+                    Book a Free Consultation
+                  </a>
                 }
               />
               <a
-                href={bookingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-base font-semibold text-foreground hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
+                href={navLinks.find((l) => l.name === "Services")?.href ?? "/#services"}
+                className="text-base font-semibold text-primary hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
               >
-                Book a 15-min call
-                <ArrowUpRight className="size-4" />
+                Explore Our Services
+                <ArrowRight className="size-4 ml-2" />
               </a>
             </div>
           </div>
@@ -124,7 +126,7 @@ export default function Hero() {
               <div className="absolute z-0 bottom-0 left-1/2 -translate-x-1/2 aspect-square w-[88%] rounded-full bg-gradient-to-b from-brand-primary/15 to-brand-soft" />
               <Image
                 src="/images/banner-2.png"
-                alt="Offshore virtual assistant working with a US business"
+                alt="Remote team member with a headset smiling at her laptop"
                 fill
                 sizes="(min-width: 1024px) 45vw, 100vw"
                 priority
