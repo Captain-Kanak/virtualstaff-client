@@ -170,13 +170,13 @@ export default function ComparisonTable() {
                         style={{ width: "28%" }}
                       >
                         <div className="flex gap-2.5 items-start">
-                          <div className="overflow-hidden rounded-full">
+                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
                             <Image
                               src={checkIcon}
                               width={iconSizes.check.w}
                               height={iconSizes.check.h}
                               alt=""
-                              className="rounded-full object-cover mix-blend-multiply mt-0.5"
+                              className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
                             />
                           </div>
                           <div>
