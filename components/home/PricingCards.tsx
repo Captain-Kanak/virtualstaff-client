@@ -101,18 +101,18 @@ export default function PricingCards() {
             return (
               <article
                 key={card.title}
+                aria-labelledby={`pricing-title-${i}`}
                 className={[
                   "flex flex-col h-full rounded-3xl p-6 lg:p-8 border border-white/70",
                   card.tintClass,
                   "shadow-lg transition-all duration-300 ease-out",
                   isPopular
-                    ? "hover:-translate-y-1 hover:shadow-[0_20px_40px_color-mix(in_srgb,var(--brand-primary)_15%,transparent)] ring-2 ring-brand-primary ring-offset-2"
+                    ? "hover:-translate-y-1 hover:shadow-[0_20px_40px_color-mix(in_srgb,var(--brand-primary)_15%,transparent)] ring-2 ring-[var(--brand-primary)] ring-inset"
                     : "hover:-translate-y-1 hover:shadow-lg",
                   card.shadowClass,
                 ]
                   .filter(Boolean)
                   .join(" ")}
-                aria-labelledby={`pricing-title-${i}`}
               >
                 {isPopular && (
                   <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 inline-flex items-center rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold tracking-wide text-primary border border-brand-primary ring-1 ring-white">
@@ -120,9 +120,11 @@ export default function PricingCards() {
                   </div>
                 )}
                 <div className="relative z-10 flex flex-col">
-                  <div className="flex items-start gap-5">
-                    <div className={`grid size-14 place-items-center rounded-2xl shrink-0 ${card.gradientClass}`}>
-                      <Icon className="size-26 text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
+                  <div className="flex items-center gap-4 mb-5">
+                    <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl overflow-hidden">
+                      <div className={card.gradientClass}>
+                        <Icon className="size-[26px] text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
+                      </div>
                     </div>
                     <div>
                       <h3
@@ -134,7 +136,7 @@ export default function PricingCards() {
                     </div>
                   </div>
 
-                  <div className="mt-5 lg:mt-6 rounded-2xl bg-white/70 border border-white p-4 lg:p-5">
+                  <div className="mt-5 lg:mt-6 rounded-2xl bg-white/70 border border-white p-4 lg:p-5 min-h-[132px] flex flex-col justify-center">
                     <div className="flex flex-col items-baseline">
                       <span
                         className={`text-sm text-text-body ${card.isCustom ? "opacity-0" : ""}`}
@@ -162,9 +164,9 @@ export default function PricingCards() {
                     </div>
                   </div>
 
-                  <div className="mt-6 space-y-3.5">
+                  <div className="mt-6 space-y-3.5 min-h-[168px]">
                     {card.checklist.map((item) => (
-                      <div key={item} className="flex items-start gap-3">
+                      <div key={item} className="flex items-start gap-3 min-h-[28px]">
                         <div
                           className={`grid size-6 place-items-center rounded-full shrink-0 ${card.accentBgClass}`}
                         >
