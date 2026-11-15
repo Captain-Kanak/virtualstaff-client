@@ -4,6 +4,7 @@ import Partnership from "@/components/how-it-works/Partnership";
 import PriceFormula from "@/components/how-it-works/PriceFormula";
 import ProcessSteps from "@/components/how-it-works/ProcessSteps";
 import ImageFeatureSection from "@/components/shared/ImageFeatureSection";
+import WhyChooseUs from "@/components/how-it-works/WhyChooseUs";
 import Regions from "@/components/how-it-works/Regions";
 import HowFAQ from "@/components/how-it-works/HowFAQ";
 import WhyRemoteStaff from "@/components/shared/WhyRemoteStaff";
@@ -34,6 +35,7 @@ export default function HowItWorksPage() {
         }}
         columns={1}
       />
+      <WhyChooseUs />
       <WhyRemoteStaff />
       <Partnership />
       <PriceFormula />
