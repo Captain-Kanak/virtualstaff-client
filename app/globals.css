@@ -304,12 +304,12 @@ body {
 }
 
 .hero-pad {
-  padding-top: calc(var(--nav-h) + 2rem);
+  padding-top: calc(var(--nav-h) + 1rem);
 }
 
 @media (min-width: 768px) {
   .hero-pad {
-    padding-top: calc(var(--nav-h) + 3rem);
+    padding-top: calc(var(--nav-h) + 1.25rem);
   }
 }
 
@@ -323,7 +323,7 @@ body {
 }
 @media (min-width: 1024px) {
   .hero-img-wrap {
-    --hero-h: clamp(340px, calc(100svh - var(--nav-h) - var(--strip-h) - var(--hero-gap) - 3rem), 560px);
+    --hero-h: clamp(320px, calc(100svh - var(--nav-h) - var(--strip-h) - var(--hero-gap) - 6rem), 500px);
     margin-inline: auto 0;
   }
 }
