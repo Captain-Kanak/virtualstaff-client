@@ -16,9 +16,9 @@ export default function Standard() {
     <section className="bg-white py-10 md:py-14">
       <Container>
         <div className="relative overflow-hidden rounded-3xl border border-line-soft bg-gradient-to-br from-white to-brand-tint shadow-card">
-          <div className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.6fr_1.1fr] items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1.5fr_1.1fr] items-center">
             {/* Photo column */}
-            <div className="relative h-56 sm:h-64 lg:h-full lg:min-h-[17rem]">
+            <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-[21rem]">
               <div className="standard-edge">
                 <div className="standard-photo">
                   <Image
@@ -26,7 +26,7 @@ export default function Standard() {
                     src="/images/va-banner-image.png"
                     alt="Smiling remote team member"
                     sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                    className="object-cover object-top"
+                    className="object-cover object-[40%_top]"
                     priority
                   />
                 </div>
@@ -34,7 +34,7 @@ export default function Standard() {
             </div>
 
             {/* Text column */}
-            <div className="px-6 py-8 lg:px-8">
+            <div className="px-6 py-8 lg:px-8 lg:py-10">
               <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
                 OUR STANDARD
               </span>
@@ -49,7 +49,7 @@ export default function Standard() {
             </div>
 
             {/* Checklist column */}
-            <div className="px-6 pb-8 lg:px-8 lg:py-8">
+            <div className="px-6 pb-8 lg:px-8 lg:py-10">
               <ul className="space-y-3">
                 {checklist.map((item) => (
                   <li key={item} className="flex items-center gap-3">

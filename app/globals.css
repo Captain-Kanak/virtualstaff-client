@@ -360,10 +360,10 @@ body {
   .standard-edge {
     position: absolute;
     inset: 0;
-    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
   }
   .standard-photo {
-    clip-path: polygon(0 0, calc(100% - 4px) 0, calc(88% - 4px) 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% - 4px) 0, calc(94% - 4px) 100%, 0 100%);
   }
 }
 
