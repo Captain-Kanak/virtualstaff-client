@@ -92,6 +92,7 @@ export default function Home() {
       </div>
       <Services />
       <Standard
+        variant="default"
         heading="Top 1% Global Talent"
         description="Our team consists of highly skilled, experienced professionals who are vetted, trained, and managed by RemoteStaff365 to ensure quality, reliability, and performance."
         items={DEFAULT_ITEMS}
