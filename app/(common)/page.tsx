@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Hero from "@/components/home/Hero";
+import HeroFeatures from "@/components/home/HeroFeatures";
 import PartnerLogos from "@/components/home/PartnerLogos";
 import ValueProps from "@/components/home/ValueProps";
 import MidCTA from "@/components/home/MidCTA";
@@ -22,6 +23,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
+      <HeroFeatures />
       <PartnerLogos />
       <ValueProps />
       <MidCTA />

@@ -311,7 +311,7 @@ body {
 }
 @media (min-width: 1024px) {
   .hero-img-wrap {
-    --hero-h: clamp(360px, calc(100svh - var(--nav-h) - 8rem), 560px);
+    --hero-h: clamp(360px, calc(100svh - var(--nav-h) - 13rem), 560px);
     margin-inline: auto 0;
   }
 }
