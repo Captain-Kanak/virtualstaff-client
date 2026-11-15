@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InnerHero from "@/components/InnerHero";
+import PricingCards from "@/components/home/PricingCards";
 import PricingPageContent from "@/components/pricing/PricingPageContent";
 import { bookingUrl } from "@/lib/site";
 
@@ -62,6 +63,7 @@ export default function PricingPage() {
           { title: "Fully Managed", subtitle: "TEAMS" },
         ]}
       />
+      <PricingCards id="plans" />
       <PricingPageContent />
     </div>
   );

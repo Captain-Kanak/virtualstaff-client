@@ -74,9 +74,17 @@ const cards: PricingCard[] = [
   },
 ];
 
-export default function PricingCards() {
+export default function PricingCards({ id }: { id?: string }) {
   return (
-    <section className="bg-[var(--brand-tint)] pt-6 md:pt-16 pb-12 md:pb-16">
+    <section
+      id={id}
+      className={[
+        "bg-[var(--brand-tint)] pt-6 md:pt-16 pb-12 md:pb-16",
+        id ? "scroll-mt-24" : "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
+    >
       <Container>
         <div className="text-center mb-10 md:mb-12">
           <p className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-primary mb-3">
