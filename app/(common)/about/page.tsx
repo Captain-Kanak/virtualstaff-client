@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import InnerHero from "@/components/InnerHero";
+import Mission from "@/components/about/Mission";
 import CTASection from "@/components/CTASection";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
@@ -58,6 +59,8 @@ export default function AboutPage() {
           { title: "Managed", subtitle: "BY US" },
         ]}
       />
+
+      <Mission />
 
       <Reveal>
         <section className="py-12 lg:py-24">
