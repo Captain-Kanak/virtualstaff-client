@@ -349,11 +349,12 @@ body {
 
 .standard-edge {
   background: var(--brand-primary);
+  position: absolute;
+  inset: 0;
 }
 
 .standard-photo {
   position: absolute;
-  inset: 0;
 }
 
 @media (min-width: 1024px) {
@@ -361,9 +362,6 @@ body {
     position: absolute;
     inset: 0;
     clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
-  }
-  .standard-photo {
-    clip-path: polygon(0 0, calc(100% - 4px) 0, calc(94% - 4px) 100%, 0 100%);
   }
 }
 

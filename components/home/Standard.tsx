@@ -18,23 +18,24 @@ export default function Standard() {
         <div className="relative overflow-hidden rounded-3xl border border-line-soft bg-gradient-to-br from-white to-brand-tint shadow-card">
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1.5fr_1.1fr] items-center">
             {/* Photo column */}
-            <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-[21rem]">
-              <div className="standard-edge">
-                <div className="standard-photo">
-                  <Image
-                    fill
-                    src="/images/va-banner-image.png"
-                    alt="Smiling remote team member"
-                    sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
-                    className="object-cover object-[40%_top]"
-                    priority
-                  />
-                </div>
+            <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-[21rem] overflow-visible">
+              {/* Layer A: blue background shape */}
+              <div className="standard-edge z-0" aria-hidden={true} />
+              {/* Layer B: photo */}
+              <div className="standard-photo z-10 bottom-0 left-0 h-full w-full overflow-visible">
+                <Image
+                  fill
+                  src="/images/va-banner-image.png"
+                  alt="Smiling remote team member"
+                  sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
+                  className="object-cover object-[40%_top]"
+                  priority
+                />
               </div>
             </div>
 
             {/* Text column */}
-            <div className="px-6 py-8 lg:px-8 lg:py-10">
+            <div className="px-6 py-8 lg:pl-12 lg:pr-6 lg:py-10">
               <span className="text-xs font-semibold uppercase tracking-widest text-primary mb-3 block">
                 OUR STANDARD
               </span>
