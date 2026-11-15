@@ -22,8 +22,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <Hero />
-      <HeroFeatures />
+      <div className="hero-screen">
+        <Hero />
+        <HeroFeatures />
+      </div>
       <PartnerLogos />
       <ValueProps />
       <MidCTA />
