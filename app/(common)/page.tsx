@@ -6,7 +6,6 @@ import Services from "@/components/home/Services";
 import Standard from "@/components/home/Standard";
 import ThreeSteps from "@/components/home/ThreeSteps";
 import PartnerLogos from "@/components/home/PartnerLogos";
-import ValueProps from "@/components/home/ValueProps";
 import MidCTA from "@/components/home/MidCTA";
 import HowItWorks from "@/components/home/HowItWorks";
 import GrowthPath from "@/components/home/GrowthPath";
@@ -33,7 +32,6 @@ export default function Home() {
       <Standard />
       <ThreeSteps />
       <PartnerLogos />
-      <ValueProps />
       <MidCTA />
       <HowItWorks />
       <GrowthPath />
