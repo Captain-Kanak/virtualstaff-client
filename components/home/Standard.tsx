@@ -15,10 +15,10 @@ export default function Standard() {
   return (
     <section className="bg-white py-10 md:py-14">
       <Container>
-        <div className="relative overflow-hidden rounded-3xl border border-line-soft bg-gradient-to-br from-white to-brand-tint shadow-card">
+        <div className="relative overflow-hidden rounded-3xl border border-line-soft bg-linear-to-br from-white to-brand-tint shadow-card">
           <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1.5fr_1.1fr] items-center">
             {/* Photo column */}
-            <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-[21rem] overflow-visible">
+            <div className="relative h-64 sm:h-72 lg:h-full lg:min-h-84 overflow-visible">
               {/* Layer A: blue background shape */}
               <div className="standard-edge z-0" aria-hidden={true} />
               {/* Layer B: photo */}
