@@ -51,7 +51,7 @@ export default function HowFAQ() {
   const [open, setOpen] = React.useState<string | null>(faqs[0]?.q ?? null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-soft/40">
+    <section id="faq" className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-soft/40 scroll-mt-24">
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">

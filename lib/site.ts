@@ -4,10 +4,12 @@ export const bookingUrl =
   process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/your-link";
 
 export const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/#services" },
   { name: "How It Works", href: "/how-it-works" },
   { name: "Pricing", href: "/pricing" },
-  { name: "Enterprise", href: "/enterprise" },
-  { name: "Jobs", href: "/jobs" },
+  { name: "About Us", href: "/about" },
+  { name: "FAQ", href: "/how-it-works#faq" },
 ];
 
 export const footerLinks = {

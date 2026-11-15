@@ -9,7 +9,7 @@ import Container from "@/components/ui/Container";
 import { Button } from "@/components/ui/button";
 import Logo from "@/components/ui/Logo";
 import MobileDrawer from "@/components/layout/MobileDrawer";
-import { X, ChevronRight } from "lucide-react";
+import { X, ChevronRight, CalendarDays } from "lucide-react";
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
@@ -89,7 +89,8 @@ export default function Navbar() {
               nativeButton={false}
               render={
                 <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                  Build Your Team
+                  <CalendarDays className="size-4 mr-2" />
+                  Book a Free Consultation
                 </a>
               }
             />
@@ -185,7 +186,8 @@ export default function Navbar() {
             nativeButton={false}
             render={
               <a href={bookingUrl} target="_blank" rel="noopener noreferrer">
-                Build Your Team
+                <CalendarDays className="size-4 mr-2" />
+                Book a Free Consultation
               </a>
             }
           />
