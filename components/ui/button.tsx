@@ -7,7 +7,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/80",
+        default: "bg-primary text-primary-foreground hover:bg-brand-primary-hover",
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
@@ -18,7 +18,7 @@ const buttonVariants = cva(
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
         brand:
-          "bg-gradient-to-b from-brand-primary to-brand-primary-light text-white shadow-[0_8px_18px_color-mix(in_srgb,var(--brand-primary)_35%,transparent)] transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary/50",
+          "bg-gradient-to-b from-brand-primary to-brand-primary-light text-white shadow-[0_8px_18px_color-mix(in_srgb,var(--brand-primary)_35%,transparent)] transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-out hover:from-brand-primary-hover hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary/50",
         green:
           "bg-gradient-to-b from-brand-success to-brand-success text-white shadow-[0_8px_18px_color-mix(in_srgb,var(--brand-success)_35%,transparent)] transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 focus-visible:ring-2 focus-visible:ring-primary/50",
       },
