@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import PageHeader from "@/components/PageHeader";
+import InnerHero from "@/components/InnerHero";
 import CTASection from "@/components/CTASection";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
@@ -36,10 +36,27 @@ const stats = [
 export default function AboutPage() {
   return (
     <div className="flex flex-col">
-      <PageHeader
-        eyebrow="RemoteStaff365"
-        title="About us"
-        subtitle="Connecting US companies with top offshore virtual assistants, one seat at a time."
+      <InnerHero
+        eyebrow="ABOUT US"
+        titleLines={["Your Partner for", "Reliable Remote", "Team Support"]}
+        description="RemoteStaff365 provides businesses with skilled, reliable, and fully managed remote teams, so you can focus on growth, productivity, and what matters most."
+        primaryCta={{
+          label: "Book a Free Consultation",
+          href: bookingUrl,
+        }}
+        secondaryCta={{
+          label: "Our Services",
+          href: "/services",
+        }}
+        image={{
+          src: "/images/banner-2.png",
+          alt: "Remote team member smiling with her laptop",
+        }}
+        tags={[
+          { title: "Skilled", subtitle: "PROFESSIONALS" },
+          { title: "Reliable", subtitle: "SUPPORT" },
+          { title: "Managed", subtitle: "BY US" },
+        ]}
       />
 
       <Reveal>
