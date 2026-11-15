@@ -9,5 +9,9 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesPage() {
-  return <ServicesHero />;
+  return (
+    <div className="hero-screen">
+      <ServicesHero />
+    </div>
+  );
 }

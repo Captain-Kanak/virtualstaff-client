@@ -11,6 +11,15 @@ import Logo from "@/components/ui/Logo";
 import MobileDrawer from "@/components/layout/MobileDrawer";
 import { X, ChevronRight, CalendarDays } from "lucide-react";
 
+// Routes whose hero goes under the navbar (hero-screen wrapper). Only these
+// get the transparent-at-top / white-after-scroll navbar treatment. Every
+// other route keeps the always-white solid navbar so text stays readable.
+export const HERO_ROUTES = ["/", "/services"];
+
+export function isHeroRoute(pathname: string) {
+  return HERO_ROUTES.includes(pathname);
+}
+
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
     <div
@@ -47,6 +56,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
+  const isHero = isHeroRoute(pathname);
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -57,9 +67,13 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close drawer on route change
+  // Close drawer on route change + reset navbar scrolled state so navigating
+  // between a scrolled page and a hero page (and back) starts from the right state.
   React.useEffect(() => {
-    const id = setTimeout(() => setOpen(false), 0);
+    const id = setTimeout(() => {
+      setOpen(false);
+      setScrolled(window.scrollY > 8);
+    }, 0);
     return () => clearTimeout(id);
   }, [pathname]);
 
@@ -68,7 +82,13 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 h-(--nav-h) flex items-center transition-colors duration-300 ease-out ${scrolled ? "border-b-2 border-line-soft bg-white/90 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"}`}
+        className={`fixed inset-x-0 top-0 z-50 h-(--nav-h) flex items-center transition-colors duration-300 ease-out ${
+          isHero
+            ? scrolled
+              ? "border-b-2 border-line-soft bg-white/90 backdrop-blur-md shadow-sm"
+              : "border-b border-transparent bg-transparent"
+            : "border-b-2 border-line-soft bg-white/90 backdrop-blur-md shadow-sm"
+        }`}
       >
         <Container className="flex h-full w-full items-center justify-between">
           <Logo variant="default" className="h-10 md:h-11" />
