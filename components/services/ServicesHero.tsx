@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Globe, Headset, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { bookingUrl } from "@/lib/site";
 import Container from "@/components/Container";
@@ -47,14 +47,6 @@ const stickers = [
     pos: "right-4 bottom-[8%]",
     delay: "-4s",
   },
-];
-
-const trustItems = [
-  { Icon: Users, label: "Skilled, Pre-vetted VAs" },
-  { Icon: Globe, label: "Global Talent Pool" },
-  { Icon: Headset, label: "Day-to-Day to Specialized Roles" },
-  { Icon: ShieldCheck, label: "Managed by RemoteStaff365" },
-  { Icon: TrendingUp, label: "Scale As You Grow" },
 ];
 
 export default function ServicesHero() {
@@ -175,29 +167,6 @@ export default function ServicesHero() {
 
         </div>
 
-        {/* Trust strip under the hero */}
-        <section className="mt-12 border-y border-line-soft bg-white py-5 lg:py-6">
-          <Container>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-5 lg:gap-0">
-              {trustItems.map((item, i) => {
-                const Icon = item.Icon;
-                return (
-                  <div
-                    key={item.label}
-                    className={`flex items-center gap-3 lg:justify-center lg:px-4 lg:border-l lg:border-line first:lg:border-l-0 ${
-                      i === 4 ? "col-span-2 lg:col-span-1 justify-self-center lg:justify-self-auto" : ""
-                    }`}
-                  >
-                    <Icon className="size-9 shrink-0 text-primary" strokeWidth={1.75} />
-                    <div className="text-sm md:text-base font-medium leading-snug text-text-heading">
-                      <span className="block">{item.label}</span>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Container>
-        </section>
       </Container>
     </section>
   );
