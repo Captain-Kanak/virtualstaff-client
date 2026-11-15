@@ -3,6 +3,7 @@
 import * as React from "react";
 import { ArrowRight, ClipboardList, Rocket, Users } from "lucide-react";
 import Container from "@/components/ui/Container";
+import Reveal from "@/components/Reveal";
 
 type Step = {
   number: number;
@@ -54,107 +55,31 @@ export default function ThreeSteps() {
           </p>
         </div>
 
-        <ol className="space-y-8 md:space-y-0 lg:space-y-0">
-          {/* Desktop: horizontal row with arrows */}
-          <div
-            className="hidden md:block lg:flex lg:items-center lg:gap-x-6 xl:gap-x-8"
-          >
-            {steps.map((step, i) => (
-              <React.Fragment key={step.number}>
-                <div className="flex items-center gap-5">
-                  <div
-                    className="grid size-22 place-items-center rounded-full bg-[color-mix(in_srgb,var(--brand-primary)_12%,_white)] transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:shadow-[0_8px_24px_color-mix(in_srgb,var(--brand-primary)_30%,transparent)]"
-                  >
-                    <step.Icon
-                      className="size-20 text-brand-primary"
-                      strokeWidth={1.75}
-                      aria-hidden="true"
-                    />
+        <div className="mt-10 grid grid-cols-1 items-stretch gap-4 md:mt-14 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:gap-x-4">
+          {steps.map((step, i) => (
+            <React.Fragment key={step.number}>
+              <Reveal key={`${step.number}-card`} className="flex h-full flex-col">
+                <div className="flex flex-1 flex-col rounded-2xl border border-line-soft bg-white p-6 shadow-card transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+                  <div className="grid size-14 place-items-center rounded-2xl bg-brand-soft">
+                    <step.Icon className="size-7 text-primary" strokeWidth={1.75} />
                   </div>
-                  <div className="max-w-[260px]">
-                    <h3 className="text-lg md:text-xl font-bold text-text-heading">
-                      {step.number}. {step.title}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-6 text-text-body">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-                {i < steps.length - 1 && (
-                  <div className="shrink-0" aria-hidden="true">
-                    <ArrowRight
-                      className="size-28 text-brand-primary stroke-[2]"
-                      aria-hidden="true"
-                    />
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Tablet: 3-column grid, no arrows */}
-          <div className="hidden lg:hidden grid grid-cols-3 gap-6 md:gap-8">
-            {steps.map((step) => (
-              <div
-                key={step.number}
-                className="flex flex-col items-center gap-4"
-              >
-                <div
-                  className="grid size-22 place-items-center rounded-full bg-[color-mix(in_srgb,var(--brand-primary)_12%,_white)]"
-                >
-                  <step.Icon
-                    className="size-20 text-brand-primary"
-                    strokeWidth={1.75}
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="text-center max-w-[260px]">
-                  <h3 className="text-lg font-bold text-text-heading">
+                  <h3 className="mt-5 text-lg md:text-xl font-semibold text-text-heading">
                     {step.number}. {step.title}
                   </h3>
-                  <p className="mt-2 text-[15px] leading-6 text-text-body">
+                  <p className="mt-2 text-base leading-relaxed text-text-body">
                     {step.description}
                   </p>
                 </div>
-              </div>
-            ))}
-          </div>
+              </Reveal>
 
-          {/* Mobile: vertical list with connector */}
-          <div className="flex flex-col gap-8 lg:hidden">
-            {steps.map((step, i) => (
-              <React.Fragment key={step.number}>
-                <div className="flex items-start gap-4">
-                  <div className="shrink-0 relative">
-                    <div
-                      className="grid size-16 place-items-center rounded-full bg-[color-mix(in_srgb,var(--brand-primary)_12%,_white)]"
-                    >
-                      <step.Icon
-                        className="size-14 text-brand-primary"
-                        strokeWidth={1.75}
-                        aria-hidden="true"
-                      />
-                    </div>
-                    {i < steps.length - 1 && (
-                      <div
-                        className="absolute left-1/2 top-full -translate-x-1/2 h-3 w-0.5 bg-brand-soft"
-                        aria-hidden="true"
-                      />
-                    )}
-                  </div>
-                  <div className="max-w-[260px]">
-                    <h3 className="text-lg font-bold text-text-heading">
-                      {step.number}. {step.title}
-                    </h3>
-                    <p className="mt-2 text-[15px] leading-6 text-text-body">
-                      {step.description}
-                    </p>
-                  </div>
+              {i < steps.length - 1 && (
+                <div className="hidden items-center justify-center lg:flex">
+                  <ArrowRight className="size-6 text-primary" />
                 </div>
-              </React.Fragment>
-            ))}
-          </div>
-        </ol>
+              )}
+            </React.Fragment>
+          ))}
+        </div>
       </Container>
     </section>
   );
