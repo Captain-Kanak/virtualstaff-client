@@ -1,12 +1,13 @@
 "use client";
 
-import { CalendarCheck, Check, Star, User, Users } from "lucide-react";
+import Image from "next/image";
+import { CalendarCheck, Check } from "lucide-react";
 import { bookingUrl } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/ui/Container";
 
 type PricingCard = {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  imageSrc: string;
   title: string;
   priceLabel: string;
   priceDollars: string;
@@ -15,7 +16,6 @@ type PricingCard = {
   accentClass: string;
   accentBgClass: string;
   tintClass: string;
-  gradientClass: string;
   shadowClass: string;
   badge?: boolean;
   checklist: string[];
@@ -23,7 +23,7 @@ type PricingCard = {
 
 const cards: PricingCard[] = [
   {
-    icon: User,
+    imageSrc: "/images/icons/3d-use.webp",
     title: "Part-Time Support",
     priceLabel: "Starting at",
     priceDollars: "$7",
@@ -31,7 +31,6 @@ const cards: PricingCard[] = [
     accentClass: "text-brand-success",
     accentBgClass: "bg-brand-success",
     tintClass: "bg-[color-mix(in_srgb,var(--brand-success)_12%,white)]",
-    gradientClass: "bg-gradient-to-b from-brand-success to-brand-primary-light",
     shadowClass: "shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)]",
     checklist: [
       "Up to 20 hours per week",
@@ -40,7 +39,7 @@ const cards: PricingCard[] = [
     ],
   },
   {
-    icon: Users,
+    imageSrc: "/images/icons/team.png",
     title: "Full-Time Support",
     priceLabel: "Starting at",
     priceDollars: "$7",
@@ -48,7 +47,6 @@ const cards: PricingCard[] = [
     accentClass: "text-brand-primary",
     accentBgClass: "bg-brand-primary",
     tintClass: "bg-[var(--brand-soft)]",
-    gradientClass: "bg-gradient-to-b from-brand-primary to-brand-primary-light",
     shadowClass: "shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_8%,transparent)]",
     badge: true,
     checklist: [
@@ -58,16 +56,15 @@ const cards: PricingCard[] = [
     ],
   },
   {
-    icon: Star,
+    imageSrc: "/images/icons/star-icon.png",
     title: "Specialized Support",
     priceLabel: "",
     priceDollars: "",
     priceSuffix: "",
     isCustom: true,
-    accentClass: "text-brand-secondary",
-    accentBgClass: "bg-brand-secondary",
-    tintClass: "bg-[color-mix(in_srgb,var(--brand-primary)_12%,white)]",
-    gradientClass: "bg-gradient-to-b from-brand-secondary to-brand-primary",
+    accentClass: "text-brand-accent",
+    accentBgClass: "bg-brand-accent",
+    tintClass: "bg-[color-mix(in_srgb,var(--brand-accent)_20%,white)]",
     shadowClass: "shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)]",
     checklist: [
       "For specialized or senior-level roles",
@@ -79,7 +76,7 @@ const cards: PricingCard[] = [
 
 export default function PricingCards() {
   return (
-    <section className="bg-[var(--brand-tint)] py-12 md:py-16">
+    <section className="bg-[var(--brand-tint)] pt-6 md:pt-16 pb-12 md:pb-16">
       <Container>
         <div className="text-center mb-10 md:mb-12">
           <p className="text-xs md:text-sm font-bold uppercase tracking-[0.25em] text-brand-primary mb-3">
@@ -96,18 +93,17 @@ export default function PricingCards() {
 
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-3 items-stretch">
           {cards.map((card, i) => {
-            const Icon = card.icon;
             const isPopular = card.badge;
             return (
               <article
                 key={card.title}
                 aria-labelledby={`pricing-title-${i}`}
                 className={[
-                  "flex flex-col h-full rounded-3xl p-6 lg:p-8 border border-white/70",
+                  "flex flex-col h-full rounded-3xl p-6 lg:p-8 border border-white/70 relative",
                   card.tintClass,
                   "shadow-lg transition-all duration-300 ease-out",
                   isPopular
-                    ? "hover:-translate-y-1 hover:shadow-[0_20px_40px_color-mix(in_srgb,var(--brand-primary)_15%,transparent)] ring-2 ring-[var(--brand-primary)] ring-inset"
+                    ? "ring-2 ring-[var(--brand-primary)] ring-inset hover:-translate-y-1 hover:shadow-[0_20px_40px_color-mix(in_srgb,var(--brand-primary)_15%,transparent)]"
                     : "hover:-translate-y-1 hover:shadow-lg",
                   card.shadowClass,
                 ]
@@ -115,16 +111,20 @@ export default function PricingCards() {
                   .join(" ")}
               >
                 {isPopular && (
-                  <div className="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 z-20 inline-flex items-center rounded-full bg-brand-soft px-3 py-1 text-xs font-semibold tracking-wide text-primary border border-brand-primary ring-1 ring-white">
+                  <div className="absolute left-1/2 top-0 z-20 -translate-x-1/2 -translate-y-1/2 inline-flex items-center rounded-full bg-brand-accent px-4 py-1.5 text-xs font-semibold tracking-wide text-white shadow-md">
                     Most popular
                   </div>
                 )}
                 <div className="relative z-10 flex flex-col">
                   <div className="flex items-center gap-4 mb-5">
-                    <div className="flex size-14 shrink-0 items-center justify-center rounded-2xl overflow-hidden">
-                      <div className={card.gradientClass}>
-                        <Icon className="size-[26px] text-white shrink-0" strokeWidth={1.75} aria-hidden="true" />
-                      </div>
+                    <div className="size-16 shrink-0 object-contain rounded-full overflow-hidden">
+                      <Image
+                        src={card.imageSrc}
+                        alt=""
+                        width={64}
+                        height={64}
+                        className="size-16 shrink-0 object-contain scale-110"
+                      />
                     </div>
                     <div>
                       <h3
@@ -145,9 +145,7 @@ export default function PricingCards() {
                       </span>
                       <div className="flex items-baseline gap-1">
                         {card.isCustom ? (
-                          <span
-                            className={`${card.accentClass} text-3xl font-extrabold leading-none whitespace-nowrap`}
-                          >
+                          <span className="text-brand-secondary text-3xl font-extrabold leading-none whitespace-nowrap">
                             Custom Quote
                           </span>
                         ) : (
@@ -171,7 +169,7 @@ export default function PricingCards() {
                           className={`grid size-6 place-items-center rounded-full shrink-0 ${card.accentBgClass}`}
                         >
                           <Check
-                            className="size-3.5 text-white"
+                            className={`size-3.5 ${card.isCustom ? "text-brand-secondary" : "text-white"}`}
                             strokeWidth={2.5}
                             aria-hidden="true"
                           />
