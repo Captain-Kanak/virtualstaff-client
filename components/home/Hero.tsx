@@ -69,9 +69,9 @@ export default function Hero() {
           {/* Left column */}
           <div className="space-y-4">
             <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.05] text-text-heading">
-              Hire Exceptional Global Talent
-              <br />
-              <span className="bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
+              <span className="block">Hire Exceptional</span>
+              <span className="block">Global Talent</span>
+              <span className="block bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
                 Starting at $7/Hour
               </span>
             </h1>
@@ -97,13 +97,25 @@ export default function Hero() {
                   </a>
                 }
               />
-              <a
-                href={navLinks.find((l) => l.name === "Services")?.href ?? "/#services"}
-                className="text-base font-semibold text-primary hover:text-primary transition-colors duration-300 flex items-center gap-1.5"
-              >
-                Explore Our Services
-                <ArrowRight className="size-4 ml-2" />
-              </a>
+              <Button
+                variant="outline"
+                size="xl"
+                nativeButton={false}
+                render={
+                  <Link
+                    href={
+                      navLinks.find((l) => l.name === "Services")?.href ??
+                      "/#services"
+                    }
+                  >
+                    Explore Our Services
+                    <ArrowRight
+                      className="size-4 ml-2 group-hover:translate-x-1"
+                    />
+                  </Link>
+                }
+                className="border-2 border-brand-primary text-brand-primary font-semibold bg-white/70 hover:bg-brand-soft transition-all duration-300"
+              />
             </div>
           </div>
 
