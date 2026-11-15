@@ -40,3 +40,29 @@ framer-motion, lucide-react, react-hook-form + zod.
 ## Done means
 - Run `npm run build` after every task and fix errors.
 - Do not start the dev server unless asked.
+
+## Design tokens (MUST follow)
+1. All colors come from CSS variables in app/globals.css :root. Never write
+   hex, rgb or hsl in components, TSX, or lib files. Never use Tailwind
+   default palette colors (slate-*, blue-*, gray-*, green-*, yellow-*, etc.).
+   white and black are allowed.
+2. Token list and meaning:
+   brand-primary (main brand blue, buttons/links), brand-primary-hover,
+   brand-primary-light (gradient end), brand-soft / brand-tint / brand-wash
+   (light blue backgrounds), surface-hero (hero bg), brand-secondary (dark
+   navy), brand-accent (yellow), brand-tag-blue, brand-success (green),
+   text-heading, text-body, line, line-soft, footer-bg, shadow-card.
+   Tailwind classes: bg-brand-primary, text-primary, bg-brand-soft,
+   text-text-body, border-line, shadow-card, etc.
+3. Need a new color? First add a token in :root and map it in @theme inline,
+   then use the class. Never use a one-off color.
+4. shadcn --secondary and --accent stay light tints. Do not turn them into
+   navy or yellow. Navy and yellow are brand-secondary and brand-accent.
+5. Fonts: only font-sans and font-heading. Font is loaded in app/layout.tsx
+   via next/font and exposed as --font-poppins. Never hardcode font-family.
+6. Tailwind classes must be literal strings (no dynamic class names).
+7. Before finishing any task, run these and fix every match:
+   grep -rnE "#[0-9a-fA-F]{3,8}\b" app components lib --include=*.tsx --include=*.ts
+   grep -rnE "\b(bg|text|border|from|via|to|ring|fill|stroke|shadow)-(slate|gray|zinc|blue|sky|indigo|yellow|amber|green|emerald|red|rose)-" app components lib
+8. At the end of every task print one suggested git commit message in
+   Conventional Commits format (type(scope): summary, plus a short body).
