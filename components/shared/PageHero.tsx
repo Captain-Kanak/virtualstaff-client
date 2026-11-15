@@ -1,0 +1,250 @@
+"use client";
+
+import * as React from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, CalendarDays, Coins, Globe, Headset, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Container from "@/components/Container";
+
+export type HeroBadgeVariant = "primary" | "accent" | "dark";
+
+export interface PageHeroBadge {
+  title: string;
+  caption: string;
+  variant: HeroBadgeVariant;
+}
+
+export interface PageHeroTrustItem {
+  icon: string;
+  label: React.ReactNode;
+}
+
+export interface PageHeroCta {
+  label: string;
+  href: string;
+}
+
+export interface PageHeroImage {
+  src: string;
+  alt: string;
+}
+
+export interface PageHeroProps {
+  eyebrow?: string;
+  title: React.ReactNode;
+  highlight?: React.ReactNode;
+  description: React.ReactNode;
+  primaryCta: PageHeroCta;
+  secondaryCta: PageHeroCta;
+  image: PageHeroImage;
+  badges: PageHeroBadge[];
+  trustItems?: PageHeroTrustItem[];
+  children?: React.ReactNode;
+}
+
+const BADGE_VARIANTS: Record<HeroBadgeVariant, { bg: string; text: string; shadow: string }> = {
+  primary: { bg: "bg-brand-tag-blue", text: "text-white", shadow: "shadow-[4px_4px_0_var(--text-heading)]" },
+  accent: { bg: "bg-brand-accent", text: "text-text-heading", shadow: "shadow-[4px_4px_0_var(--text-heading)]" },
+  dark: { bg: "bg-brand-secondary", text: "text-white", shadow: "shadow-[4px_4px_0_var(--brand-accent)]" },
+};
+
+// Fixed positions mirror the home hero exactly. Badge position does not depend
+// on the text column height because the image column uses self-start.
+const BADGE_POSITIONS = [
+  { pos: "left-0 top-[16%] md:-left-4", rotate: "-rotate-6", delay: "0s" },
+  { pos: "right-0 top-[38%] md:-right-3", rotate: "rotate-3", delay: "-2s" },
+  { pos: "right-4 bottom-[8%]", rotate: "-rotate-3", delay: "-4s" },
+];
+
+export default function PageHero({
+  eyebrow,
+  title,
+  highlight,
+  description,
+  primaryCta,
+  secondaryCta,
+  image,
+  badges,
+  trustItems,
+  children,
+}: PageHeroProps) {
+  return (
+    <div className="hero-screen">
+      <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
+        <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
+          <div className="hero-grid absolute inset-0" />
+          <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
+          <div className="absolute right-0 bottom-0 size-96 rounded-full bg-brand-primary/15 blur-3xl" />
+          <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-b from-transparent to-white" />
+          <div className="absolute -left-16 top-8 h-px w-[420px] origin-left rotate-[35deg] bg-gradient-to-r from-primary/30 to-transparent">
+            <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
+          </div>
+          <div className="absolute -right-16 bottom-12 h-px w-[420px] origin-right -rotate-[35deg] bg-gradient-to-l from-primary/30 to-transparent">
+            <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
+            <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
+          </div>
+          <div className="absolute left-[8%] top-[12%] size-3 rounded-full border border-primary/25" />
+          <div className="absolute right-[42%] top-[8%] size-5 rounded-full border border-primary/25" />
+          <div className="absolute left-[46%] bottom-[10%] size-10 rounded-full border border-primary/25" />
+        </div>
+
+        <Container className="relative z-10">
+          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+
+            {/* Left column */}
+            <div className="space-y-4">
+              {eyebrow && (
+                <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
+                  {eyebrow}
+                </p>
+              )}
+
+              <h1 className="text-4xl md:text-[2.5rem] lg:text-[2.75rem] xl:text-5xl font-extrabold tracking-tight leading-[1.05] text-text-heading">
+                {title}
+                {highlight}
+              </h1>
+
+              {description && (
+                <div className="mt-4 max-w-xl">
+                  {typeof description === "string" ? (
+                    <p className="text-base leading-relaxed text-text-body">
+                      {description}
+                    </p>
+                  ) : (
+                    description
+                  )}
+                </div>
+              )}
+
+              <div className="flex flex-wrap items-center gap-5 mt-6">
+                <Button
+                  variant="brand"
+                  size="xl"
+                  nativeButton={false}
+                  render={
+                    <a
+                      href={primaryCta.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <CalendarDays className="size-4 mr-2" />
+                      {primaryCta.label}
+                    </a>
+                  }
+                />
+                <Button
+                  variant="outline"
+                  size="xl"
+                  nativeButton={false}
+                  className="border-2 border-brand-primary text-brand-primary font-semibold bg-white/70 hover:bg-brand-soft transition-all duration-300"
+                  render={
+                    <Link href={secondaryCta.href}>
+                      {secondaryCta.label}
+                      <ArrowRight
+                        className="size-4 ml-2 group-hover:translate-x-1"
+                      />
+                    </Link>
+                  }
+                />
+              </div>
+            </div>
+
+            {/* Right column: self-start keeps the image at a fixed top offset
+                 independent of the text column height. */}
+            <div className="relative self-start">
+              <div className="hero-img-wrap" style={{ "--img-w": 724, "--img-h": 701 } as React.CSSProperties}>
+                <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
+                  <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />
+                  <div className="col-start-1 row-start-1 aspect-square rounded-full w-[136%] border border-dashed border-primary/30 animate-orbit">
+                    <div className="absolute left-1/2 -top-1.5 size-3 -translate-x-1/2 rounded-full bg-brand-accent shadow-[0_0_14px_color-mix(in_srgb,var(--brand-accent)_80%,transparent)]" />
+                    <div className="absolute bottom-[14%] right-[6%] size-2 rounded-full bg-brand-primary shadow-[0_0_12px_color-mix(in_srgb,var(--brand-primary)_80%,transparent)]" />
+                  </div>
+                  <div className="col-start-1 row-start-1 aspect-square rounded-full w-[160%] border-2 border-dashed border-brand-primary/15 animate-orbit-reverse">
+                    <div className="absolute left-[8%] top-[22%] size-2 rounded-full bg-brand-primary shadow-[0_0_12px_color-mix(in_srgb,var(--brand-primary)_70%,transparent)]" />
+                  </div>
+                </div>
+                <div
+                  className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[70%] rounded-full bg-primary/15 blur-3xl -z-10"
+                />
+                <div className="absolute z-0 bottom-0 left-1/2 -translate-x-1/2 aspect-square w-[88%] rounded-full bg-gradient-to-b from-brand-primary/15 to-brand-soft" />
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  priority
+                  className="object-contain object-bottom z-10"
+                />
+
+                {badges.map((badge, i) => {
+                  const variant = BADGE_VARIANTS[badge.variant];
+                  const position = BADGE_POSITIONS[i];
+                  return (
+                    <div
+                      key={badge.title}
+                      className={`animate-float-soft absolute z-20 rounded-xl border-2 border-text-heading px-3 py-2 2xl:px-4 2xl:py-3 whitespace-nowrap ${variant.shadow} ${variant.bg} ${variant.text} ${position.rotate} ${position.pos}`}
+                      style={{ animationDelay: position.delay }}
+                    >
+                      <span className={`text-[clamp(1.125rem,1.6vw,1.5rem)] font-extrabold leading-none ${variant.text}`}>
+                        {badge.title}
+                      </span>
+                      <span className={`text-[10px] font-semibold uppercase tracking-wide mt-1 block ${variant.text}`}>
+                        {badge.caption}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {trustItems && (
+        <section className="mt-12 border-y border-line-soft bg-white py-5 lg:py-6">
+          <Container>
+            <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-5 lg:gap-0">
+              {trustItems.map((item, i) => {
+                const Icon = TRUST_ICONS[item.icon];
+                return (
+                  <div
+                    key={String(i)}
+                    className={`flex items-center gap-3 lg:justify-center lg:px-4 lg:border-l lg:border-line first:lg:border-l-0 ${
+                      i === 4
+                        ? "col-span-2 lg:col-span-1 justify-self-center lg:justify-self-auto"
+                        : ""
+                    }`}
+                  >
+                    <Icon className="size-9 shrink-0 text-primary" strokeWidth={1.75} />
+                    <div className="text-sm md:text-base font-medium leading-snug text-text-heading">
+                      {typeof item.label === "string" ? (
+                        <span className="block">{item.label}</span>
+                      ) : (
+                        item.label
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </Container>
+        </section>
+      )}
+
+      {children}
+    </div>
+  );
+}
+
+const TRUST_ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  globe: Globe,
+  coins: Coins,
+  users: Users,
+  "calendar-days": CalendarDays,
+  headset: Headset,
+  "shield-check": ShieldCheck,
+  "trending-up": TrendingUp,
+};

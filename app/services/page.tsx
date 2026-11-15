@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 
-import ServicesHero from "@/components/services/ServicesHero";
+import PageHero from "@/components/shared/PageHero";
+import Services from "@/components/home/Services";
+import { bookingUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Our Services",
@@ -10,8 +12,47 @@ export const metadata: Metadata = {
 
 export default function ServicesPage() {
   return (
-    <div className="hero-screen">
-      <ServicesHero />
-    </div>
+    <>
+      <PageHero
+        eyebrow="OUR SERVICES"
+        title={<span className="block">Skilled Virtual Assistants</span>}
+        highlight={<span className="block text-primary">From Around the World</span>}
+        description="Build a high-performing remote team with skilled, pre-vetted virtual assistants from around the world. From day-to-day support to specialized roles, we provide the right talent to help you scale, save time, and grow your business."
+        primaryCta={{
+          label: "Book a Free Consultation",
+          href: bookingUrl,
+        }}
+        secondaryCta={{
+          label: "Get a Custom VA Plan",
+          href: "/contact",
+        }}
+        image={{
+          src: "/images/banner-2.png",
+          alt: "Skilled virtual assistant working remotely at a laptop",
+        }}
+        badges={[
+          {
+            title: "Top 1%",
+            caption: "GLOBAL TALENT",
+            variant: "primary",
+          },
+          {
+            title: "Pre-vetted",
+            caption: "VIRTUAL ASSISTANTS",
+            variant: "accent",
+          },
+          {
+            title: "Specialized",
+            caption: "ROLES",
+            variant: "dark",
+          },
+        ]}
+      />
+      <Services
+        eyebrow="OUR SERVICES"
+        title="The Right Support for Every Part of Your Business"
+        subtitle="Flexible, scalable, and cost-effective virtual assistant solutions tailored to your needs."
+      />
+    </>
   );
 }

@@ -15,68 +15,41 @@ import {
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/SectionHeading";
 import Reveal from "@/components/Reveal";
+import { services, SERVICES_SECTION_DEFAULTS } from "@/lib/services";
 
-type Service = {
-  Icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  title: string;
-  description: string;
+const LUCIDE_ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
+  laptop: Laptop,
+  headset: Headset,
+  "trending-up": TrendingUp,
+  megaphone: Megaphone,
+  "play-circle": PlayCircle,
+  calculator: Calculator,
+  package: Package,
+  code: Code,
 };
 
-const services: Service[] = [
-  {
-    Icon: Laptop,
-    title: "Virtual Assistants",
-    description: "Administrative, operational, and day-to-day business support.",
-  },
-  {
-    Icon: Headset,
-    title: "Customer Support",
-    description: "Deliver exceptional customer service across email, chat, and phone.",
-  },
-  {
-    Icon: TrendingUp,
-    title: "Sales & Lead Generation",
-    description: "Grow your pipeline with prospecting, outreach, and appointment setting.",
-  },
-  {
-    Icon: Megaphone,
-    title: "Social Media Management",
-    description: "Build your brand and grow your audience across social platforms.",
-  },
-  {
-    Icon: PlayCircle,
-    title: "Creative & Video Editing",
-    description: "Professional graphics, video editing, and content creation.",
-  },
-  {
-    Icon: Calculator,
-    title: "Bookkeeping & Finance Support",
-    description: "Keep your finances organized with bookkeeping, reconciliations, and reporting support.",
-  },
-  {
-    Icon: Package,
-    title: "E-commerce Support",
-    description: "Manage product listings, orders, customer inquiries, and more for your online store.",
-  },
-  {
-    Icon: Code,
-    title: "Website & Technical Support",
-    description: "Keep your systems running smoothly with website, IT, and technical support.",
-  },
-] as const;
+export interface ServicesSectionProps {
+  eyebrow?: string;
+  title?: React.ReactNode;
+  subtitle?: string;
+}
 
-export default function Services() {
+export default function Services({
+  eyebrow = SERVICES_SECTION_DEFAULTS.eyebrow,
+  title = SERVICES_SECTION_DEFAULTS.title,
+  subtitle = SERVICES_SECTION_DEFAULTS.subtitle,
+}: ServicesSectionProps) {
   return (
     <section id="services" className="scroll-mt-24 bg-white py-14 md:py-20">
       <Container>
         <SectionHeading
-          eyebrow="OUR SERVICES"
-          title="The Right Talent for Every Part of Your Business."
-          subtitle="Reliable, managed remote team support across a wide range of business functions."
+          eyebrow={eyebrow}
+          title={title}
+          subtitle={subtitle}
         />
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
           {services.map((service) => {
-            const Icon = service.Icon;
+            const Icon = LUCIDE_ICONS[service.icon];
             return (
               <Reveal key={service.title} className="flex h-full flex-col">
                 <Link
