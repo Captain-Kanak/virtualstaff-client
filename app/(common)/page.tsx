@@ -24,8 +24,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <div className="hero-screen">
-        <PageHero
+      <PageHero
           title={
             <>
               <span className="block">Hire Exceptional</span>
@@ -79,17 +78,9 @@ export default function Home() {
               variant: "dark",
             },
           ]}
-          trustItems={[
-            { icon: "globe", label: "Ready-to-Work Global Talent" },
-            { icon: "coins", label: "Starting at $7/Hour" },
-            { icon: "users", label: "Managed by RemoteStaff365" },
-            { icon: "calendar-days", label: "Flexible Team Options" },
-            { icon: "headset", label: "Ongoing Support" },
-          ]}
         >
           <HeroFeatures />
         </PageHero>
-      </div>
       <Services />
       <Standard
         variant="default"

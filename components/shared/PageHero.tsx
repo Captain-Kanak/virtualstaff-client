@@ -3,7 +3,7 @@
 import * as React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Coins, Globe, Headset, ShieldCheck, TrendingUp, Users } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Container from "@/components/Container";
 
@@ -13,11 +13,6 @@ export interface PageHeroBadge {
   title: string;
   caption: string;
   variant: HeroBadgeVariant;
-}
-
-export interface PageHeroTrustItem {
-  icon: string;
-  label: React.ReactNode;
 }
 
 export interface PageHeroCta {
@@ -39,7 +34,6 @@ export interface PageHeroProps {
   secondaryCta: PageHeroCta;
   image: PageHeroImage;
   badges: PageHeroBadge[];
-  trustItems?: PageHeroTrustItem[];
   children?: React.ReactNode;
 }
 
@@ -66,7 +60,6 @@ export default function PageHero({
   secondaryCta,
   image,
   badges,
-  trustItems,
   children,
 }: PageHeroProps) {
   return (
@@ -203,48 +196,7 @@ export default function PageHero({
         </Container>
       </section>
 
-      {trustItems && (
-        <section className="mt-12 border-y border-line-soft bg-white py-5 lg:py-6">
-          <Container>
-            <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-5 lg:gap-0">
-              {trustItems.map((item, i) => {
-                const Icon = TRUST_ICONS[item.icon];
-                return (
-                  <div
-                    key={String(i)}
-                    className={`flex items-center gap-3 lg:justify-center lg:px-4 lg:border-l lg:border-line first:lg:border-l-0 ${
-                      i === 4
-                        ? "col-span-2 lg:col-span-1 justify-self-center lg:justify-self-auto"
-                        : ""
-                    }`}
-                  >
-                    <Icon className="size-9 shrink-0 text-primary" strokeWidth={1.75} />
-                    <div className="text-sm md:text-base font-medium leading-snug text-text-heading">
-                      {typeof item.label === "string" ? (
-                        <span className="block">{item.label}</span>
-                      ) : (
-                        item.label
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </Container>
-        </section>
-      )}
-
       {children}
     </div>
   );
 }
-
-const TRUST_ICONS: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
-  globe: Globe,
-  coins: Coins,
-  users: Users,
-  "calendar-days": CalendarDays,
-  headset: Headset,
-  "shield-check": ShieldCheck,
-  "trending-up": TrendingUp,
-};
