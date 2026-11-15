@@ -148,13 +148,13 @@ export default function ComparisonTable() {
                         style={{ width: "24%" }}
                       >
                         <div className="flex items-start gap-3">
-                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                          <div className="overflow-hidden rounded-full">
                             <Image
                               src={row.icon}
                               width={rowIconSize(row.icon).width}
                               height={rowIconSize(row.icon).height}
                               alt=""
-                              className="size-6 rounded-full object-cover mix-blend-multiply"
+                              className="rounded-full object-cover mix-blend-multiply"
                             />
                           </div>
                           <div>
@@ -172,13 +172,13 @@ export default function ComparisonTable() {
                         style={{ width: "28%" }}
                       >
                         <div className="flex gap-2.5 items-start">
-                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                          <div className="overflow-hidden rounded-full">
                             <Image
-                              src={crossIcon}
+                              src={checkIcon}
                               width={iconSizes.check.w}
                               height={iconSizes.check.h}
                               alt=""
-                              className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                              className="rounded-full object-cover mix-blend-multiply mt-0.5"
                             />
                           </div>
                           <div>
@@ -279,16 +279,16 @@ export default function ComparisonTable() {
             return (
               <div key={row.title} className="rounded-2xl border border-line-soft bg-white p-5">
                 <div className="flex items-start gap-3 mb-4">
-                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                          <div className="overflow-hidden rounded-full">
                             <Image
                               src={row.icon}
                               width={rowIconSize(row.icon).width}
                               height={rowIconSize(row.icon).height}
                               alt=""
-                              className="size-6 rounded-full object-cover mix-blend-multiply"
+                              className="rounded-full object-cover mix-blend-multiply"
                             />
                           </div>
-                  <div>
+                    <div>
                     <div className="text-[15px] font-semibold text-text-heading leading-5">
                       {row.title}
                     </div>
