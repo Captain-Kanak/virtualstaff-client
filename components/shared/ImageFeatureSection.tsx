@@ -2,20 +2,32 @@
 
 import Image from "next/image";
 import { Check } from "lucide-react";
-import Container from "@/components/ui/Container";
+import Container from "@/components/Container";
 
-const ITEMS = [
-  "Executive Assistant",
-  "Project Management",
-  "Data Entry & Research",
-  "HR & Recruitment",
-  "Real Estate Support",
-  "And More",
-] as const;
+export interface ImageFeatureSectionProps {
+  id: string;
+  heading: string;
+  description?: string;
+  items: string[];
+  image: { src: string; alt: string };
+  columns?: 1 | 2;
+}
 
-export default function SpecializedRoleSection() {
+export default function ImageFeatureSection({
+  id,
+  heading,
+  description,
+  items,
+  image,
+  columns = 2,
+}: ImageFeatureSectionProps) {
+  const isSingleColumn = columns === 1;
+  const listClasses = isSingleColumn
+    ? "mt-6 grid grid-cols-1 gap-y-4"
+    : "mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 lg:gap-x-10 xl:whitespace-nowrap";
+
   return (
-    <section id="specialized-roles" className="bg-white py-10 md:py-14">
+    <section id={id} className="bg-white py-10 md:py-14">
       <Container>
         <div className="relative overflow-hidden rounded-3xl border border-line-soft bg-linear-to-br from-white to-brand-tint shadow-card">
           <div className="grid gap-8 lg:gap-0 items-center grid-cols-1 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
@@ -25,8 +37,8 @@ export default function SpecializedRoleSection() {
               <div className="standard-photo z-10 bottom-0 left-0 h-full w-full overflow-visible">
                 <Image
                   fill
-                  src="/images/va-banner-image.png"
-                  alt="Smiling remote team member"
+                  src={image.src}
+                  alt={image.alt}
                   sizes="(min-width: 1024px) 17vw, (min-width: 640px) 30vw, 45vw"
                   className="object-cover object-[40%_top]"
                   priority
@@ -37,15 +49,15 @@ export default function SpecializedRoleSection() {
             {/* Right: vertical stack */}
             <div className="px-6 sm:p-8 px-10 xl:px-14 py-10 flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-[1.15] text-text-heading">
-                Need a Specialized Role?
+                {heading}
               </h2>
-              <p className="mt-4 max-w-xl text-base leading-relaxed text-text-body">
-                We also source global talent for a wide range of specialized
-                and industry-specific roles. Tell us what you need and we&apos;ll
-                find the right talent for your business.
-              </p>
-              <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 lg:gap-x-10 xl:whitespace-nowrap">
-                {ITEMS.map((item) => (
+              {description && (
+                <p className="mt-4 max-w-xl text-base leading-relaxed text-text-body">
+                  {description}
+                </p>
+              )}
+              <ul className={listClasses}>
+                {items.map((item) => (
                   <li key={item} className="flex items-center gap-3">
                     <div className="grid size-6 shrink-0 place-items-center rounded-full bg-brand-primary">
                       <Check className="size-3.5 text-white" strokeWidth={3} />

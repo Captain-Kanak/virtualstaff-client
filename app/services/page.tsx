@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import PageHero from "@/components/shared/PageHero";
 import Services from "@/components/home/Services";
-import SpecializedRoleSection from "@/components/services/SpecializedRoleSection";
+import ImageFeatureSection from "@/components/shared/ImageFeatureSection";
 import { bookingUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -54,7 +54,24 @@ export default function ServicesPage() {
         title="The Right Support for Every Part of Your Business"
         subtitle="Flexible, scalable, and cost-effective virtual assistant solutions tailored to your needs."
       />
-      <SpecializedRoleSection />
+      <ImageFeatureSection
+        id="specialized-roles"
+        heading="Need a Specialized Role?"
+        description="We also source global talent for a wide range of specialized and industry-specific roles. Tell us what you need and we&apos;ll find the right talent for your business."
+        items={[
+          "Executive Assistant",
+          "Project Management",
+          "Data Entry & Research",
+          "HR & Recruitment",
+          "Real Estate Support",
+          "And More",
+        ]}
+        image={{
+          src: "/images/va-banner-image.png",
+          alt: "Smiling remote team member",
+        }}
+        columns={2}
+      />
     </>
   );
 }
