@@ -70,7 +70,7 @@ function FooterColumn({
               <li key={item.name}>
                 <Link
                   href={item.href!}
-                  className="text-base text-slate-300 py-0.5 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
+                  className="text-base text-text-body py-0.5 transition-colors duration-300 hover:text-white focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-1 focus-visible:rounded-sm"
                 >
                   {item.name}
                 </Link>
@@ -78,7 +78,7 @@ function FooterColumn({
             );
           }
           return (
-            <li key={item.name} className="text-base text-slate-400 py-0.5">
+            <li key={item.name} className="text-base text-text-body py-0.5">
               {item.name}
             </li>
           );
@@ -95,7 +95,7 @@ function SocialIcon({ icon: Icon, href, ariaLabel }: { icon: React.ElementType; 
       target="_blank"
       rel="noopener noreferrer"
       aria-label={ariaLabel}
-      className="size-9 rounded-full bg-white/10 text-white hover:bg-primary transition-colors duration-300 flex items-center justify-center"
+      className="size-9 rounded-full bg-white/10 text-white hover:bg-brand-primary transition-colors duration-300 flex items-center justify-center"
     >
       <Icon size={18} />
     </a>
@@ -104,16 +104,16 @@ function SocialIcon({ icon: Icon, href, ariaLabel }: { icon: React.ElementType; 
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 bg-slate-900 text-white">
+    <footer className="border-t border-white/10 bg-footer-bg text-white">
       <Container className="py-12 md:py-14">
         <div className="lg:grid lg:grid-cols-[1.6fr_1fr_1fr_1fr_1.2fr] lg:gap-x-8 lg:gap-y-8">
           <div className="flex flex-col gap-5 lg:col-span-1">
             <Logo variant="light" className="h-10 md:h-11" />
-            <p className="text-base leading-7 text-slate-300 max-w-xs mt-4">
+            <p className="text-base leading-7 text-text-body max-w-xs mt-4">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.
             </p>
-            <p className="text-sm text-slate-400">{regionalText}</p>
+            <p className="text-sm text-text-body">{regionalText}</p>
             <div className="flex flex-wrap gap-3 pb-2 mt-6">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
@@ -129,11 +129,11 @@ export default function Footer() {
         <div className="lg:hidden grid grid-cols-2 gap-8 mt-6 pt-6 border-t border-white/10">
           <div className="col-span-2 flex flex-col gap-5">
             <Logo variant="light" className="h-10 md:h-11" />
-            <p className="text-base leading-7 text-slate-300 max-w-xs mt-4">
+            <p className="text-base leading-7 text-text-body max-w-xs mt-4">
               Hire pre-vetted offshore virtual assistants for your US-based
               business.
             </p>
-            <p className="text-sm text-slate-400">{regionalText}</p>
+            <p className="text-sm text-text-body">{regionalText}</p>
             <div className="flex flex-wrap gap-3 pb-2 mt-6">
               {socialLinks.map((social) => (
                 <SocialIcon key={social.name} icon={social.icon} href={social.href} ariaLabel={social.ariaLabel} />
@@ -146,18 +146,18 @@ export default function Footer() {
           <FooterColumn title="Contact" items={contactItems} />
         </div>
 
-        <div className="border-t border-white/10 mt-10 md:mt-12 pt-6 pb-6 flex items-center justify-between gap-4 text-sm md:text-[15px] text-slate-400">
+        <div className="border-t border-white/10 mt-10 md:mt-12 pt-6 pb-6 flex items-center justify-between gap-4 text-sm md:text-[15px] text-text-body">
           <p>&copy; {year} {siteName}. All rights reserved.</p>
           <nav aria-label="Footer legal" className="flex items-center gap-4">
             <Link
               href="/terms"
-              className="text-slate-300 hover:text-white transition-colors duration-300"
+              className="text-text-body hover:text-white transition-colors duration-300"
             >
               Terms
             </Link>
             <Link
               href="/privacy"
-              className="text-slate-300 hover:text-white transition-colors duration-300"
+              className="text-text-body hover:text-white transition-colors duration-300"
             >
               Privacy
             </Link>

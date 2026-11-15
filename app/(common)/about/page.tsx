@@ -61,7 +61,7 @@ export default function AboutPage() {
       </Reveal>
 
       <Reveal>
-        <section className="py-12 lg:py-24 bg-[#F5F8FF]">
+        <section className="py-12 lg:py-24 bg-brand-tint">
         <Container>
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
               What we stand for
@@ -70,7 +70,7 @@ export default function AboutPage() {
               {values.map((v) => (
                 <Card
                   key={v.title}
-                  className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6 flex flex-col h-full"
+                  className="bg-white rounded-2xl shadow-card p-6 flex flex-col h-full"
                 >
                   <h3 className="text-lg font-bold text-foreground mb-2">
                     {v.title}

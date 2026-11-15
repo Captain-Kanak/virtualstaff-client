@@ -43,7 +43,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <Reveal>
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#CFE0FB] via-[#E8F0FE] to-white py-14 md:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-brand-wash via-brand-soft to-white py-14 md:py-20">
         <Container>
           <SectionHeading
             title={
@@ -59,15 +59,15 @@ export default function HowItWorks() {
             {steps.map((step, i) => (
               <Reveal key={step.title} delay={i * 0.1}>
                 <div className="flex h-full flex-col">
-                  <div className="relative flex flex-1 flex-col rounded-3xl bg-white p-5 pt-10 shadow-[0_10px_30px_rgba(37,99,235,0.10)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+                  <div className="relative flex flex-1 flex-col rounded-3xl bg-white p-5 pt-10 shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-primary)_10%,transparent)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
                     <Image
                       src={step.badge}
                       alt={`Step ${i + 1}`}
                       width={216}
                       height={212}
-                      className="absolute left-1/2 top-0 z-10 h-14 w-auto -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_6px_12px_rgba(37,99,235,0.35)]"
+                      className="absolute left-1/2 top-0 z-10 h-14 w-auto -translate-x-1/2 -translate-y-1/2 drop-shadow-[0_6px_12px_color-mix(in_srgb,var(--brand-primary)_35%,transparent)]"
                     />
-                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-slate-100">
+                    <div className="relative aspect-[3/2] w-full overflow-hidden rounded-2xl bg-line-soft">
                       <Image
                         src={step.image}
                         alt={step.imageAlt}
@@ -79,7 +79,7 @@ export default function HowItWorks() {
                     <h3 className="mt-5 text-xl font-semibold leading-snug text-foreground">
                       {step.title}
                     </h3>
-                    <p className="mt-2 text-base leading-relaxed text-slate-600">
+                    <p className="mt-2 text-base leading-relaxed text-text-body">
                       {step.text}
                     </p>
                   </div>

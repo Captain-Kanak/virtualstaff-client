@@ -124,7 +124,7 @@ export default async function IndustryPage({
               {industry.roles.map((role: string) => (
                 <Card
                   key={role}
-                  className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6"
+                  className="bg-white rounded-2xl shadow-card p-6"
                 >
                   <h3 className="text-lg font-bold text-foreground mb-2">
                     {role}

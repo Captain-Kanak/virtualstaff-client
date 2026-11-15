@@ -48,19 +48,19 @@ export default function PricingFAQ() {
   const [open, setOpen] = React.useState<string | null>(faqs[0]?.q ?? null);
 
   return (
-    <section className="py-16 md:py-20 bg-[#F5F8FF]">
+    <section className="py-16 md:py-20 bg-brand-tint">
       <Container>
         <div className="text-center mb-12">
           <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
             Frequently asked questions
           </h2>
-          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+          <p className="text-text-body text-lg max-w-2xl mx-auto">
             Everything you need to know about seat fees, salary, total cost,
             and getting started.
           </p>
         </div>
 
-        <div className="rounded-2xl border border-slate-100 bg-white p-2 md:p-4 shadow-[2px_4px_12px_#00000014] max-w-3xl mx-auto">
+        <div className="rounded-2xl border border-line-soft bg-white p-2 md:p-4 shadow-card max-w-3xl mx-auto">
           <Accordion
             className="space-y-2 md:space-y-3"
             value={open ? [open] : []}
@@ -77,10 +77,10 @@ export default function PricingFAQ() {
                 >
                   <AccordionItem
                     className={cn(
-                      "relative rounded-2xl border border-slate-200/80 bg-white shadow-sm overflow-hidden border-b-0 transition-all duration-300",
-                      "hover:border-blue-200 hover:shadow-md",
+                      "relative rounded-2xl border border-line-soft/80 bg-white shadow-sm overflow-hidden border-b-0 transition-all duration-300",
+                      "hover:border-line hover:shadow-md",
                       isOpen
-                        ? "border-blue-300 ring-1 ring-blue-100 shadow-lg shadow-blue-600/5"
+                        ? "border-line-soft ring-1 ring-brand-soft shadow-lg"
                         : ""
                     )}
                     value={faq.q}
@@ -88,8 +88,8 @@ export default function PricingFAQ() {
                     <AccordionTrigger
                       className={cn(
                         "flex items-center justify-between gap-4 w-full px-5 md:px-7 py-4 text-base md:text-lg font-semibold text-left",
-                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
-                        isOpen ? "text-blue-700" : "text-slate-900"
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary",
+                        isOpen ? "text-primary" : "text-text-heading"
                       )}
                       aria-expanded={isOpen}
                     >
@@ -98,8 +98,8 @@ export default function PricingFAQ() {
                           className={cn(
                             "size-9 rounded-full flex items-center justify-center font-semibold text-sm shrink-0",
                             isOpen
-                              ? "bg-blue-600 text-white"
-                              : "bg-slate-100 text-slate-500"
+                              ? "bg-brand-primary text-white"
+                              : "bg-brand-soft text-text-body"
                           )}
                         >
                           {(index + 1).toString().padStart(2, "0")}
@@ -110,8 +110,8 @@ export default function PricingFAQ() {
                         className={cn(
                           "size-9 rounded-full flex items-center justify-center border transition-transform duration-200 shrink-0",
                           isOpen
-                            ? "bg-blue-600 border-transparent text-white"
-                            : "bg-slate-50 border-slate-200 text-slate-600"
+                            ? "bg-brand-primary border-transparent text-white"
+                            : "bg-brand-tint border-line-soft text-text-body"
                         )}
                       >
                         <PlusIcon
@@ -126,7 +126,7 @@ export default function PricingFAQ() {
                     <AccordionContent className="overflow-hidden">
                       <div
                         className={cn(
-                          "grid overflow-hidden pt-4 pb-6 pr-5 md:pr-7 border-t border-slate-100 text-base leading-7 text-slate-600",
+                          "grid overflow-hidden pt-4 pb-6 pr-5 md:pr-7 border-t border-line-soft text-base leading-7 text-text-body",
                           "[grid-template-rows:0fr] transition-[grid-template-rows] duration-300 ease-out",
                           "pl-[calc(1.25rem+36px+1rem)] md:pl-[calc(1.75rem+36px+1rem)]",
                           isOpen ? "[grid-template-rows:1fr]" : ""

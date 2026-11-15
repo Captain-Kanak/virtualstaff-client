@@ -49,7 +49,7 @@ export default function BlogPage() {
               {posts.map((post) => (
                 <Card
                   key={post.title}
-                  className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6 flex flex-col h-full"
+                  className="bg-white rounded-2xl shadow-card p-6 flex flex-col h-full"
                 >
                   <span className="text-xs text-muted mb-3">{post.date}</span>
                   <h3 className="text-lg font-bold text-foreground mb-2">
@@ -58,7 +58,7 @@ export default function BlogPage() {
                   <p className="text-muted leading-relaxed mb-4 flex-1">
                     {post.excerpt}
                   </p>
-                  <Link href="/blog" className="text-[#2563eb] font-medium hover:underline inline-flex items-center gap-1">
+                  <Link href="/blog" className="text-primary font-medium hover:underline inline-flex items-center gap-1">
                     Read more
                   </Link>
                 </Card>

@@ -73,7 +73,7 @@ interface Plan {
 function Avatar({ photo, size, index }: { photo?: string; size: keyof typeof avatarSizes; index: number }) {
   return (
     <span
-      className={`relative inline-block shrink-0 overflow-hidden rounded-full bg-slate-200 ring-4 ring-white shadow-md ${avatarSizes[size]} ${index > 0 ? "-ml-3" : ""}`}
+      className={`relative inline-block shrink-0 overflow-hidden rounded-full bg-line ring-4 ring-white shadow-md ${avatarSizes[size]} ${index > 0 ? "-ml-3" : ""}`}
     >
       <Image
         src={photo ?? "/images/user.jpg"}
@@ -108,8 +108,8 @@ export default function GrowthPath() {
             <React.Fragment key={plan.tag}>
               <Reveal key={`${plan.tag}-card`} delay={i * 0.1}>
                 <div className="flex h-full flex-col">
-                  <div className="relative flex flex-1 flex-col rounded-3xl bg-white p-6 text-center border border-slate-100 shadow-[0_10px_30px_rgba(15,23,42,0.07)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
-                    <div className="mx-auto inline-flex w-fit items-center rounded-full bg-blue-50 px-4 py-1 text-xs font-semibold tracking-wide text-primary mb-2">
+                  <div className="relative flex flex-1 flex-col rounded-3xl bg-white p-6 text-center border border-line-soft shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_7%,transparent)] transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg">
+                    <div className="mx-auto inline-flex w-fit items-center rounded-full bg-brand-soft px-4 py-1 text-xs font-semibold tracking-wide text-primary mb-2">
                       {plan.tag}
                     </div>
                     <h3 className="mt-3 text-xl font-semibold text-foreground">
@@ -125,7 +125,7 @@ export default function GrowthPath() {
                         />
                       ))}
                     </div>
-                    <div className="mt-auto pt-6 min-h-[7.5rem] rounded-2xl bg-[#EAF1FF] px-5 py-4 flex items-center gap-4 text-left">
+                    <div className="mt-auto pt-6 min-h-[7.5rem] rounded-2xl bg-brand-tint px-5 py-4 flex items-center gap-4 text-left">
                       <span className="text-5xl font-extrabold text-primary leading-none">
                         {plan.seats}
                       </span>
@@ -134,7 +134,7 @@ export default function GrowthPath() {
                           RemoteStaff365
                           <span className="text-primary">{plan.label === "Seat" ? " Seat" : " Seats"}</span>
                         </div>
-                        <p className="mt-1 text-sm text-slate-600">{plan.text}</p>
+                        <p className="mt-1 text-sm text-text-body">{plan.text}</p>
                       </div>
                     </div>
                   </div>
@@ -155,21 +155,20 @@ export default function GrowthPath() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-[2rem] bg-white border border-slate-100 shadow-[0_8px_24px_rgba(15,23,42,0.06)] grid md:grid-cols-2 md:divide-x divide-slate-100">
+        <div className="mt-8 rounded-[2rem] bg-white border border-line-soft shadow-[0_8px_24px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)] grid md:grid-cols-2 md:divide-x divide-line-soft">
           <div className="flex items-center gap-4 md:gap-5 p-6 md:p-7">
               <Image
                 src="/images/team/money.png"
-                width={64}
-                height={64}
                 alt=""
-                className="shrink-0 object-contain rounded-2xl"
-                sizes="64px"
+                width={56}
+                height={56}
+                className="shrink-0 object-contain h-14 w-14 md:h-16 md:w-16"
               />
             <div>
               <p className="text-base font-semibold text-foreground">
                 Add more seats as your needs grow
               </p>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-text-body">
                 Each $99 / month seat supports one ongoing team member.
               </p>
             </div>
@@ -177,17 +176,16 @@ export default function GrowthPath() {
           <div className="flex items-center gap-4 md:gap-5 p-6 md:p-7">
               <Image
                 src="/images/team/team.png"
-                width={64}
-                height={64}
                 alt=""
-                className="shrink-0 object-contain rounded-2xl"
-                sizes="64px"
+                width={56}
+                height={56}
+                className="shrink-0 object-contain h-14 w-14 md:h-16 md:w-16"
               />
             <div>
               <p className="text-base font-semibold text-foreground">
                 Over time, seats become part of how your business grows
               </p>
-              <p className="mt-1 text-sm text-slate-600">
+              <p className="mt-1 text-sm text-text-body">
                 A simple way to keep building your team month after month.
               </p>
             </div>

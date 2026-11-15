@@ -47,8 +47,8 @@ export default function MobileDrawer({ open, onClose, children }: Props) {
         onClick={onClose}
         className={
           open
-            ? "absolute inset-0 cursor-pointer bg-slate-900/40 transition-opacity duration-500 ease-out opacity-100"
-            : "absolute inset-0 cursor-pointer bg-slate-900/40 transition-opacity duration-500 ease-out opacity-0"
+            ? "absolute inset-0 cursor-pointer bg-footer-bg/40 transition-opacity duration-500 ease-out opacity-100"
+            : "absolute inset-0 cursor-pointer bg-footer-bg/40 transition-opacity duration-500 ease-out opacity-0"
         }
       />
       {/* Panel */}

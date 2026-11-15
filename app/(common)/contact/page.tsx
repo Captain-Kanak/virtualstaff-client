@@ -27,7 +27,7 @@ export default function ContactPage() {
               <ContactForm />
             </div>
             <div className="space-y-8">
-              <Card className="bg-[#F1F9FC] rounded-2xl p-8">
+              <Card className="bg-surface-hero rounded-2xl p-8">
                 <h3 className="text-lg font-bold text-foreground mb-4">Contact details</h3>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -61,7 +61,7 @@ export default function ContactPage() {
               </Card>
               <Link
                 href="/jobs"
-                className="text-[#2563eb] font-medium hover:underline flex items-center gap-2"
+                className="text-primary font-medium hover:underline flex items-center gap-2"
               >
                 → View open roles
               </Link>

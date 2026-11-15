@@ -51,34 +51,34 @@ export default function HowFAQ() {
   const [open, setOpen] = React.useState<string | null>(faqs[0]?.q ?? null);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50/40">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-brand-soft/40">
       <Container>
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
           <div className="lg:col-span-4 lg:sticky lg:top-28 self-start">
             <div className="mb-8">
-              <p className="text-xs font-semibold tracking-wider text-blue-600 uppercase mb-3">
+              <p className="text-xs font-semibold tracking-wider text-primary uppercase mb-3">
                 FAQ
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+              <h2 className="text-3xl md:text-4xl font-bold text-text-heading mb-4 tracking-tight">
                 Questions about seats and hiring
               </h2>
-              <p className="text-slate-600 text-base leading-relaxed">
+              <p className="text-text-body text-base leading-relaxed">
                 Everything you need to know about seat fees, hiring timelines,
                 US-hours coverage, payroll, replacements, and scaling your
                 team.
               </p>
             </div>
 
-            <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+            <div className="bg-white rounded-2xl border border-line p-6 shadow-sm">
               <div className="flex items-start gap-4 mb-5">
-                <div className="flex-shrink-0 size-11 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center">
+                <div className="flex-shrink-0 size-11 rounded-xl bg-brand-soft text-primary flex items-center justify-center">
                   <HelpCircleIcon size="5" strokeWidth={2} />
                 </div>
                 <div>
-                  <p className="font-semibold text-slate-900 text-sm">
+                  <p className="font-semibold text-text-heading text-sm">
                     Still have questions?
                   </p>
-                  <p className="text-sm text-slate-600 mt-1">
+                  <p className="text-sm text-text-body mt-1">
                     Not sure which seat fits your team? Let&rsquo;s talk.
                   </p>
                 </div>
@@ -88,13 +88,13 @@ export default function HowFAQ() {
                   href={bookingUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-semibold text-blue-600 hover:underline flex items-center gap-1"
+                  className="text-sm font-semibold text-primary hover:underline flex items-center gap-1"
                 >
                   Book a call <span className="text-xs">→</span>
                 </Link>
                 <Link
                   href="/contact"
-                  className="text-sm font-semibold text-slate-600 hover:underline"
+                  className="text-sm font-semibold text-text-body hover:underline"
                 >
                   Contact us
                 </Link>
@@ -119,23 +119,23 @@ export default function HowFAQ() {
                   >
                     <AccordionItem
                       className={cn(
-                        "relative rounded-2xl border border-slate-200/80 bg-white shadow-sm overflow-hidden border-b-0 transition-all duration-300",
-                        "hover:border-blue-200 hover:shadow-md",
+                        "relative rounded-2xl border border-line-soft/80 bg-white shadow-sm overflow-hidden border-b-0 transition-all duration-300",
+                        "hover:border-line hover:shadow-md",
                         isOpen
-                          ? "border-blue-300 ring-1 ring-blue-100 shadow-lg shadow-blue-600/5"
+                          ? "border-line-soft ring-1 ring-brand-soft shadow-lg"
                           : ""
                       )}
                       value={faq.q}
                     >
                       {isOpen && (
-                        <div className="absolute left-0 inset-y-0 w-[3px] bg-gradient-to-b from-blue-500 to-sky-400" />
+                        <div className="absolute left-0 inset-y-0 w-[3px] bg-gradient-to-b from-brand-primary to-brand-tag-blue" />
                       )}
                       <AccordionTrigger
                         className={cn(
                           "flex items-center justify-between gap-4 px-5 md:px-7 py-5 text-base md:text-lg font-semibold",
-                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500",
+                          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary",
                           styles.hideShadcnTriggerIcons,
-                          isOpen ? "text-blue-700" : "text-slate-900"
+                          isOpen ? "text-primary" : "text-text-heading"
                         )}
                       >
                         <div className="flex items-center gap-4 flex-1">
@@ -143,8 +143,8 @@ export default function HowFAQ() {
                             className={cn(
                               "size-9 rounded-full flex items-center justify-center font-semibold text-sm",
                               isOpen
-                                ? "bg-blue-600 text-white"
-                                : "bg-slate-100 text-slate-500"
+                                ? "bg-brand-primary text-white"
+                                : "bg-brand-soft text-text-body"
                             )}
                           >
                             {(index + 1).toString().padStart(2, "0")}
@@ -155,8 +155,8 @@ export default function HowFAQ() {
                           className={cn(
                             "size-9 rounded-full flex items-center justify-center border transition-transform duration-200",
                             isOpen
-                              ? "bg-blue-600 border-transparent text-white"
-                              : "bg-slate-50 border-slate-200 text-slate-600"
+                              ? "bg-brand-primary border-transparent text-white"
+                              : "bg-brand-tint border-line-soft text-text-body"
                           )}
                         >
                           <PlusIcon
@@ -173,7 +173,7 @@ export default function HowFAQ() {
                       >
                         <div
                           className={cn(
-                            "grid overflow-hidden pt-4 pb-6 pr-5 md:pr-7 border-t border-slate-100 text-base leading-7 text-slate-600",
+                            "grid overflow-hidden pt-4 pb-6 pr-5 md:pr-7 border-t border-line-soft text-base leading-7 text-text-body",
                             "[grid-template-rows:0fr] transition-[grid-template-rows] duration-300 ease-out",
                             "pl-[calc(1.25rem+36px+1rem)] md:pl-[calc(1.75rem+36px+1rem)]",
                             isOpen ? "[grid-template-rows:1fr]" : ""

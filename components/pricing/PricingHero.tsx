@@ -46,7 +46,7 @@ export default function PricingHero() {
 
   return (
     <Reveal>
-      <section className="py-16 md:py-20 bg-gradient-to-b from-[#F1F9FC] to-white">
+      <section className="py-16 md:py-20 bg-gradient-to-b from-surface-hero to-white">
         <Container>
           <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-start">
             <div className="space-y-5">
@@ -56,7 +56,7 @@ export default function PricingHero() {
               <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
                 Simple, transparent pricing
               </h1>
-              <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-lg">
+              <p className="text-base md:text-lg leading-relaxed text-text-body max-w-lg">
                 One flat seat fee per month plus the assistant&rsquo;s salary. No
                 markups, no long-term contracts.
               </p>
@@ -75,27 +75,27 @@ export default function PricingHero() {
                   </a>
                 }
               />
-              <p className="text-sm text-slate-600 flex items-center gap-2">
+              <p className="text-sm text-text-body flex items-center gap-2">
                 <span
-                  className="relative -top-px h-[1px] w-4 flex-shrink-0 bg-slate-300"
+                  className="relative -top-px h-[1px] w-4 flex-shrink-0 bg-line-soft"
                 />
                 No long-term contracts &middot; 30-day money-back guarantee
               </p>
             </div>
 
-            <div className="rounded-3xl border border-slate-100 bg-white shadow-xl p-6 md:p-8">
+            <div className="rounded-3xl border border-line-soft bg-white shadow-xl p-6 md:p-8">
               <div className="space-y-6">
                 <div>
                   <h2 className="text-lg font-bold text-foreground mb-2">
                     Cost calculator
                   </h2>
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-text-body">
                     Estimate your monthly cost per role.
                   </p>
                 </div>
 
                 <div className="space-y-3">
-                  <label htmlFor="role-select" className="text-xs font-semibold text-muted-foreground">
+                  <label htmlFor="role-select" className="text-xs font-semibold text-text-body">
                     Role
                   </label>
                   <Select
@@ -120,10 +120,10 @@ export default function PricingHero() {
 
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-semibold text-muted-foreground">
+                    <span className="text-xs font-semibold text-text-body">
                       Seats
                     </span>
-                    <span className="text-sm text-slate-600">{seats}</span>
+                    <span className="text-sm text-text-body">{seats}</span>
                   </div>
                   <div className="flex items-center gap-1">
                     <Button
@@ -149,24 +149,24 @@ export default function PricingHero() {
                   </div>
                 </div>
 
-                <div className="border-t border-slate-100 pt-6 space-y-3">
+                <div className="border-t border-line-soft pt-6 space-y-3">
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600">Staff salary</span>
+                    <span className="text-text-body">Staff salary</span>
                     <span className="font-medium text-foreground">
                       {usd(salaryMin)} &ndash; {usd(salaryMax)}
                     </span>
                   </div>
-                  <div className="flex items-end justify-between gap-2 text-sm text-slate-600">
+                  <div className="flex items-end justify-between gap-2 text-sm text-text-body">
                     <span className="font-medium">&times; {seats}</span>
                     <span className="ml-4 text-xs">+</span>
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-slate-600">Seat fee</span>
+                    <span className="text-text-body">Seat fee</span>
                     <span className="font-medium text-foreground">
                       {usd(SEAT_FEE)}
                     </span>
                   </div>
-                  <div className="flex items-end justify-between gap-2 text-sm text-slate-600">
+                  <div className="flex items-end justify-between gap-2 text-sm text-text-body">
                     <span className="font-medium">&times; {seats}</span>
                     <span className="ml-4 text-xs">=</span>
                   </div>
@@ -204,7 +204,7 @@ export default function PricingHero() {
                   }
                 />
 
-                <p className="text-xs text-slate-500 leading-relaxed">
+                <p className="text-xs text-text-body leading-relaxed">
                   Salary is paid to your assistant. Seat fee covers hiring,
                   payroll and compliance support.
                 </p>

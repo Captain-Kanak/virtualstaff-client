@@ -24,19 +24,19 @@ const parseRange = (range: string): [number, number] => {
 
 export default function PricingCards() {
   return (
-    <section className="relative bg-gradient-to-b from-white via-blue-50/70 to-white py-20 md:py-24 overflow-hidden scroll-mt-24">
-      <div className="absolute -top-24 -left-24 size-72 bg-blue-200/40 blur-3xl rounded-full -z-10 pointer-events-none" />
-      <div className="absolute -bottom-24 -right-24 size-96 bg-blue-200/40 blur-3xl rounded-full -z-10 pointer-events-none" />
-      <div className="absolute top-1/4 left-1/4 size-64 bg-blue-200/30 blur-3xl rounded-full -z-10 pointer-events-none" />
+    <section className="relative bg-gradient-to-b from-white via-brand-soft/70 to-white py-20 md:py-24 overflow-hidden scroll-mt-24">
+      <div className="absolute -top-24 -left-24 size-72 bg-brand-primary/40 blur-3xl rounded-full -z-10 pointer-events-none" />
+      <div className="absolute -bottom-24 -right-24 size-96 bg-brand-primary/40 blur-3xl rounded-full -z-10 pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 size-64 bg-brand-primary/30 blur-3xl rounded-full -z-10 pointer-events-none" />
 
       <Container>
         <div className="text-center mb-12 md:mb-14">
-          <p className="text-xs font-semibold uppercase tracking-widest text-blue-600 mb-3">
+          <p className="text-xs font-semibold uppercase tracking-widest text-primary mb-3">
             PRICING
           </p>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight leading-tight inline-block relative">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-text-heading tracking-tight leading-tight inline-block relative">
             What it costs
-            <span className="text-blue-600 relative inline-block ml-1">
+            <span className="text-primary relative inline-block ml-1">
               by role
               <svg
                 className="absolute -bottom-[3px] left-0 w-full h-3"
@@ -52,9 +52,9 @@ export default function PricingCards() {
                 />
               </svg>
             </span>
-            <span className="text-blue-600 ml-1">✦</span>
+            <span className="text-primary ml-1">✦</span>
           </h2>
-          <p className="text-slate-600 text-lg mt-4">
+          <p className="text-text-body text-lg mt-4">
             Transparent monthly pricing by role, with no long-term contracts.
           </p>
         </div>
@@ -67,9 +67,9 @@ export default function PricingCards() {
             return (
               <div
                 key={role.role}
-                className="relative flex flex-col h-full rounded-3xl border border-slate-100 bg-white shadow-lg shadow-blue-900/5 overflow-hidden transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-900/10"
+                className="relative flex flex-col h-full rounded-3xl border border-line-soft bg-white shadow-lg overflow-hidden transition duration-300 hover:-translate-y-1.5 hover:shadow-xl"
               >
-                <div className="h-20 w-full bg-gradient-to-b from-blue-50 to-white" />
+                <div className="h-20 w-full bg-gradient-to-b from-brand-soft to-white" />
                 <div className="relative -mt-6 flex justify-center">
                   <Image
                     src={role.image ?? "/images/user.jpg"}
@@ -79,32 +79,32 @@ export default function PricingCards() {
                     className="size-28 rounded-full object-cover ring-4 ring-white shadow-md"
                   />
                 </div>
-                <h3 className="mt-5 text-lg font-bold text-slate-900 text-center">
+                <h3 className="mt-5 text-lg font-bold text-text-heading text-center">
                   {role.role}
                 </h3>
                 <div className="mt-3 px-6 text-center">
-                  <p className="text-xs uppercase tracking-wide text-slate-500">
+                  <p className="text-xs uppercase tracking-wide text-text-body">
                     Total per month
                   </p>
-                  <p className="mt-1 whitespace-nowrap text-lg lg:text-xl xl:text-2xl font-bold text-blue-600 tracking-tight">
+                  <p className="mt-1 whitespace-nowrap text-lg lg:text-xl xl:text-2xl font-bold text-primary tracking-tight">
                     {role.total}
                   </p>
                 </div>
-                <div className="mt-5 mx-5 mb-5 rounded-2xl border border-slate-100 bg-slate-50 p-4 space-y-3">
+                <div className="mt-5 mx-5 mb-5 rounded-2xl border border-line-soft bg-brand-soft p-4 space-y-3">
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-500">Staff salary</span>
-                    <span className="text-sm font-semibold text-slate-800 whitespace-nowrap">
+                    <span className="text-sm text-text-body">Staff salary</span>
+                    <span className="text-sm font-semibold text-text-heading whitespace-nowrap">
                       {formatMoney(salaryMin)} - {formatMoney(salaryMax)}
                     </span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="text-sm text-slate-500">Seat fee</span>
-                    <span className="text-sm font-semibold text-blue-600 whitespace-nowrap">
+                    <span className="text-sm text-text-body">Seat fee</span>
+                    <span className="text-sm font-semibold text-primary whitespace-nowrap">
                       + ${seatFee}/month
                     </span>
                   </div>
-                  <div className="border-t border-dashed border-slate-200" />
-                  <p className="text-xs text-slate-500 text-center">
+                  <div className="border-t border-dashed border-line" />
+                  <p className="text-xs text-text-body text-center">
                     Powered by a RemoteStaff365 Seat
                   </p>
                 </div>
@@ -113,8 +113,8 @@ export default function PricingCards() {
           })}
         </div>
 
-        <div className="mt-10 rounded-2xl bg-white border border-slate-200 shadow-sm overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-slate-200">
+        <div className="mt-10 rounded-2xl bg-white border border-line-soft shadow-sm overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 md:divide-x divide-line-soft">
             <div className="flex items-center gap-5 p-6 md:p-8 border-b md:border-b-0 md:border-r">
               <Image
                 src="/images/team/money.png"
@@ -125,10 +125,10 @@ export default function PricingCards() {
                 sizes="64px"
               />
               <div>
-                <p className="text-base font-semibold text-foreground">
+                <p className="text-base font-semibold text-text-heading">
                   Add more seats as your needs grow
                 </p>
-                <p className="mt-1 text-sm text-slate-600">
+                <p className="mt-1 text-sm text-text-body">
                   Each $99 / month seat supports one ongoing team member.
                 </p>
               </div>
@@ -143,10 +143,10 @@ export default function PricingCards() {
                 sizes="64px"
               />
               <div>
-                <p className="text-base font-semibold text-foreground">
+                <p className="text-base font-semibold text-text-heading">
                   Over time, seats become part of how your business grows
                 </p>
-                <p className="mt-1 text-sm text-slate-600">
+                <p className="mt-1 text-sm text-text-body">
                   A simple way to keep building your team month after month.
                 </p>
               </div>
@@ -157,7 +157,7 @@ export default function PricingCards() {
         <div className="mt-10 text-center">
           <Button
             size="xl"
-            className="rounded-xl bg-gradient-to-b from-blue-500 to-blue-600 text-white font-semibold shadow-lg shadow-blue-600/25 hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500 cursor-pointer"
+            className="rounded-xl bg-gradient-to-b from-brand-primary to-brand-primary-light text-white font-semibold shadow-lg hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand-primary cursor-pointer"
             nativeButton={false}
             render={
               <Link href="/pricing">

@@ -13,7 +13,7 @@ interface JobCardProps {
 
 export default function JobCard({ job }: JobCardProps) {
   return (
-    <Card className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6 flex flex-col h-full hover:shadow-xl transition-shadow">
+    <Card className="bg-white rounded-2xl shadow-card p-6 flex flex-col h-full hover:shadow-xl transition-shadow">
       <div className="flex flex-wrap gap-2 mb-4">
         <Badge variant="outline" className="text-xs">
           {job.category}

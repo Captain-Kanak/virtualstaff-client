@@ -10,7 +10,7 @@ import SectionHeading from "@/components/SectionHeading";
 export default function BottomCTA() {
   return (
     <Reveal>
-      <section className="py-14 md:py-20 bg-linear-to-r from-blue-600 to-blue-500 text-white">
+      <section className="py-14 md:py-20 bg-linear-to-r from-brand-primary to-brand-primary-light text-white">
         <Container className="text-center">
           <SectionHeading
             title="Start Building Your Team Today"

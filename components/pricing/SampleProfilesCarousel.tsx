@@ -28,7 +28,7 @@ function SampleProfilesCard({ profile }: SampleProfilesCardProps) {
       initial={{ opacity: 0, x: 10 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.4 }}
-      className="flex-shrink-0 w-[320px] md:w-[360px] scroll-snap-align-start rounded-2xl border border-slate-100 bg-white p-5 shadow-[2px_4px_12px_#00000014]"
+      className="flex-shrink-0 w-[320px] md:w-[360px] scroll-snap-align-start rounded-2xl border border-line-soft bg-white p-5 shadow-card"
     >
       <div className="flex items-center gap-3 mb-3">
         <Image
@@ -43,18 +43,18 @@ function SampleProfilesCard({ profile }: SampleProfilesCardProps) {
           <span className="text-xs font-bold text-foreground">
             {profile.firstName} {profile.initial}.
           </span>
-          <span className="text-xs text-slate-500">{profile.role}</span>
+          <span className="text-text-body">{profile.role}</span>
         </div>
       </div>
 
-      <div className="flex items-center justify-between mb-3 text-xs text-slate-500">
+      <div className="flex items-center justify-between mb-3 text-xs text-text-body">
         <span>{profile.country}</span>
         <span>{profile.years}+ years</span>
       </div>
 
       <div className="flex flex-wrap gap-1.5 mb-3">
         {profile.skills.map((skill) => (
-          <Badge key={skill} variant="outline" className="text-slate-600 border-slate-200">
+          <Badge key={skill} variant="outline" className="text-text-body border-line">
             {skill}
           </Badge>
         ))}
@@ -62,14 +62,14 @@ function SampleProfilesCard({ profile }: SampleProfilesCardProps) {
 
       <div className="space-y-1 mb-4">
         <div className="flex justify-between text-sm">
-          <span className="text-slate-600">Expected salary</span>
+          <span className="text-text-body">Expected salary</span>
           <span className="font-medium text-foreground">{profile.salary}</span>
         </div>
-        <div className="flex justify-between text-sm text-slate-600">
+        <div className="flex justify-between text-sm text-text-body">
           <span>Seat fee</span>
           <span>{formatUsd(profile.seatFee)}</span>
         </div>
-        <div className="flex justify-between text-sm font-semibold text-foreground border-t border-slate-100 pt-1.5">
+        <div className="flex justify-between text-sm font-semibold text-foreground border-t border-line-soft pt-1.5">
           <span>Total monthly investment</span>
           <span>
             {formatUsd(investment.min)} &ndash; {formatUsd(investment.max)}
@@ -127,9 +127,9 @@ export default function SampleProfilesCarousel({
   const scrollAmount = 360;
 
   return (
-    <section className="py-16 md:py-20 bg-[#F5F8FF]">
+    <section className="py-16 md:py-20 bg-brand-tint">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-1">
+        <p className="text-xs font-semibold uppercase tracking-widest text-text-body mb-1">
           Sample profiles for illustration
         </p>
         <h2 className={[
@@ -141,7 +141,7 @@ export default function SampleProfilesCarousel({
           {title}
         </h2>
         {subtitle && (
-          <p className="text-slate-600 text-lg max-w-2xl mb-10">
+          <p className="text-text-body text-lg max-w-2xl mb-10">
             {subtitle}
           </p>
         )}

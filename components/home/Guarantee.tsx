@@ -38,9 +38,9 @@ const tiles = [
 
 export default function Guarantee() {
   return (
-    <section className="py-12 md:py-16 bg-blue-50">
+    <section className="py-12 md:py-16 bg-brand-soft">
       <Container className="relative z-10">
-        <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-r from-[#eaf6fe] via-blue-50 to-white shadow-[0_20px_60px_rgba(37,99,235,0.12)] ring-1 ring-white/70 grid lg:grid-cols-[0.9fr_1.1fr] items-center gap-8 lg:gap-12 p-6 md:p-10 lg:p-12">
+        <div className="relative overflow-hidden rounded-[40px] bg-gradient-to-r from-brand-tint via-brand-soft to-white shadow-[0_20px_60px_color-mix(in_srgb,var(--brand-primary)_12%,transparent)] ring-1 ring-white/70 grid lg:grid-cols-[0.9fr_1.1fr] items-center gap-8 lg:gap-12 p-6 md:p-10 lg:p-12">
           {/* Left: 30-day badge image */}
           <div className="relative w-full max-w-[560px] mx-auto h-auto">
             <Image
@@ -55,9 +55,9 @@ export default function Guarantee() {
 
           {/* Right: content */}
           <div className="w-full">
-            <h2 className="text-3xl md:text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight text-slate-900">
+            <h2 className="text-3xl md:text-4xl xl:text-5xl font-extrabold leading-tight tracking-tight text-text-heading">
               Try your first seat for{" "}
-              <span className="text-blue-600 relative inline-block">
+              <span className="text-primary relative inline-block">
                 30 days, risk-free
                 <svg
                   className="absolute -bottom-0.75 left-0 w-full h-3"
@@ -74,12 +74,12 @@ export default function Guarantee() {
                 </svg>
               </span>
             </h2>
-            <p className="text-base md:text-lg text-slate-700 leading-7 mt-5">
+            <p className="text-base md:text-lg text-text-body leading-7 mt-5">
               Add your first assistant, bring them into your business and see what it
               is like to work with a dedicated team member. If it isn&rsquo;t the right fit
               within your first 30 days, we&rsquo;ll make it right or refund your seat fee.
             </p>
-            <p className="text-base md:text-lg text-slate-700 leading-7 mt-4">
+            <p className="text-base md:text-lg text-text-body leading-7 mt-4">
               There are no long-term contracts, so you can cancel anytime, no questions
               asked. You get to know the team first, and we stand behind every seat.
             </p>
@@ -87,7 +87,7 @@ export default function Guarantee() {
               {tiles.map((tile, i) => (
                 <div
                   key={i}
-                  className="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-sm shadow-blue-900/5 border border-blue-50 text-left"
+                  className="flex items-center gap-4 bg-white rounded-2xl p-4 shadow-sm border border-brand-soft text-left"
                 >
                   <Image
                     src={tile.icon}
@@ -96,19 +96,19 @@ export default function Guarantee() {
                     height={tile.height}
                     className="size-12 object-contain shrink-0"
                   />
-                  <span className="text-[15px] leading-snug text-slate-600">
-                    {tile.text} <span className="font-semibold text-slate-900">{tile.highlight}</span>
+                  <span className="text-[15px] leading-snug text-text-body">
+                    {tile.text} <span className="font-semibold text-text-heading">{tile.highlight}</span>
                   </span>
                 </div>
               ))}
             </div>
-            <p className="text-center sm:text-left text-lg font-bold text-slate-900 mt-6">
+            <p className="text-center sm:text-left text-lg font-bold text-text-heading mt-6">
               Hire with confidence. We stand behind every seat.
             </p>
             <Button
               variant="brand"
               size="xl"
-              className="mt-4 w-full sm:w-auto sm:min-w-[320px] h-14 px-8 rounded-xl bg-linear-to-b from-blue-500 to-blue-600 text-white text-lg font-semibold shadow-lg shadow-blue-600/25 flex items-center justify-center gap-2 cursor-pointer hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-blue-500"
+              className="mt-4 w-full sm:w-auto sm:min-w-[320px] h-14 px-8 rounded-xl bg-linear-to-b from-brand-primary to-brand-primary-light text-white text-lg font-semibold shadow-lg flex items-center justify-center gap-2 cursor-pointer hover:-translate-y-0.5 hover:shadow-xl focus-visible:ring-2 focus-visible:ring-brand-primary"
               nativeButton={false}
               render={
                 <a href={bookingUrl} target="_blank" rel="noopener noreferrer">

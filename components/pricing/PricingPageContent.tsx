@@ -38,7 +38,7 @@ export default function PricingPageContent() {
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
                 Pricing by role
               </h2>
-              <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              <p className="text-text-body text-lg max-w-2xl mx-auto">
                 Choose a role to see transparent monthly pricing. Seat fee is
                 $99 per month plus the assistant&rsquo;s salary.
               </p>
@@ -69,13 +69,13 @@ export default function PricingPageContent() {
       </Reveal>
 
       <Reveal>
-        <section className="py-16 md:py-20 bg-[#F5F8FF]">
+        <section className="py-16 md:py-20 bg-brand-tint">
           <Container>
             <div className="text-center mb-12">
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
                 What{"'"}s included
               </h2>
-              <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+              <p className="text-text-body text-lg max-w-2xl mx-auto">
                 Everything you need to run your offshore team.
               </p>
             </div>
@@ -83,9 +83,9 @@ export default function PricingPageContent() {
               {included.map((item) => (
                 <div
                   key={item}
-                  className="rounded-xl bg-white p-4 shadow-[2px_4px_12px_#00000014] text-left"
+                  className="rounded-xl bg-white p-4 shadow-card text-left"
                 >
-                  <p className="text-base font-medium text-slate-800">
+                  <p className="text-base font-medium text-text-heading">
                     {item}
                   </p>
                 </div>

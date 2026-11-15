@@ -25,7 +25,7 @@ export default function CTASection({
   return (
     <section className="bg-white py-12 md:py-16 text-center">
       <Container className="max-w-6xl mx-auto px-5">
-        <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-12 md:px-12 md:py-14 text-center text-white shadow-[0_12px_28px_rgba(37,99,235,0.25)]">
+        <div className="rounded-3xl bg-gradient-to-r from-brand-primary to-brand-primary-light px-6 py-12 md:px-12 md:py-14 text-center text-white shadow-[0_12px_28px_color-mix(in_srgb,var(--brand-primary)_25%,transparent)]">
           <div className="relative z-10">
             {title && (
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-3">

@@ -95,14 +95,14 @@ const ROWS: Row[] = [
 ];
 
 function cellClass(highlight: boolean) {
-  return `p-4 text-left border-b border-slate-100 ${
-    highlight ? "bg-blue-50 border-t-2 border-t-blue-600" : "bg-white"
+  return `p-4 text-left border-b border-line-soft ${
+    highlight ? "bg-brand-soft border-t-2 border-t-brand-primary" : "bg-white"
   }`;
 }
 
 function mobileCardClass(highlight: boolean) {
-  return `p-3 border-b border-slate-50 ${
-    highlight ? "bg-blue-50 border-l-3 border-l-blue-600" : "bg-white"
+  return `p-3 border-b border-line-soft ${
+    highlight ? "bg-brand-soft border-l-3 border-l-brand-primary" : "bg-white"
   }`;
 }
 
@@ -115,7 +115,7 @@ export default function ComparisonTable() {
             <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">
               Why teams choose RemoteStaff365
             </h2>
-            <p className="text-slate-600 text-lg max-w-2xl mx-auto">
+            <p className="text-text-body text-lg max-w-2xl mx-auto">
               Transparent, seat-based pricing with none of the hidden markups
               you&rsquo;ll find elsewhere.
             </p>
@@ -123,7 +123,7 @@ export default function ComparisonTable() {
 
           {/* Desktop: wide table */}
           <div className="hidden md:block overflow-x-auto mb-8">
-            <table className="w-full text-left border-collapse border border-slate-100 rounded-xl overflow-hidden">
+            <table className="w-full text-left border-collapse border border-line-soft rounded-xl overflow-hidden">
               <thead>
                 <tr>
                   {COLUMNS.map((col) => (
@@ -133,7 +133,7 @@ export default function ComparisonTable() {
                       className={[
                         cellClass(Boolean(col.highlight)),
                         "text-sm font-semibold uppercase tracking-wider",
-                        col.highlight ? "text-blue-700" : "text-slate-600",
+                        col.highlight ? "text-primary" : "text-text-body",
                       ]
                         .filter(Boolean)
                         .join(" ")}>
@@ -141,7 +141,7 @@ export default function ComparisonTable() {
                       {col.highlight && (
                         <Badge
                           variant="outline"
-                          className="ms-2 text-[10px] border-blue-600 text-blue-600"
+                          className="ms-2 text-[10px] border-brand-primary text-primary"
                         >
                           Our approach
                         </Badge>
@@ -152,11 +152,11 @@ export default function ComparisonTable() {
               </thead>
               <tbody>
                 {ROWS.map((row) => (
-                  <tr key={row.label} className="group hover:bg-slate-50/50 transition-colors">
+                  <tr key={row.label} className="group hover:bg-brand-soft/50 transition-colors">
                     <th
                       scope="row"
                       className={[
-                        "p-4 font-medium text-slate-900 border-b border-slate-100 bg-white",
+                        "p-4 font-medium text-text-heading border-b border-line-soft bg-white",
                         "sticky left-0 z-10",
                       ]
                         .filter(Boolean)
@@ -182,9 +182,9 @@ export default function ComparisonTable() {
             {ROWS.map((row) => (
               <div
                 key={row.label}
-                className="rounded-xl border border-slate-100 bg-white p-5 shadow-[2px_4px_12px_#00000014]"
+                className="rounded-xl border border-line-soft bg-white p-5 shadow-card"
               >
-                <h3 className="text-sm font-semibold text-slate-900 mb-3">
+                <h3 className="text-sm font-semibold text-text-heading mb-3">
                   {row.label}
                 </h3>
                 {COLUMNS.map((col) => (
@@ -195,27 +195,27 @@ export default function ComparisonTable() {
                     <span
                       className={[
                         "text-xs font-semibold uppercase tracking-wider block mb-1",
-                        col.highlight ? "text-blue-700" : "text-slate-500",
+                        col.highlight ? "text-primary" : "text-text-body",
                       ]
                         .filter(Boolean)
                         .join(" ")}>
                       {col.label}
                       {col.highlight && (
-                        <span className="text-[10px] ml-1 border border-blue-600 text-blue-600 px-1.5 py-0.5 rounded">
+                        <span className="text-[10px] ml-1 border border-brand-primary text-primary px-1.5 py-0.5 rounded">
                           Our approach
                         </span>
                       )}
                     </span>
-                    <p className="text-sm text-slate-600 leading-relaxed">
+                    <p className="text-sm text-text-body leading-relaxed">
                       {row.values[col.key]}
                     </p>
                   </div>
                 ))}
+                <p className="text-xs text-text-body text-center pt-2">
+                  Swipe horizontally to compare all three columns.
+                </p>
               </div>
             ))}
-            <p className="text-xs text-slate-400 text-center pt-2">
-              Swipe horizontally to compare all three columns.
-            </p>
           </div>
         </Container>
       </section>

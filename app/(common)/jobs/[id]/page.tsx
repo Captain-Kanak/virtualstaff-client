@@ -44,7 +44,7 @@ export default async function JobPage({ params }: { params: Promise<{ id: string
           <div className="max-w-4xl mx-auto px-5">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               <div className="lg:col-span-2 space-y-6">
-                <Card className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-8">
+                <Card className="bg-white rounded-2xl shadow-card p-8">
                   <div className="flex flex-wrap gap-2 mb-6">
                     <Badge variant="outline">{job.category}</Badge>
                     <Badge variant="outline">{job.region}</Badge>
@@ -93,7 +93,7 @@ export default async function JobPage({ params }: { params: Promise<{ id: string
                 </Card>
               </div>
               <div className="space-y-6">
-                <Card className="bg-[#F1F9FC] rounded-2xl p-8">
+                <Card className="bg-surface-hero rounded-2xl p-8">
                   <h3 className="text-lg font-bold text-foreground mb-4">
                     Ready to apply?
                   </h3>
@@ -119,7 +119,7 @@ export default async function JobPage({ params }: { params: Promise<{ id: string
                 </Card>
                 <Link
                   href="/jobs"
-                  className="text-[#2563eb] font-medium hover:underline flex items-center gap-2"
+                  className="text-primary font-medium hover:underline flex items-center gap-2"
                 >
                   ← Back to jobs
                 </Link>

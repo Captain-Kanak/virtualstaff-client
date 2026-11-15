@@ -33,7 +33,7 @@ export default function RolePricingCard({ role }: RolePricingCardProps) {
 
   return (
     <Card
-      className="flex flex-col h-full rounded-2xl border border-slate-100 bg-white p-5 gap-3 shadow-[2px_4px_12px_#00000014] transition duration-300 hover:-translate-y-1 hover:shadow-lg"
+      className="flex flex-col h-full rounded-2xl border border-line-soft bg-white p-5 gap-3 shadow-card transition duration-300 hover:-translate-y-1 hover:shadow-lg"
     >
       <div className={`h-20 rounded-xl flex items-center justify-between px-4 bg-gradient-to-r ${role.gradient}`}>
         <div className="rounded-xl bg-white size-12 flex items-center justify-center">
@@ -44,20 +44,20 @@ export default function RolePricingCard({ role }: RolePricingCardProps) {
         </Badge>
       </div>
       <h3 className="text-lg font-semibold text-foreground mt-4">{role.role}</h3>
-      <div className="rounded-xl bg-[#F5F8FF] px-4 py-3 mt-3">
-        <p className="text-xs uppercase tracking-wide text-slate-600">
+      <div className="rounded-xl bg-brand-tint px-4 py-3 mt-3">
+        <p className="text-xs uppercase tracking-wide text-text-body">
           Total per month
         </p>
         <p className="text-2xl font-bold text-primary">{role.total}</p>
       </div>
       <div className="flex justify-between text-sm mt-3">
-        <span className="text-slate-600">Staff salary</span>
+        <span className="text-text-body">Staff salary</span>
         <span className="font-medium text-right">{role.salary}</span>
       </div>
       <Button
         variant="outline"
         size="xl"
-        className="w-full h-11 rounded-xl border-primary text-primary transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-out hover:bg-primary hover:text-white hover:shadow-[0_8px_18px_rgba(37,99,235,0.25)] active:scale-[0.98] mt-4"
+        className="w-full h-11 rounded-xl border-primary text-primary transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-out hover:bg-primary hover:text-white hover:shadow-[0_8px_18px_color-mix(in_srgb,var(--brand-primary)_25%,transparent)] active:scale-[0.98] mt-4"
         nativeButton={false}
         render={
           <a

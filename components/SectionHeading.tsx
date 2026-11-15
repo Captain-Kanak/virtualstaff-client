@@ -54,7 +54,7 @@ export default function SectionHeading({
             className={[
               "text-base md:text-lg leading-relaxed max-w-2xl mt-4",
               center ? "mx-auto" : "",
-              isLight ? "text-white/90" : "text-slate-600",
+              isLight ? "text-white/90" : "text-text-body",
             ]
               .filter(Boolean)
               .join(" ")}

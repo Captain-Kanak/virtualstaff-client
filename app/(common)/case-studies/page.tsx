@@ -79,7 +79,7 @@ export default function CaseStudiesPage() {
               {caseStudies.map((study) => (
                 <Card
                   key={study.company}
-                  className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6 flex flex-col h-full"
+                  className="bg-white rounded-2xl shadow-card p-6 flex flex-col h-full"
                 >
                   <Badge variant="outline" className="mb-4">
                     {study.industry}

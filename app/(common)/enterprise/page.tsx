@@ -68,9 +68,9 @@ export default function EnterprisePage() {
               {benefits.map((benefit) => (
                 <Card
                   key={benefit.title}
-                  className="bg-white rounded-2xl shadow-[2px_4px_12px_#00000014] p-6 flex flex-col h-full"
+                  className="bg-white rounded-2xl shadow-card p-6 flex flex-col h-full"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-[#F1F9FC] flex items-center justify-center text-[#2563eb] mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-surface-hero flex items-center justify-center text-primary mb-4">
                     {benefit.icon}
                   </div>
                   <h3 className="text-lg font-bold text-foreground mb-2">
@@ -85,7 +85,7 @@ export default function EnterprisePage() {
       </Reveal>
 
       <Reveal>
-        <section className="py-12 lg:py-24 bg-[#F5F8FF]">
+        <section className="py-12 lg:py-24 bg-brand-tint">
           <div className="max-w-4xl mx-auto px-5">
             <div className="text-center mb-10">
               <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-4">

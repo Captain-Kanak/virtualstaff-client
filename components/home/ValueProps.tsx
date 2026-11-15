@@ -41,15 +41,15 @@ export default function ValueProps() {
             {valueProps.map((prop, i) => (
               <Reveal key={prop.title} delay={i * 0.1}>
                 <Card
-                  className="rounded-2xl border border-slate-100 bg-white p-6 shadow-[2px_4px_12px_#00000014] hover:-translate-y-1 hover:shadow-lg transition duration-300 h-full"
+                  className="rounded-2xl border border-line-soft bg-white p-6 shadow-card hover:-translate-y-1 hover:shadow-lg transition duration-300 h-full"
                 >
-                  <div className="h-12 w-12 rounded-xl bg-linear-to-b from-[#4289e0] to-[#2563eb] flex items-center justify-center mb-4">
+                  <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-brand-primary to-brand-primary-light flex items-center justify-center mb-4">
                     {prop.icon}
                   </div>
                   <h3 className="text-lg md:text-xl font-semibold text-foreground mt-5">
                     {prop.title}
                   </h3>
-                  <p className="text-base leading-relaxed text-slate-600 mt-2">
+                  <p className="text-base leading-relaxed text-text-body mt-2">
                     {prop.text}
                   </p>
                 </Card>

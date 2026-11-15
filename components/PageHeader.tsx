@@ -16,7 +16,7 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <Reveal>
-      <section className="hero-offset bg-gradient-to-b from-[#F1F9FC] to-white pb-12 md:pb-16 text-center">
+      <section className="hero-offset bg-gradient-to-b from-surface-hero to-white pb-12 md:pb-16 text-center">
         <div className="max-w-2xl mx-auto px-5">
           {eyebrow && (
             <p className="text-xs font-semibold tracking-wider text-primary mb-3">
@@ -27,7 +27,7 @@ export default function PageHeader({
             {title}
           </h1>
           {subtitle && (
-            <p className="text-base md:text-lg leading-relaxed text-slate-600 max-w-2xl mx-auto mt-4">
+            <p className="text-base md:text-lg leading-relaxed text-text-body max-w-2xl mx-auto mt-4">
               {subtitle}
             </p>
           )}

@@ -46,7 +46,7 @@ function ImagePanel({
 export default function Partnership() {
   return (
     <section
-      className="relative overflow-hidden bg-gradient-to-b from-[#EEF4FF] via-[#E3ECFD] to-[#D8E5FB] py-14 md:py-20"
+      className="relative overflow-hidden bg-gradient-to-b from-brand-tint via-brand-tint to-brand-wash py-14 md:py-20"
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1150px] h-[1150px] rounded-full border border-white/60 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] rounded-full border border-white/60 pointer-events-none" />
@@ -61,7 +61,7 @@ export default function Partnership() {
           <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
             You lead the work. We run the back end.
           </h2>
-          <p className="text-base md:text-lg text-slate-700 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-text-body max-w-3xl mx-auto">
             Split the work so you stay focused on growing while we handle the
             employment side.
           </p>
@@ -71,7 +71,7 @@ export default function Partnership() {
           {/* Card 1: You */}
           <Reveal delay={0}>
             <Card
-              className="rounded-[2rem] bg-white p-3 md:p-4 shadow-[0_10px_30px_rgba(37,99,235,0.10)] group border border-transparent hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col md:flex-row items-stretch gap-4 md:min-h-[420px] h-full"
+              className="rounded-[2rem] bg-white p-3 md:p-4 shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-primary)_10%,transparent)] group border border-transparent hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col md:flex-row items-stretch gap-4 md:min-h-[420px] h-full"
             >
               <ImagePanel
                 src="/images/me.webp"
@@ -79,8 +79,8 @@ export default function Partnership() {
               />
               <div className="flex-1 p-3 md:p-6 flex flex-col justify-center">
                 <div className="flex items-center gap-3">
-                  <div className="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                    <User className="size-28 text-blue-600" />
+                  <div className="h-14 w-14 rounded-full bg-brand-soft flex items-center justify-center shrink-0">
+                    <User className="size-28 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold tracking-wide text-foreground uppercase">
@@ -90,7 +90,7 @@ export default function Partnership() {
                 </div>
                 <ul className="space-y-3.5 mt-6">
                   {youChecks.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-base md:text-lg font-medium text-slate-800 leading-snug">
+                    <li key={item} className="flex items-start gap-3 text-base md:text-lg font-medium text-text-heading leading-snug">
                       <CircleCheck className="size-6 shrink-0 fill-primary text-white" />
                       <span>{item}</span>
                     </li>
@@ -103,7 +103,7 @@ export default function Partnership() {
           {/* Plus circle */}
           <div className="flex flex-col items-center justify-center">
             <div
-              className="size-14 rounded-full bg-gradient-to-b from-[#4289e0] to-[#2563eb] text-white ring-4 ring-white/70 shadow-[0_8px_18px_rgba(37,99,235,0.35)] z-10 flex items-center justify-center"
+              className="size-14 rounded-full bg-gradient-to-b from-brand-primary to-brand-primary-light text-white ring-4 ring-white/70 shadow-[0_8px_18px_color-mix(in_srgb,var(--brand-primary)_35%,transparent)] z-10 flex items-center justify-center"
             >
               <Plus strokeWidth={3} size={28} />
             </div>
@@ -112,7 +112,7 @@ export default function Partnership() {
           {/* Card 2: RemoteStaff365 */}
           <Reveal delay={0.15}>
             <Card
-              className="rounded-[2rem] bg-white p-3 md:p-4 shadow-[0_10px_30px_rgba(37,99,235,0.10)] group border border-transparent hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col md:flex-row-reverse items-stretch gap-4 md:min-h-[420px] h-full"
+              className="rounded-[2rem] bg-white p-3 md:p-4 shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-primary)_10%,transparent)] group border border-transparent hover:-translate-y-1 hover:shadow-lg transition duration-300 flex flex-col md:flex-row-reverse items-stretch gap-4 md:min-h-[420px] h-full"
             >
               <ImagePanel
                 src="/images/va.webp"
@@ -120,8 +120,8 @@ export default function Partnership() {
               />
               <div className="flex-1 p-3 md:p-6 flex flex-col justify-center">
                 <div className="flex items-center gap-3">
-                  <div className="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center shrink-0">
-                    <Users className="size-28 text-blue-600" />
+                  <div className="h-14 w-14 rounded-full bg-brand-soft flex items-center justify-center shrink-0">
+                    <Users className="size-28 text-primary" />
                   </div>
                   <div>
                     <h3 className="text-xl font-bold tracking-wide text-foreground uppercase">
@@ -131,7 +131,7 @@ export default function Partnership() {
                 </div>
                 <ul className="space-y-3.5 mt-6">
                   {remoteStaffChecks.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-base md:text-lg font-medium text-slate-800 leading-snug">
+                    <li key={item} className="flex items-start gap-3 text-base md:text-lg font-medium text-text-heading leading-snug">
                       <CircleCheck className="size-6 shrink-0 fill-primary text-white" />
                       <span>{item}</span>
                     </li>

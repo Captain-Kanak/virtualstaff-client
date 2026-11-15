@@ -19,23 +19,23 @@ function HamburgerIcon({ open }: { open: boolean }) {
     >
       <div
         className={cn(
-          "absolute left-1/2 top-0 -translate-x-1/2 w-5 h-0.5 bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
+          "absolute left-1/2 top-0 -translate-x-1/2 w-5 h-0.5 bg-text-heading rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
           open
-            ? "translate-y-2 rotate-45 bg-blue-600"
+            ? "translate-y-2 rotate-45 bg-brand-primary"
             : "translate-y-0 rotate-0"
         )}
       />
       <div
         className={cn(
-          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out",
+          "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-0.5 bg-text-heading rounded-full transition-[transform,opacity] duration-300 ease-out",
           open ? "opacity-0 scale-0" : "opacity-100 scale-100"
         )}
       />
       <div
         className={cn(
-          "absolute left-1/2 bottom-0 -translate-x-1/2 w-5 h-0.5 bg-slate-900 rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
+          "absolute left-1/2 bottom-0 -translate-x-1/2 w-5 h-0.5 bg-text-heading rounded-full transition-[transform,opacity] duration-300 ease-out origin-center",
           open
-            ? "-translate-y-2 -rotate-45 bg-blue-600"
+            ? "-translate-y-2 -rotate-45 bg-brand-primary"
             : "translate-y-0 rotate-0"
         )}
       />
@@ -68,7 +68,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed inset-x-0 top-0 z-50 h-(--nav-h) flex items-center transition-colors duration-300 ease-out ${scrolled ? "border-b-2 border-slate-100 bg-white/90 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"}`}
+        className={`fixed inset-x-0 top-0 z-50 h-(--nav-h) flex items-center transition-colors duration-300 ease-out ${scrolled ? "border-b-2 border-line-soft bg-white/90 backdrop-blur-md shadow-sm" : "border-b border-transparent bg-transparent"}`}
       >
         <Container className="flex h-full w-full items-center justify-between">
           <Logo variant="default" className="h-10 md:h-11" />
@@ -78,7 +78,7 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-base font-normal text-foreground transition-all duration-300 hover:text-blue-600"
+                className="text-base font-normal text-foreground transition-all duration-300 hover:text-primary"
               >
                 {link.name}
               </Link>
@@ -104,8 +104,8 @@ export default function Navbar() {
             aria-controls="mobile-menu-drawer"
             className={cn(
               "lg:hidden cursor-pointer size-11 rounded-xl flex items-center justify-center transition-all duration-200",
-              "hover:bg-slate-100 active:scale-95",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+              "hover:bg-brand-soft active:scale-95",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
             )}
           >
             <HamburgerIcon open={open} />
@@ -115,14 +115,14 @@ export default function Navbar() {
 
       <MobileDrawer open={open} onClose={closeMenu}>
         {/* Drawer header */}
-        <div className="relative z-10 flex items-center justify-between px-6 py-5 border-b border-slate-100">
+        <div className="relative z-10 flex items-center justify-between px-6 py-5 border-b border-line-soft">
           <Logo variant="default" className="h-8" />
           <button
             onClick={closeMenu}
             className={cn(
               "cursor-pointer size-11 rounded-full flex items-center justify-center transition-colors duration-200",
-              "bg-slate-100 hover:bg-slate-200",
-              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+              "bg-brand-soft hover:bg-line",
+              "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary"
             )}
             aria-label="Close menu"
           >
@@ -131,20 +131,20 @@ export default function Navbar() {
         </div>
 
         {/* Links */}
-        <div className="flex flex-col divide-y border-slate-100 px-6">
+        <div className="flex flex-col divide-y border-line-soft px-6">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
-              <div key={link.name} className="border-b border-slate-100 last:border-b-0">
+              <div key={link.name} className="border-b border-line-soft last:border-b-0">
                 <div
                   className={cn(
                     "relative px-3 rounded-xl transition-colors duration-200 group cursor-pointer",
-                    active ? "bg-blue-50" : "hover:bg-blue-50/60"
+                    active ? "bg-brand-soft" : "hover:bg-brand-soft/60"
                   )}
                 >
                   {active && (
                     <span
-                      className="absolute left-0 top-0 bottom-0 w-0.75 bg-blue-600 rounded-l-xl"
+                      className="absolute left-0 top-0 bottom-0 w-0.75 bg-brand-primary rounded-l-xl"
                     />
                   )}
                   <Link
@@ -152,8 +152,8 @@ export default function Navbar() {
                     className={cn(
                       "block w-full py-4 text-lg font-medium",
                       active
-                        ? "text-blue-600"
-                        : "text-slate-800 hover:text-blue-600",
+                        ? "text-primary"
+                        : "text-text-heading hover:text-primary",
                       "pl-6 pr-4 flex items-center justify-between"
                     )}
                     onClick={closeMenu}
@@ -162,7 +162,7 @@ export default function Navbar() {
                     <ChevronRight
                       className={cn(
                         "size-4 shrink-0 transition-transform duration-200",
-                        active ? "text-blue-600" : "text-slate-400",
+                        active ? "text-primary" : "text-text-body",
                         "group-hover:translate-x-1"
                       )}
                     />
@@ -174,12 +174,12 @@ export default function Navbar() {
         </div>
 
         {/* Bottom area */}
-        <div className="mt-auto px-6 pt-6 pb-8 border-t border-slate-100">
+        <div className="mt-auto px-6 pt-6 pb-8 border-t border-line-soft">
           <Button
             variant="brand"
             size="xl"
             className={cn(
-              "w-full h-12 rounded-xl shadow-lg shadow-blue-600/25 cursor-pointer transition-transform duration-200",
+              "w-full h-12 rounded-xl shadow-lg cursor-pointer transition-transform duration-200",
               "hover:-translate-y-0.5 active:scale-95"
             )}
             nativeButton={false}
@@ -189,10 +189,10 @@ export default function Navbar() {
               </a>
             }
           />
-          <p className="mt-4 text-xs text-slate-500 leading-relaxed">
+          <p className="mt-4 text-xs text-text-body leading-relaxed">
             Hire pre-vetted offshore assistants in 48 hours
           </p>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-text-body">
             hello@remotestaff365.com
           </p>
         </div>

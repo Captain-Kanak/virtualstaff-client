@@ -45,11 +45,11 @@ const isGoal = (i: number) => i === 3;
 
 export default function ProcessSteps() {
   return (
-    <section className="relative overflow-hidden bg-[#F5F8FF] py-14 md:py-20">
+    <section className="relative overflow-hidden bg-brand-tint py-14 md:py-20">
       <div className="aria-hidden pointer-events-none absolute inset-0 z-0">
         <div className="section-dots absolute inset-0" />
         <div className="absolute -left-20 top-10 size-72 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -right-16 bottom-0 size-72 rounded-full bg-cyan-300/20 blur-3xl" />
+        <div className="absolute -right-16 bottom-0 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
       </div>
 
       <Container className="relative z-10">
@@ -63,12 +63,12 @@ export default function ProcessSteps() {
           {/* Desktop connector line passing behind badge centers */}
           <div
             aria-hidden
-            className="absolute left-[12.5%] right-[12.5%] top-7 h-0.5 lg:block bg-gradient-to-r from-primary/20 via-primary/50 to-cyan-400/40"
+            className="absolute left-[12.5%] right-[12.5%] top-7 h-0.5 lg:block bg-gradient-to-r from-primary/20 via-primary/50 to-brand-primary/40"
           />
           {/* Mobile vertical timeline line (shown below lg only) */}
           <div
             aria-hidden
-            className="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 to-cyan-400/40 lg:hidden"
+            className="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary/20 to-brand-primary/40 lg:hidden"
           />
 
           {processSteps.map((step, i) => (
@@ -79,7 +79,7 @@ export default function ProcessSteps() {
               <Reveal delay={i * 0.1} className="flex flex-1 flex-col">
                 {/* Badge: centered above card on desktop; absolute on line on mobile */}
                 <span
-                  className={`z-10 grid size-14 shrink-0 place-items-center rounded-full bg-gradient-to-b from-[#4289e0] to-[#2563eb] text-lg font-bold text-white ring-8 ring-[#F5F8FF] shadow-[0_8px_20px_rgba(37,99,235,0.35)] mb-6 absolute left-0 top-0 lg:relative lg:mx-auto lg:left-auto lg:top-auto`}
+                  className={`z-10 grid size-14 shrink-0 place-items-center rounded-full bg-gradient-to-b from-brand-primary to-brand-primary-light text-lg font-bold text-white ring-8 ring-brand-tint shadow-[0_8px_20px_color-mix(in_srgb,var(--brand-primary)_35%,transparent)] mb-6 absolute left-0 top-0 lg:relative lg:mx-auto lg:left-auto lg:top-auto`}
                 >
                   {step.number}
                 </span>
@@ -91,22 +91,22 @@ export default function ProcessSteps() {
                 />
 
                 <Card
-                  className={`h-full relative flex-1 flex flex-col overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 text-left shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg ${isGoal(i) ? "bg-gradient-to-br from-[#2563eb] to-[#3b82f6] border-transparent text-white hover:shadow-[0_14px_32px_rgba(37,99,235,0.35)]" : ""}`}
+                  className={`h-full relative flex-1 flex flex-col overflow-hidden rounded-3xl border border-line-soft bg-white p-6 text-left shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg ${isGoal(i) ? "bg-gradient-to-br from-brand-primary to-brand-primary-light border-transparent text-white hover:shadow-[0_14px_32px_color-mix(in_srgb,var(--brand-primary)_35%,transparent)]" : ""}`}
                 >
                   {/* Icon tile */}
-                  <div className={`grid size-12 place-items-center rounded-2xl ${isGoal(i) ? "bg-white/15 text-white" : "bg-blue-50 text-primary"}`}>
+                  <div className={`grid size-12 place-items-center rounded-2xl ${isGoal(i) ? "bg-white/15 text-white" : "bg-brand-soft text-primary"}`}>
                     <step.icon className="size-6" />
                   </div>
 
                   <h3 className={`mt-5 text-lg md:text-xl font-semibold ${isGoal(i) ? "text-white" : "text-foreground"}`}>
                     {step.title}
                   </h3>
-                  <p className={`mt-2 text-base leading-relaxed ${isGoal(i) ? "text-white/90" : "text-slate-600"}`}>
+                  <p className={`mt-2 text-base leading-relaxed ${isGoal(i) ? "text-white/90" : "text-text-body"}`}>
                     {step.text}
                   </p>
 
                   <div className="mt-auto pt-5">
-                    <div className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${isGoal(i) ? "bg-white/15 text-white" : "bg-blue-50 text-primary"}`}>
+                    <div className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold ${isGoal(i) ? "bg-white/15 text-white" : "bg-brand-soft text-primary"}`}>
                       <Clock className={`size-3.5 ${isGoal(i) ? "text-white" : "text-primary"}`} />
                       <span>{step.timing}</span>
                     </div>
@@ -133,7 +133,7 @@ export default function ProcessSteps() {
               </a>
             }
           />
-          <p className="mt-4 text-sm text-slate-600">
+          <p className="mt-4 text-sm text-text-body">
             No login or signup, just pick a time that suits you.
           </p>
         </div>

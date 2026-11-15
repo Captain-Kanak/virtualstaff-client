@@ -18,8 +18,8 @@ const regions = [
   {
     name: "Asia",
     icon: Moon,
-    gradient: "from-[#4289e0] to-[#2563eb]",
-    meterColor: "bg-blue-600",
+    gradient: "from-brand-primary to-brand-primary-light",
+    meterColor: "bg-brand-primary",
     utc: "UTC+5:30 to +8",
     countries: ["Philippines", "India"],
     text: "VAs ready for your US shift, including evenings and overnight coverage.",
@@ -30,8 +30,8 @@ const regions = [
   {
     name: "Africa",
     icon: Sunrise,
-    gradient: "from-teal-400 to-teal-600",
-    meterColor: "bg-teal-500",
+    gradient: "from-brand-success to-brand-primary",
+    meterColor: "bg-brand-primary",
     utc: "UTC+1 to +3",
     countries: ["Nigeria", "Kenya", "South Africa"],
     text: "English-speaking talent that covers your US mornings.",
@@ -42,8 +42,8 @@ const regions = [
   {
     name: "Latin America",
     icon: Sun,
-    gradient: "from-indigo-400 to-indigo-600",
-    meterColor: "bg-indigo-500",
+    gradient: "from-brand-primary to-brand-primary-light",
+    meterColor: "bg-brand-primary",
     utc: "UTC-6 to -3",
     countries: ["Mexico", "Colombia", "Brazil"],
     text: "Nearshore assistants who work the same hours as your team.",
@@ -54,8 +54,8 @@ const regions = [
   {
     name: "Eastern Europe",
     icon: CloudSun,
-    gradient: "from-cyan-400 to-cyan-600",
-    meterColor: "bg-cyan-500",
+    gradient: "from-brand-primary to-brand-primary-light",
+    meterColor: "bg-brand-primary",
     utc: "UTC+1 to +2",
     countries: ["Poland", "Romania", "Ukraine"],
     text: "Skilled professionals for your US mornings and early afternoons.",
@@ -85,7 +85,7 @@ export default function Regions() {
           {regions.map((region) => (
             <Reveal key={region.name} delay={regions.indexOf(region) * 0.1} className="flex h-full flex-col">
               <Card
-                className={`relative overflow-hidden rounded-3xl border border-slate-100 bg-white p-6 flex flex-1 flex-col h-full shadow-[0_10px_30px_rgba(15,23,42,0.06)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg`}
+                className={`relative overflow-hidden rounded-3xl border border-line-soft bg-white p-6 flex flex-1 flex-col h-full shadow-[0_10px_30px_color-mix(in_srgb,var(--brand-secondary)_6%,transparent)] transition-all duration-300 ease-out hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg`}
               >
                 {/* Top accent bar */}
                 <div
@@ -99,7 +99,7 @@ export default function Regions() {
                       <div className={`w-12 h-12 rounded-2xl bg-gradient-to-r ${region.gradient} flex items-center justify-center shrink-0`}>
                         <region.icon size={20} strokeWidth={2} className="text-white" />
                       </div>
-                      <div className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-semibold text-slate-700">
+                      <div className="rounded-full bg-line-soft px-2.5 py-1 text-xs font-semibold text-text-body">
                         {region.utc}
                       </div>
                     </div>
@@ -112,21 +112,21 @@ export default function Regions() {
                       {region.countries.map((c) => (
                         <span
                           key={c}
-                          className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700"
+                          className="rounded-full bg-line-soft px-2.5 py-1 text-xs font-medium text-text-body"
                         >
                           {c}
                         </span>
                       ))}
                     </div>
 
-                    <p className="mt-3 text-base leading-relaxed text-slate-600 min-h-[4.5rem] md:min-h-[5.25rem]">
+                    <p className="mt-3 text-base leading-relaxed text-text-body min-h-[4.5rem] md:min-h-[5.25rem]">
                       {region.text}
                     </p>
                   </div>
 
                   {/* BOTTOM: overlap meter + footer link pinned to bottom */}
                   <div className="mt-auto pt-4">
-                    <span className="block text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
+                    <span className="block text-xs font-semibold uppercase tracking-wide text-text-body mb-2">
                       US-hours overlap
                     </span>
                     <div className="flex gap-2 mb-2">
@@ -134,7 +134,7 @@ export default function Regions() {
                         <span
                           key={i}
                           className={`h-1.5 flex-1 rounded-full ${
-                            i < region.overlap ? region.meterColor : "bg-slate-200"
+                            i < region.overlap ? region.meterColor : "bg-line"
                           }`}
                         />
                       ))}
@@ -142,7 +142,7 @@ export default function Regions() {
                     <p className="min-h-[1.5rem] text-sm font-medium text-foreground">
                       {region.overlapLabel}
                     </p>
-                    <div className="border-t border-slate-100 mt-4 pt-4">
+                    <div className="border-t border-line-soft mt-4 pt-4">
                       <Link
                         href={`/jobs?region=${encodeURIComponent(region.regionParam)}`}
                         className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:gap-2 transition-all"
@@ -158,7 +158,7 @@ export default function Regions() {
           ))}
         </div>
 
-        <p className="mt-8 text-center text-sm text-slate-500">
+        <p className="mt-8 text-center text-sm text-text-body">
           Time zones are shown in standard time. Overlap varies by team.
         </p>
       </Container>

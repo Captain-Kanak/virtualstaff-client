@@ -32,7 +32,7 @@ export default function PartnerLogos() {
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 mt-8">
         {partners.map((p, i) => (
           <Reveal key={p.name} delay={i * 0.08}>
-            <div className={`relative flex h-28 md:h-32 lg:h-36 items-center justify-center rounded-3xl bg-white px-4 py-3 shadow-[0_6px_24px_rgba(15,23,42,0.08)] border border-slate-100 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg ${i === partners.length - 1 ? "last:col-span-2 sm:last:col-span-1" : ""}`}>
+            <div className={`relative flex h-28 md:h-32 lg:h-36 items-center justify-center rounded-3xl bg-white px-4 py-3 shadow-[0_6px_24px_color-mix(in_srgb,var(--brand-secondary)_8%,transparent)] border border-line-soft transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-lg ${i === partners.length - 1 ? "last:col-span-2 sm:last:col-span-1" : ""}`}>
               <div className="relative h-full w-full" style={{ transform: `scale(${p.scale ?? 1})` }}>
                 <Image
                   src={p.src}
@@ -48,7 +48,7 @@ export default function PartnerLogos() {
       </div>
 
       <Reveal delay={partners.length * 0.08}>
-        <p className="mt-6 text-center text-sm text-slate-600 max-w-2xl mx-auto">
+        <p className="mt-6 text-center text-sm text-text-body max-w-2xl mx-auto">
           Most of our clients are growing small and mid-sized businesses.
         </p>
       </Reveal>
