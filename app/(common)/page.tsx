@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import HeroFeatures from "@/components/home/HeroFeatures";
 import Services from "@/components/home/Services";
+import Standard from "@/components/home/Standard";
 import PartnerLogos from "@/components/home/PartnerLogos";
 import ValueProps from "@/components/home/ValueProps";
 import MidCTA from "@/components/home/MidCTA";
@@ -28,6 +29,7 @@ export default function Home() {
         <HeroFeatures />
       </div>
       <Services />
+      <Standard />
       <PartnerLogos />
       <ValueProps />
       <MidCTA />

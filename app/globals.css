@@ -347,6 +347,26 @@ body {
   }
 }
 
+.standard-edge {
+  background: var(--brand-primary);
+}
+
+.standard-photo {
+  position: absolute;
+  inset: 0;
+}
+
+@media (min-width: 1024px) {
+  .standard-edge {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+  }
+  .standard-photo {
+    clip-path: polygon(0 0, calc(100% - 4px) 0, calc(88% - 4px) 100%, 0 100%);
+  }
+}
+
 .hero-bg {
   background:
     radial-gradient(60% 55% at 78% 42%, color-mix(in srgb, var(--brand-primary) 16%, transparent), transparent 70%),
