@@ -53,7 +53,7 @@ export default function ComparisonTable() {
 
         {/* Desktop table */}
         <div className="hidden md:block pt-4">
-          <div className="overflow-hidden rounded-3xl border border-line bg-white shadow-xl">
+          <div className="rounded-3xl border border-line bg-white shadow-xl">
             <table className="w-full text-left border-separate border-spacing-0">
               <caption className="sr-only">
                 Comparison of RemoteStaff365 vs traditional agencies vs job boards
@@ -83,13 +83,13 @@ export default function ComparisonTable() {
                           {isOurs && (
                             <>
                               <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 inline-flex items-center gap-1.5 rounded-full bg-brand-accent px-3.5 py-1.5 text-[11px] font-bold tracking-wide text-text-heading shadow-sm">
-                              <Image
-                                src={crossIcon}
-                                width={iconSizes.check.w}
-                                height={iconSizes.check.h}
-                                alt=""
-                                className="object-cover shrink-0 rounded-full overflow-hidden mt-0.5"
-                              />
+                                <Image
+                                  src={checkIcon}
+                                  width={iconSizes.check.w}
+                                  height={iconSizes.check.h}
+                                  alt=""
+                                  className="size-6 shrink-0 rounded-full object-cover mt-0.5"
+                                />
                                 OUR APPROACH
                               </span>
                               <div className="flex items-center gap-4 pl-2">
@@ -148,13 +148,15 @@ export default function ComparisonTable() {
                         style={{ width: "24%" }}
                       >
                         <div className="flex items-start gap-3">
-                          <Image
-                            src={row.icon}
-                            width={rowIconSize(row.icon).width}
-                            height={rowIconSize(row.icon).height}
-                            alt=""
-                            className="object-cover shrink-0 rounded-full overflow-hidden"
-                          />
+                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                            <Image
+                              src={row.icon}
+                              width={rowIconSize(row.icon).width}
+                              height={rowIconSize(row.icon).height}
+                              alt=""
+                              className="size-6 rounded-full object-cover mix-blend-multiply"
+                            />
+                          </div>
                           <div>
                             <div className="text-[15px] font-semibold text-text-heading leading-5">
                               {row.title}
@@ -170,13 +172,15 @@ export default function ComparisonTable() {
                         style={{ width: "28%" }}
                       >
                         <div className="flex gap-2.5 items-start">
-                          <Image
-                            src={checkIcon}
-                            width={iconSizes.check.w}
-                            height={iconSizes.check.h}
-                            alt=""
-                            className="object-cover shrink-0 rounded-full overflow-hidden mt-0.5"
-                          />
+                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                            <Image
+                              src={crossIcon}
+                              width={iconSizes.check.w}
+                              height={iconSizes.check.h}
+                              alt=""
+                              className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                            />
+                          </div>
                           <div>
                             <span className="font-semibold text-primary leading-6">
                               {row.ours.lead}
@@ -197,13 +201,15 @@ export default function ComparisonTable() {
                       >
                         <div className="flex gap-2.5 items-start">
                           {row.agency.tone === "bad" && (
-                            <Image
-                              src={crossIcon}
-                              width={iconSizes.check.w}
-                              height={iconSizes.check.h}
-                              alt=""
-                              className="object-contain shrink-0 mt-0.5"
-                            />
+                            <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                              <Image
+                                src={crossIcon}
+                                width={iconSizes.check.w}
+                                height={iconSizes.check.h}
+                                alt=""
+                                className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                              />
+                            </div>
                           )}
                           <div>
                             <span className={`font-medium leading-6 ${
@@ -229,13 +235,15 @@ export default function ComparisonTable() {
                       >
                         <div className="flex gap-2.5 items-start">
                           {row.boards.tone === "bad" && (
-                            <Image
-                              src={crossIcon}
-                              width={iconSizes.check.w}
-                              height={iconSizes.check.h}
-                              alt=""
-                              className="object-contain shrink-0 mt-0.5"
-                            />
+                            <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                              <Image
+                                src={crossIcon}
+                                width={iconSizes.check.w}
+                                height={iconSizes.check.h}
+                                alt=""
+                                className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                              />
+                            </div>
                           )}
                           <div>
                             <span className={`font-medium leading-6 ${
@@ -271,13 +279,15 @@ export default function ComparisonTable() {
             return (
               <div key={row.title} className="rounded-2xl border border-line-soft bg-white p-5">
                 <div className="flex items-start gap-3 mb-4">
-                  <Image
-                    src={row.icon}
-                    width={rowIconSize(row.icon).width}
-                    height={rowIconSize(row.icon).height}
-                    alt=""
-                    className="object-contain shrink-0"
-                  />
+                          <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                            <Image
+                              src={row.icon}
+                              width={rowIconSize(row.icon).width}
+                              height={rowIconSize(row.icon).height}
+                              alt=""
+                              className="size-6 rounded-full object-cover mix-blend-multiply"
+                            />
+                          </div>
                   <div>
                     <div className="text-[15px] font-semibold text-text-heading leading-5">
                       {row.title}
@@ -325,13 +335,15 @@ export default function ComparisonTable() {
                     >
                       <div className="flex items-start gap-2.5">
                         {block.icon && (
-                      <Image
-                        src={block.icon}
-                        width={iconSizes.check.w}
-                        height={iconSizes.check.h}
-                        alt=""
-                        className="object-cover shrink-0 rounded-full overflow-hidden mt-0.5"
-                      />
+                        <div className="size-6 shrink-0 overflow-hidden rounded-full">
+                          <Image
+                            src={block.icon}
+                            width={iconSizes.check.w}
+                            height={iconSizes.check.h}
+                            alt=""
+                            className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                          />
+                        </div>
                         )}
                         <div>
                           <div className="text-xs font-semibold uppercase tracking-wider text-text-body mb-1">
