@@ -53,42 +53,43 @@ export default function ComparisonTable() {
 
         {/* Desktop table */}
         <div className="hidden md:block pt-4">
-          <div className="rounded-3xl border border-line-soft bg-white shadow-xl">
+          <div className="overflow-hidden rounded-3xl border border-line bg-white shadow-xl">
             <table className="w-full text-left border-separate border-spacing-0">
               <caption className="sr-only">
                 Comparison of RemoteStaff365 vs traditional agencies vs job boards
               </caption>
               <thead>
-                <tr className="border-b border-line-soft">
-                  <th scope="col" className="h-auto w-[24%] px-5 py-5 text-left align-top relative rounded-tl-3xl" />
+                <tr className="border-b border-line">
+                  <th scope="col" className="h-auto w-[24%] px-5 py-5 text-left align-top relative rounded-tl-3xl border-b border-r border-line" />
                   {comparisonColumns.map((col, ci) => {
                     const isOurs = col.key === "ours";
                     return (
                       <th
                         key={col.key}
                         scope="col"
-                        className={[
-                          "px-5 py-5 text-left align-top relative",
-                          isOurs
-                            ? "bg-gradient-to-b from-brand-primary to-brand-primary-light text-white border-x-2 border-brand-primary"
-                            : "bg-brand-soft border-b border-line-soft text-text-heading",
-                          ci === comparisonColumns.length - 1 ? "rounded-tr-3xl" : "",
-                        ]
-                          .filter(Boolean)
-                          .join(" ")}
+                          className={[
+                            "px-5 py-5 text-left align-top relative",
+                            isOurs
+                              ? "bg-gradient-to-b from-brand-primary to-brand-primary-light text-white border-x-2 border-brand-primary border-b border-r border-white/25"
+                              : ci === comparisonColumns.length - 1
+                                ? "bg-brand-soft border-b border-line text-text-heading rounded-tr-3xl"
+                                : "bg-brand-soft border-b border-r border-line text-text-heading",
+                          ]
+                            .filter(Boolean)
+                            .join(" ")}
                         style={{ width: isOurs ? "28%" : "24%" }}
                       >
                         <div className="flex flex-col h-full items-start justify-center gap-2">
                           {isOurs && (
                             <>
                               <span className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 inline-flex items-center gap-1.5 rounded-full bg-brand-accent px-3.5 py-1.5 text-[11px] font-bold tracking-wide text-text-heading shadow-sm">
-                                <Image
-                                  src={checkIcon}
-                                  width={iconSizes.check.w}
-                                  height={iconSizes.check.h}
-                                  alt=""
-                                  className="object-contain shrink-0"
-                                />
+                              <Image
+                                src={crossIcon}
+                                width={iconSizes.check.w}
+                                height={iconSizes.check.h}
+                                alt=""
+                                className="object-cover shrink-0 rounded-full overflow-hidden mt-0.5"
+                              />
                                 OUR APPROACH
                               </span>
                               <div className="flex items-center gap-4 pl-2">
@@ -98,14 +99,14 @@ export default function ComparisonTable() {
                                     width={iconSizes.headerOurs.w}
                                     height={iconSizes.headerOurs.h}
                                     alt=""
-                                    className="object-contain"
+                                    className="object-cover rounded-full overflow-hidden"
                                   />
                                 </div>
                                 <div>
                                   <div className="font-bold text-lg text-white leading-snug">
                                     {col.label}
                                   </div>
-                                  <div className="text-sm font-normal text-brand-primary/80 mt-0.5 leading-snug max-w-[170px]">
+                                  <div className="text-sm font-normal text-white mt-0.5 leading-snug max-w-[170px]">
                                     {col.caption}
                                   </div>
                                 </div>
@@ -119,7 +120,7 @@ export default function ComparisonTable() {
                                 width={iconSizes.headerOther.w}
                                 height={iconSizes.headerOther.h}
                                 alt=""
-                                className="object-contain shrink-0"
+                                className="object-cover rounded-full overflow-hidden shrink-0"
                               />
                               <div>
                                 <div className="font-semibold text-base md:text-lg text-text-heading leading-snug">
@@ -143,7 +144,7 @@ export default function ComparisonTable() {
                     <tr key={row.title} className="border-t border-line-soft">
                       <th
                         scope="row"
-                        className="px-5 py-5 border-r border-line-soft bg-white align-top"
+                        className="px-5 py-5 border-b border-r border-line bg-white align-top"
                         style={{ width: "24%" }}
                       >
                         <div className="flex items-start gap-3">
@@ -152,7 +153,7 @@ export default function ComparisonTable() {
                             width={rowIconSize(row.icon).width}
                             height={rowIconSize(row.icon).height}
                             alt=""
-                            className="object-contain shrink-0"
+                            className="object-cover shrink-0 rounded-full overflow-hidden"
                           />
                           <div>
                             <div className="text-[15px] font-semibold text-text-heading leading-5">
@@ -165,7 +166,7 @@ export default function ComparisonTable() {
                         </div>
                       </th>
                       <td
-                        className="px-5 py-5 border-r-2 border-brand-primary bg-brand-soft/80 align-top z-10 shadow-xl shadow-[0_0_20px_color-mix(in_srgb,var(--brand-primary)_10%,transparent)] relative"
+                        className="px-5 py-5 border-b border-r border-line bg-brand-soft/80 align-top z-10 shadow-xl shadow-[0_0_20px_color-mix(in_srgb,var(--brand-primary)_10%,transparent)] relative"
                         style={{ width: "28%" }}
                       >
                         <div className="flex gap-2.5 items-start">
@@ -174,7 +175,7 @@ export default function ComparisonTable() {
                             width={iconSizes.check.w}
                             height={iconSizes.check.h}
                             alt=""
-                            className="object-contain shrink-0 mt-0.5"
+                            className="object-cover shrink-0 rounded-full overflow-hidden mt-0.5"
                           />
                           <div>
                             <span className="font-semibold text-primary leading-6">
@@ -187,10 +188,10 @@ export default function ComparisonTable() {
                         </div>
                       </td>
                       <td
-                        className={`px-5 py-5 align-top ${
+                        className={`px-5 py-5 border-b border-r align-top ${
                           row.agency.tone === "bad"
-                            ? "bg-brand-soft border-r border-line-soft"
-                            : "border-r border-line-soft bg-white"
+                            ? "bg-brand-soft border-line"
+                            : "border-line bg-white"
                         }`}
                         style={{ width: "24%" }}
                       >
@@ -219,10 +220,10 @@ export default function ComparisonTable() {
                         </div>
                       </td>
                       <td
-                        className={`px-5 py-5 align-top ${
+                        className={`px-5 py-5 border-b align-top ${
                           row.boards.tone === "bad"
-                            ? "bg-brand-soft"
-                            : "bg-white"
+                            ? "bg-brand-soft border-line"
+                            : "border-line bg-white"
                         }`}
                         style={{ width: "24%" }}
                       >
@@ -255,9 +256,9 @@ export default function ComparisonTable() {
                 })}
                 <tr className="border-t-0">
                   <th scope="row" className="px-5 py-5 border-r border-line-soft bg-white rounded-bl-3xl" style={{ width: "24%" }} />
-                  <td className="border-b-2 border-b-brand-primary" style={{ width: "28%" }} />
-                  <td className="border-b border-line-soft" style={{ width: "24%" }} />
-                  <td className="border-b border-line-soft rounded-br-3xl" style={{ width: "24%" }} />
+                  <td className="border-r border-line" style={{ width: "28%" }} />
+                  <td className="border-r border-line" style={{ width: "24%" }} />
+                  <td className="rounded-br-3xl" style={{ width: "24%" }} />
                 </tr>
               </tbody>
             </table>
@@ -324,13 +325,13 @@ export default function ComparisonTable() {
                     >
                       <div className="flex items-start gap-2.5">
                         {block.icon && (
-                          <Image
-                            src={block.icon}
-                            width={iconSizes.check.w}
-                            height={iconSizes.check.h}
-                            alt=""
-                            className="object-contain shrink-0 mt-0.5"
-                          />
+                      <Image
+                        src={block.icon}
+                        width={iconSizes.check.w}
+                        height={iconSizes.check.h}
+                        alt=""
+                        className="object-cover shrink-0 rounded-full overflow-hidden mt-0.5"
+                      />
                         )}
                         <div>
                           <div className="text-xs font-semibold uppercase tracking-wider text-text-body mb-1">
