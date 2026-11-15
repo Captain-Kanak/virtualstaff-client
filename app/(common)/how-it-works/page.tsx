@@ -17,10 +17,10 @@ export default function HowItWorksPage() {
   return (
     <div className="flex flex-col">
       <HowItWorksHero />
+      <ProcessSteps />
       <WhyRemoteStaff />
       <Partnership />
       <PriceFormula />
-      <ProcessSteps />
       <Regions />
       <HowFAQ />
     </div>
