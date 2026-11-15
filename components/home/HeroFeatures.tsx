@@ -20,7 +20,7 @@ const features: Feature[] = [
 
 export default function HeroFeatures() {
   return (
-    <section className="border-y border-line-soft bg-white py-6 md:py-8">
+    <section className="border-y border-line-soft bg-white hero-strip py-5 lg:py-0">
       <Container>
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-5 lg:gap-0">
           {features.map((feature, i) => {

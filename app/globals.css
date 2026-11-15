@@ -61,6 +61,7 @@
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --nav-h: 4.5rem;
+  --strip-h: 5.5rem;
 }
 
 @media (min-width: 768px) {
@@ -311,9 +312,21 @@ body {
 }
 @media (min-width: 1024px) {
   .hero-img-wrap {
-    --hero-h: clamp(360px, calc(100svh - var(--nav-h) - 13rem), 560px);
+    --hero-h: clamp(340px, calc(100svh - var(--nav-h) - var(--strip-h) - 3rem), 560px);
     margin-inline: auto 0;
   }
+}
+
+.hero-fit {
+  min-height: calc(100svh - var(--strip-h));
+  display: flex;
+  align-items: center;
+}
+
+.hero-strip {
+  height: var(--strip-h);
+  display: flex;
+  align-items: center;
 }
 
 .hero-bg {

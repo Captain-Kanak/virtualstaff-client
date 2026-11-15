@@ -44,7 +44,7 @@ const stickers = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden hero-offset hero-bg pb-10 lg:pb-12">
+    <section className="relative overflow-hidden hero-offset hero-fit hero-bg pb-4 lg:pb-6">
       <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
         <div className="hero-grid absolute inset-0" />
         <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
@@ -68,7 +68,7 @@ export default function Hero() {
 
           {/* Left column */}
           <div className="space-y-4">
-            <h1 className="text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight leading-[1.05] text-text-heading">
+            <h1 className="text-4xl md:text-[2.5rem] lg:text-[2.75rem] xl:text-5xl font-extrabold tracking-tight leading-[1.05] text-text-heading">
               <span className="block">Hire Exceptional</span>
               <span className="block">Global Talent</span>
               <span className="block bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
@@ -76,16 +76,16 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-5 text-xl md:text-2xl font-semibold text-text-heading">
+            <p className="mt-4 text-lg md:text-xl font-semibold text-text-heading">
               Grow Your Team, Not Your Overhead.
             </p>
-            <p className="mt-3 max-w-xl text-base md:text-lg leading-relaxed text-text-body">
+            <p className="mt-2 max-w-xl text-base leading-relaxed text-text-body">
               Get reliable, pre-vetted remote professionals who work under
               RemoteStaff365. We handle the hiring, payroll, and day-to-day
               management, so you get skilled support without the hassle.
             </p>
 
-            <div className="flex flex-wrap items-center gap-5 mt-6 lg:mt-7">
+            <div className="flex flex-wrap items-center gap-5 mt-6">
               <Button
                 variant="brand"
                 size="xl"
