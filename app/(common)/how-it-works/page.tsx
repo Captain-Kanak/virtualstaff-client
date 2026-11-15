@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import HowHero from "@/components/how-it-works/HowHero";
+import HowItWorksHero from "@/components/how-it-works/HowItWorksHero";
 import Partnership from "@/components/how-it-works/Partnership";
 import PriceFormula from "@/components/how-it-works/PriceFormula";
 import ProcessSteps from "@/components/how-it-works/ProcessSteps";
@@ -8,7 +8,7 @@ import HowFAQ from "@/components/how-it-works/HowFAQ";
 import WhyRemoteStaff from "@/components/shared/WhyRemoteStaff";
 
 export const metadata: Metadata = {
-  title: "How It Works - Hire Offshore Virtual Assistants",
+  title: "How It Works | RemoteStaff365",
   description:
     "Hire dedicated virtual assistants in 48 hours. Four simple steps to add offshore talent to your team.",
 };
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function HowItWorksPage() {
   return (
     <div className="flex flex-col">
-      <HowHero />
+      <HowItWorksHero />
       <WhyRemoteStaff />
       <Partnership />
       <PriceFormula />
