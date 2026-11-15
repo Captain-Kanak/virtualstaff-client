@@ -62,67 +62,6 @@ export default function AboutPage() {
 
       <Mission />
 
-      <Reveal>
-        <section className="py-12 lg:py-24">
-        <Container className="text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-6">
-              Our mission
-            </h2>
-              <p className="text-lg text-muted leading-relaxed">
-                We believe great talent shouldn{"'"}t be limited by geography.
-                RemoteStaff365 helps US companies hire dedicated offshore virtual
-                assistants quickly, transparently, and affordably — without
-                long-term contracts or markups. Our talent is sourced worldwide,
-                including the Philippines, India, Latin America, Eastern Europe,
-                Africa, South Asia, and Southeast Asia.
-              </p>
-        </Container>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="py-12 lg:py-24 bg-brand-tint">
-        <Container>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground text-center mb-12">
-              What we stand for
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-              {values.map((v) => (
-                <Card
-                  key={v.title}
-                  className="bg-white rounded-2xl shadow-card p-6 flex flex-col h-full"
-                >
-                  <h3 className="text-lg font-bold text-foreground mb-2">
-                    {v.title}
-                  </h3>
-                  <p className="text-muted leading-relaxed">{v.text}</p>
-                </Card>
-              ))}
-            </div>
-        </Container>
-        </section>
-      </Reveal>
-
-      <Reveal>
-        <section className="py-12 lg:py-24">
-        <Container className="text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight text-foreground mb-10">
-              By the numbers
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-xl mx-auto">
-              {stats.map((s) => (
-                <div key={s.label}>
-                  <span className="text-4xl font-bold text-foreground">
-                    {s.label}
-                  </span>
-                  <p className="text-muted text-sm">{s.value}</p>
-                </div>
-              ))}
-            </div>
-        </Container>
-        </section>
-      </Reveal>
-
       <CTASection primaryHref={bookingUrl} />
     </div>
   );
