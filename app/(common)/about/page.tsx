@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import InnerHero from "@/components/InnerHero";
 import Mission from "@/components/about/Mission";
+import Values from "@/components/about/Values";
 import CTASection from "@/components/CTASection";
 import { Card } from "@/components/ui/card";
 import Reveal from "@/components/Reveal";
@@ -61,6 +62,8 @@ export default function AboutPage() {
       />
 
       <Mission />
+
+      <Values />
 
       <CTASection primaryHref={bookingUrl} />
     </div>
