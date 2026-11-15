@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import PageHero from "@/components/shared/PageHero";
 import Services from "@/components/home/Services";
+import Standard from "@/components/home/Standard";
 import { bookingUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -52,6 +53,24 @@ export default function ServicesPage() {
         eyebrow="OUR SERVICES"
         title="The Right Support for Every Part of Your Business"
         subtitle="Flexible, scalable, and cost-effective virtual assistant solutions tailored to your needs."
+      />
+      <Standard
+        id="specialized-roles"
+        heading="Need a Specialized Role?"
+        description="We also source global talent for a wide range of specialized and industry-specific roles. Tell us what you need and we'll find the right talent for your business."
+        items={[
+          "Executive Assistant",
+          "Project Management",
+          "Data Entry & Research",
+          "HR & Recruitment",
+          "Real Estate Support",
+          "And More",
+        ]}
+        image={{
+          src: "/images/user.jpg",
+          alt: "Smiling man with glasses in a navy shirt at a laptop",
+        }}
+        imageMode="photo"
       />
     </>
   );
