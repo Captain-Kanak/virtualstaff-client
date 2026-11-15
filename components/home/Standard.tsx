@@ -6,7 +6,7 @@ import Container from "@/components/ui/Container";
 
 type ImageMode = "cutout" | "photo";
 
-const DEFAULT_ITEMS = [
+export const DEFAULT_ITEMS = [
   "Skills and experience verification",
   "Communication and cultural fit assessment",
   "Ongoing performance management",
@@ -16,21 +16,20 @@ const DEFAULT_ITEMS = [
 export interface StandardProps {
   id?: string;
   eyebrow?: string;
-  heading?: string;
-  description?: string;
-  items?: readonly string[];
-  image?: { src: string; alt: string };
+  heading: string;
+  description: string;
+  items: readonly string[];
+  image: { src: string; alt: string };
   imageMode?: ImageMode;
 }
 
 export default function Standard({
   id,
-  eyebrow = "OUR STANDARD",
-  heading = "Top 1% Global Talent",
-  description =
-    "Our team consists of highly skilled, experienced professionals who are vetted, trained, and managed by RemoteStaff365 to ensure quality, reliability, and performance.",
-  items = DEFAULT_ITEMS,
-  image = { src: "/images/va-banner-image.png", alt: "Smiling remote team member" },
+  eyebrow,
+  heading,
+  description,
+  items,
+  image,
   imageMode = "cutout",
 }: StandardProps) {
   const isMultiColumn = items.length > 4;

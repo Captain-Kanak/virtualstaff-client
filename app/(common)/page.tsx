@@ -3,9 +3,8 @@ import type { Metadata } from "next";
 import PageHero from "@/components/shared/PageHero";
 import HeroFeatures from "@/components/home/HeroFeatures";
 import Services from "@/components/home/Services";
-import Standard from "@/components/home/Standard";
-import ThreeSteps from "@/components/home/ThreeSteps";
-import PartnerLogos from "@/components/home/PartnerLogos";
+import Standard, { DEFAULT_ITEMS } from "@/components/home/Standard";
+import ThreeSteps from "@/components/home/ThreeSteps";import PartnerLogos from "@/components/home/PartnerLogos";
 import MidCTA from "@/components/home/MidCTA";
 import HowItWorks from "@/components/home/HowItWorks";
 import GrowthPath from "@/components/home/GrowthPath";
@@ -92,7 +91,13 @@ export default function Home() {
         </PageHero>
       </div>
       <Services />
-      <Standard />
+      <Standard
+        heading="Top 1% Global Talent"
+        description="Our team consists of highly skilled, experienced professionals who are vetted, trained, and managed by RemoteStaff365 to ensure quality, reliability, and performance."
+        items={DEFAULT_ITEMS}
+        image={{ src: "/images/va-banner-image.png", alt: "Smiling remote team member" }}
+        imageMode="cutout"
+      />
       <ThreeSteps />
       <PartnerLogos />
       <MidCTA />
