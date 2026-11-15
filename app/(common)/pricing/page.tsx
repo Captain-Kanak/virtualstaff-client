@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import PricingHero from "@/components/pricing/PricingHero";
+import InnerHero from "@/components/InnerHero";
 import PricingPageContent from "@/components/pricing/PricingPageContent";
+import { bookingUrl } from "@/lib/site";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -35,7 +36,32 @@ export const metadata: Metadata = {
 export default function PricingPage() {
   return (
     <div className="flex flex-col">
-      <PricingHero />
+      <InnerHero
+        eyebrow="PRICING"
+        titleLines={[
+          "Simple, Transparent",
+          "Pricing for",
+          "Dedicated Remote Support",
+        ]}
+        description="Get a fully managed remote team at a fraction of the cost, with flexible plans that fit your business needs."
+        primaryCta={{
+          label: "Book a Free Consultation",
+          href: bookingUrl,
+        }}
+        secondaryCta={{
+          label: "Compare Plans",
+          href: "#plans",
+        }}
+        image={{
+          src: "/images/banner-2.png",
+          alt: "Remote team member smiling with her laptop",
+        }}
+        tags={[
+          { title: "From $7/hr", subtitle: "DEDICATED TEAMS" },
+          { title: "Flexible", subtitle: "PLANS" },
+          { title: "Fully Managed", subtitle: "TEAMS" },
+        ]}
+      />
       <PricingPageContent />
     </div>
   );

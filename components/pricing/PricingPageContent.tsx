@@ -48,7 +48,7 @@ export default function PricingPageContent() {
               selected={filter}
               onChange={setFilter}
             />
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="plans" className="scroll-mt-24 mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <AnimatePresence>
                 {visibleRoles.map((role) => (
                   <motion.div
