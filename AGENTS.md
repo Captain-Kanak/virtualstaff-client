@@ -51,7 +51,8 @@ framer-motion, lucide-react, react-hook-form + zod.
    brand-primary-light (gradient end), brand-soft / brand-tint / brand-wash
    (light blue backgrounds), surface-hero (hero bg), brand-secondary (dark
    navy), brand-accent (yellow), brand-tag-blue, brand-success (green),
-   text-heading, text-body, line, line-soft, footer-bg, shadow-card.
+    text-heading, text-body, line, line-soft, footer-bg, footer-text,
+    footer-text-muted, shadow-card.
    Tailwind classes: bg-brand-primary, text-primary, bg-brand-soft,
    text-text-body, border-line, shadow-card, etc.
 3. Need a new color? First add a token in :root and map it in @theme inline,

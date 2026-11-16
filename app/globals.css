@@ -22,6 +22,8 @@
   --line: #e2e8f0;
   --line-soft: #f1f5f9;
   --footer-bg: #0f172a;
+  --footer-text: #aab4c5;
+  --footer-text-muted: #8190a5;
   --shadow-card: 2px 4px 12px #00000014;
 
   --primary: var(--brand-primary);
@@ -111,6 +113,9 @@
   --color-line-soft: var(--line-soft);
 
   --color-footer-bg: var(--footer-bg);
+
+  --color-footer-text: var(--footer-text);
+  --color-footer-text-muted: var(--footer-text-muted);
 
   --shadow-card: var(--shadow-card);
 
