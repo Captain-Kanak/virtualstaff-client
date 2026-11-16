@@ -154,14 +154,14 @@ export default function Testimonials() {
           {/* Arrows outside cards */}
           <button
             onClick={() => swiperRef.current?.slidePrev()}
-            className="group hidden lg:flex absolute top-1/2 z-20 size-12 grid place-items-center rounded-full border border-line-soft bg-white text-text-heading shadow-card transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-soft hover:text-primary hover:shadow-lg active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 cursor-pointer left-0"
+            className="group hidden lg:flex absolute top-1/2 -mt-6 z-20 size-12 grid place-items-center rounded-full border border-line-soft bg-white text-text-heading shadow-card transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-soft hover:text-primary hover:shadow-lg active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 cursor-pointer left-0"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="size-22 text-text-heading transition-transform duration-300 group-hover:-translate-x-0.5" />
           </button>
           <button
             onClick={() => swiperRef.current?.slideNext()}
-            className="group hidden lg:flex absolute top-1/2 z-20 size-12 grid place-items-center rounded-full border border-line-soft bg-white text-text-heading shadow-card transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-soft hover:text-primary hover:shadow-lg active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 cursor-pointer right-0"
+            className="group hidden lg:flex absolute top-1/2 -mt-6 z-20 size-12 grid place-items-center rounded-full border border-line-soft bg-white text-text-heading shadow-card transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-brand-primary hover:bg-brand-soft hover:text-primary hover:shadow-lg active:translate-y-0 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2 cursor-pointer right-0"
             aria-label="Next testimonial"
           >
             <ChevronRight className="size-22 text-text-heading transition-transform duration-300 group-hover:translate-x-0.5" />
