@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import PageHero from "@/components/shared/PageHero";
+import InnerHero from "@/components/InnerHero";
 import HeroFeatures from "@/components/home/HeroFeatures";
 import Services from "@/components/home/Services";
 import Standard, { DEFAULT_ITEMS } from "@/components/home/Standard";
@@ -25,30 +25,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <PageHero
-        title={
-          <>
-            <span className="block">Hire Exceptional</span>
-            <span className="block">Global Talent</span>
-          </>
-        }
-        highlight={
-          <span className="block bg-gradient-to-r from-brand-primary to-brand-primary-light bg-clip-text text-transparent">
-            Starting at $7/Hour
-          </span>
-        }
-        description={
-          <>
-            <p className="mt-4 text-lg md:text-xl font-semibold text-text-heading">
-              Grow Your Team, Not Your Overhead.
-            </p>
-            <p className="mt-2 max-w-xl text-base leading-relaxed text-text-body">
-              Get reliable, pre-vetted remote professionals who work under
-              RemoteStaff365. We handle the hiring, payroll, and day-to-day
-              management, so you get skilled support without the hassle.
-            </p>
-          </>
-        }
+      <InnerHero
+        titleLines={["Hire Exceptional", "Global Talent", "Starting at $7/Hour"]}
+        lead="Grow Your Team, Not Your Overhead."
+        description="Get reliable, pre-vetted remote professionals who work under RemoteStaff365. We handle the hiring, payroll, and day-to-day management, so you get skilled support without the hassle."
         primaryCta={{
           label: "Book a Free Consultation",
           href: bookingUrl,
@@ -62,26 +42,13 @@ export default function Home() {
           src: "/images/banner-2.png",
           alt: "Remote team member with a headset smiling at her laptop",
         }}
-        badges={[
-          {
-            title: "Top 1%",
-            caption: "GLOBAL TALENT",
-            variant: "primary",
-          },
-          {
-            title: "$7/hr",
-            caption: "STARTING AT",
-            variant: "accent",
-          },
-          {
-            title: "Ongoing",
-            caption: "SUPPORT",
-            variant: "dark",
-          },
+        tags={[
+          { title: "Top 1%", subtitle: "GLOBAL TALENT" },
+          { title: "$7/hr", subtitle: "STARTING AT" },
+          { title: "Ongoing", subtitle: "SUPPORT" },
         ]}
-      >
-        <HeroFeatures />
-      </PageHero>
+        footer={<HeroFeatures />}
+      />
       <Services />
       <Standard
         variant="default"

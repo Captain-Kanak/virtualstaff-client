@@ -22,13 +22,15 @@ interface InnerHeroImage {
 }
 
 interface InnerHeroProps {
-  eyebrow: string;
+  eyebrow?: string;
   titleLines: [string, string, string];
+  lead?: string;
   description: string;
   primaryCta: InnerHeroCta;
   secondaryCta: InnerHeroCta;
   image: InnerHeroImage;
   tags: [InnerHeroTag, InnerHeroTag, InnerHeroTag];
+  footer?: React.ReactNode;
 }
 
 const TAG_VARIANTS = [
@@ -61,15 +63,27 @@ const TAG_VARIANTS = [
 export default function InnerHero({
   eyebrow,
   titleLines,
+  lead,
   description,
   primaryCta,
   secondaryCta,
   image,
   tags,
+  footer,
 }: InnerHeroProps) {
   return (
     <div className="hero-screen hero-fullscreen">
-        <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
+        <section
+          className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4"
+          style={
+            footer
+              ? {
+                  paddingTop: "calc(var(--nav-h) + 5.75rem)",
+                  paddingBottom: "5.5rem",
+                }
+              : undefined
+          }
+        >
         <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
           <div className="hero-grid absolute inset-0" />
           <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
@@ -92,16 +106,20 @@ export default function InnerHero({
           <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
 
             {/* Left column */}
-            <div className="space-y-4 hero-text-shift">
-              <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
-                {eyebrow}
-              </p>
+            <div className="space-y-4">
+              {eyebrow && (
+                <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
+                  {eyebrow}
+                </p>
+              )}
 
               <h1 className="text-4xl md:text-[2.5rem] lg:text-[2.75rem] xl:text-5xl font-extrabold tracking-tight leading-[1.05] text-text-heading max-w-[52ch]">
                 <span className="block">{titleLines[0]}</span>
                 <span className="block">{titleLines[1]}</span>
                 <span className="block text-primary">{titleLines[2]}</span>
               </h1>
+
+              {lead && <p className="mt-5 text-xl md:text-2xl font-semibold text-text-heading">{lead}</p>}
 
               <p className="mt-4 max-w-xl text-base leading-relaxed text-text-body">
                 {description}
@@ -193,6 +211,10 @@ export default function InnerHero({
 
           </div>
         </Container>
+
+        {footer && (
+          <div className="absolute inset-x-0 bottom-0 z-10">{footer}</div>
+        )}
       </section>
     </div>
   );

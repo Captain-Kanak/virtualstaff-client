@@ -90,7 +90,7 @@ export default function PageHero({
           <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
 
             {/* Left column */}
-            <div className="space-y-4 hero-text-shift">
+            <div className="space-y-4">
               {eyebrow && (
                 <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
                   {eyebrow}

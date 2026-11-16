@@ -20,8 +20,8 @@ const features: Feature[] = [
 
 export default function HeroFeatures() {
   return (
-    <section className="border-y border-line/30 bg-transparent py-5 lg:py-6">
-      <Container>
+    <Container>
+      <div className="border-t border-line-soft py-5">
         <div className="grid grid-cols-2 gap-x-4 gap-y-6 lg:grid-cols-5 lg:gap-0">
           {features.map((feature, i) => {
             const Icon = feature.Icon;
@@ -41,7 +41,7 @@ export default function HeroFeatures() {
             );
           })}
         </div>
-      </Container>
-    </section>
+      </div>
+    </Container>
   );
 }

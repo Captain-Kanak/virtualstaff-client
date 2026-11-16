@@ -74,7 +74,7 @@ export default function ServicesHero() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
 
           {/* Left column */}
-          <div className="space-y-4 hero-text-shift">
+          <div className="space-y-4">
             <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
               {HERO_EYEBROW}
             </p>
