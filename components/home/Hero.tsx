@@ -44,7 +44,7 @@ const stickers = [
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
+    <section className="relative overflow-hidden hero-pad hero-bg hero-fullscreen flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
       <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
         <div className="hero-grid absolute inset-0" />
         <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />

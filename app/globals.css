@@ -320,6 +320,12 @@ body {
   }
 }
 
+@media (min-width: 1024px) {
+  .hero-fullscreen {
+    min-height: calc(100svh - var(--hero-gap));
+  }
+}
+
 .hero-img-wrap {
   --hero-h: 460px;
   --hero-ratio: calc(var(--img-w) / var(--img-h));
@@ -349,7 +355,7 @@ body {
   .hero-screen > section:first-child {
     flex: 1 1 auto;
   }
-  .hero-screen > section:last-child {
+  .hero-screen > section:last-child:not(:first-child) {
     flex: 0 0 auto;
   }
 }

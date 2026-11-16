@@ -51,7 +51,7 @@ const stickers = [
 
 export default function ServicesHero() {
   return (
-    <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
+    <section className="relative overflow-hidden hero-pad hero-bg hero-fullscreen flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
       <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
         <div className="hero-grid absolute inset-0" />
         <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
@@ -74,7 +74,7 @@ export default function ServicesHero() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
 
           {/* Left column */}
-          <div className="space-y-4">
+          <div className="space-y-4 hero-text-shift">
             <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
               {HERO_EYEBROW}
             </p>
@@ -123,7 +123,7 @@ export default function ServicesHero() {
           </div>
 
           {/* Right column */}
-          <div className="relative self-start">
+          <div className="relative">
             <div className="hero-img-wrap" style={{ "--img-w": 724, "--img-h": 701 } as React.CSSProperties}>
               <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
                 <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />

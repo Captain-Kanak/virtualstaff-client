@@ -68,8 +68,8 @@ export default function InnerHero({
   tags,
 }: InnerHeroProps) {
   return (
-    <div className="hero-screen">
-        <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-start lg:items-start pb-4 lg:pb-4">
+    <div className="hero-screen hero-fullscreen">
+        <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
         <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
           <div className="hero-grid absolute inset-0" />
           <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
@@ -146,7 +146,7 @@ export default function InnerHero({
             </div>
 
             {/* Right column */}
-            <div className="relative self-start lg:self-start">
+            <div className="relative">
               <div className="hero-img-wrap" style={{ "--img-w": 724, "--img-h": 701 } as React.CSSProperties}>
                 <div aria-hidden className="pointer-events-none absolute inset-0 z-0 hidden lg:grid place-items-center">
                   <div className="col-start-1 row-start-1 aspect-square rounded-full w-[112%] border border-primary/15" />
