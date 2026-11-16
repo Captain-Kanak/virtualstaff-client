@@ -65,23 +65,26 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <div className={cn("hero-screen hero-fullscreen hero-bg", children && "hero-screen-has-strip")}>
-        <section className="relative overflow-hidden hero-pad flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
-        <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
-          <div className="hero-grid absolute inset-0" />
-          <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
-          <div className="absolute right-0 bottom-0 size-96 rounded-full bg-brand-primary/15 blur-3xl" />
-          <div className="absolute -left-16 top-8 h-px w-[420px] origin-left rotate-[35deg] bg-gradient-to-r from-primary/30 to-transparent">
-            <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
-            <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
-          </div>
-          <div className="absolute -right-16 bottom-12 h-px w-[420px] origin-right -rotate-[35deg] bg-gradient-to-l from-primary/30 to-transparent">
-            <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
-            <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
-          </div>
-          <div className="absolute left-[8%] top-[12%] size-3 rounded-full border border-primary/25" />
-          <div className="absolute right-[42%] top-[8%] size-5 rounded-full border border-primary/25" />
-          <div className="absolute left-[46%] bottom-[10%] size-10 rounded-full border border-primary/25" />
+      {/* Single background layer on the full-height wrapper: sits behind both the
+          hero content and the strip, and is never clipped at the section's content edge. */}
+      <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
+        <div className="hero-grid absolute inset-0" />
+        <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
+        <div className="absolute right-0 bottom-0 size-96 rounded-full bg-brand-primary/15 blur-3xl" />
+        <div className="absolute -left-16 top-8 h-px w-[420px] origin-left rotate-[35deg] bg-gradient-to-r from-primary/30 to-transparent">
+          <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
+          <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
         </div>
+        <div className="absolute -right-16 bottom-12 h-px w-[420px] origin-right -rotate-[35deg] bg-gradient-to-l from-primary/30 to-transparent">
+          <div className="absolute left-[55%] top-1/2 -translate-y-1/2 size-2 rounded-full bg-primary/50" />
+          <div className="absolute -right-2 top-1/2 -translate-y-1/2 size-8 rounded-full border border-primary/25" />
+        </div>
+        <div className="absolute left-[8%] top-[12%] size-3 rounded-full border border-primary/25" />
+        <div className="absolute right-[42%] top-[8%] size-5 rounded-full border border-primary/25" />
+        <div className="absolute left-[46%] bottom-[10%] size-10 rounded-full border border-primary/25" />
+      </div>
+
+      <section className="flex-1 relative overflow-hidden hero-pad flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
 
         <Container className="relative z-10">
           <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
@@ -201,7 +204,7 @@ export default function PageHero({
           {children}
         </div>
       )}
-      <div className="absolute inset-x-0 bottom-0 h-24 z-0 bg-gradient-to-b from-transparent to-white" />
+      <div className={cn("absolute inset-x-0 bottom-0 z-0 bg-gradient-to-b from-transparent to-white", children ? "h-23" : "h-24")} />
     </div>
   );
 }
