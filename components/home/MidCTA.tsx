@@ -25,7 +25,7 @@ export default function MidCTA() {
               variant="secondary"
               size="xl"
               nativeButton={false}
-              className="bg-white text-primary hover:bg-white/90 h-12 px-8 font-semibold"
+              className="bg-white text-primary hover:bg-white/90 h-12 font-semibold"
               render={
                 <a
                   href={bookingUrl}
