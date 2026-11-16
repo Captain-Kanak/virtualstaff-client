@@ -63,6 +63,7 @@
   --nav-h: 4.5rem;
   --strip-h: 5.5rem;
   --hero-gap: 2rem;
+  --hero-text-shift: 4rem;
 }
 
 @media (min-width: 768px) {
@@ -310,6 +311,12 @@ body {
 @media (min-width: 768px) {
   .hero-pad {
     padding-top: calc(var(--nav-h) + 1.25rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-text-shift {
+    transform: translateY(var(--hero-text-shift));
   }
 }
 

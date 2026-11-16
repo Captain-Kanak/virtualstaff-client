@@ -92,7 +92,7 @@ export default function InnerHero({
           <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
 
             {/* Left column */}
-            <div className="space-y-4 lg:flex lg:flex-col lg:justify-center lg:self-stretch">
+            <div className="space-y-4 hero-text-shift">
               <p className="text-[11px] md:text-sm font-semibold uppercase tracking-widest text-brand-primary">
                 {eyebrow}
               </p>
