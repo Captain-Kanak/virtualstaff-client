@@ -67,7 +67,7 @@ export default function Hero() {
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
 
           {/* Left column */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:flex lg:flex-col lg:justify-center lg:self-stretch">
             <h1 className="text-4xl md:text-[2.5rem] lg:text-[2.75rem] xl:text-5xl font-extrabold tracking-tight leading-[1.05] text-text-heading">
               <span className="block">Hire Exceptional</span>
               <span className="block">Global Talent</span>
