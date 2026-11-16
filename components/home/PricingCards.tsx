@@ -8,6 +8,8 @@ import Container from "@/components/ui/Container";
 
 type PricingCard = {
   imageSrc: string;
+  imageWidth: number;
+  imageHeight: number;
   title: string;
   priceLabel: string;
   priceDollars: string;
@@ -24,6 +26,8 @@ type PricingCard = {
 const cards: PricingCard[] = [
   {
     imageSrc: "/images/icons/3d-use.webp",
+    imageWidth: 951,
+    imageHeight: 980,
     title: "Part-Time Support",
     priceLabel: "Starting at",
     priceDollars: "$7",
@@ -40,6 +44,8 @@ const cards: PricingCard[] = [
   },
   {
     imageSrc: "/images/icons/team.png",
+    imageWidth: 128,
+    imageHeight: 128,
     title: "Full-Time Support",
     priceLabel: "Starting at",
     priceDollars: "$7",
@@ -57,6 +63,8 @@ const cards: PricingCard[] = [
   },
   {
     imageSrc: "/images/icons/star-icon.png",
+    imageWidth: 256,
+    imageHeight: 256,
     title: "Specialized Support",
     priceLabel: "",
     priceDollars: "",
@@ -125,13 +133,13 @@ export default function PricingCards({ id }: { id?: string }) {
                 )}
                 <div className="relative z-10 flex flex-col">
                   <div className="flex items-center gap-4 mb-5">
-                    <div className="size-16 shrink-0 object-contain rounded-full overflow-hidden">
+                    <div className="size-16 shrink-0">
                       <Image
                         src={card.imageSrc}
                         alt=""
-                        width={64}
-                        height={64}
-                        className="size-16 shrink-0 object-contain scale-110"
+                        width={card.imageWidth}
+                        height={card.imageHeight}
+                        className="size-16 shrink-0 object-contain"
                       />
                     </div>
                     <div>
