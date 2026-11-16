@@ -64,7 +64,7 @@ export default function PageHero({
 }: PageHeroProps) {
   return (
     <div className="hero-screen">
-      <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
+        <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-start lg:items-start pb-4 lg:pb-4">
         <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
           <div className="hero-grid absolute inset-0" />
           <div className="absolute -left-24 top-24 size-72 rounded-full bg-brand-primary/20 blur-3xl" />
@@ -84,7 +84,7 @@ export default function PageHero({
         </div>
 
         <Container className="relative z-10">
-          <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+          <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-10">
 
             {/* Left column */}
             <div className="space-y-4">
