@@ -104,9 +104,10 @@ export default function HowFAQ() {
 
           <div className="lg:col-span-8">
             <Accordion
+              type="multiple"
               className="space-y-3 md:space-y-4"
               value={open ? [open] : []}
-              onValueChange={(value) => setOpen(value[0] ?? null)}
+              onValueChange={(value: string[]) => setOpen(value[0] ?? null)}
             >
               {faqs.map((faq, index) => {
                 const isOpen = open === faq.q;

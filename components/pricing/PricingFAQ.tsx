@@ -62,9 +62,10 @@ export default function PricingFAQ() {
 
         <div className="rounded-2xl border border-line-soft bg-white p-2 md:p-4 shadow-card max-w-3xl mx-auto">
           <Accordion
+            type="multiple"
             className="space-y-2 md:space-y-3"
             value={open ? [open] : []}
-            onValueChange={(value) => setOpen(value[0] ?? null)}
+            onValueChange={(value: string[]) => setOpen(value[0] ?? null)}
           >
             {faqs.map((faq, index) => {
               const isOpen = open === faq.q;
