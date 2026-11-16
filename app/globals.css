@@ -360,6 +360,12 @@ body {
   }
 }
 
+@media (max-height: 820px) {
+  .hero-screen-has-strip > section {
+    padding-bottom: 14rem;
+  }
+}
+
 .standard-edge {
   background: var(--brand-primary);
   position: absolute;

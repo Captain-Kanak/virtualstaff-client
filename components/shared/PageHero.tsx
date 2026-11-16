@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import Container from "@/components/Container";
 
 export type HeroBadgeVariant = "primary" | "accent" | "dark";
@@ -63,7 +64,7 @@ export default function PageHero({
   children,
 }: PageHeroProps) {
   return (
-    <div className="hero-screen hero-fullscreen">
+    <div className={cn("hero-screen hero-fullscreen", children && "hero-screen-has-strip")}>
         <section className="relative overflow-hidden hero-pad hero-bg flex lg:flex items-center lg:items-center pb-4 lg:pb-4">
         <div className="hidden md:block aria-hidden pointer-events-none absolute inset-0 z-0 overflow-hidden select-none">
           <div className="hero-grid absolute inset-0" />
@@ -196,7 +197,11 @@ export default function PageHero({
         </Container>
       </section>
 
-      {children}
+      {children && (
+        <div className="lg:absolute lg:bottom-0 lg:inset-x-0 z-20 w-full">
+          {children}
+        </div>
+      )}
     </div>
   );
 }
