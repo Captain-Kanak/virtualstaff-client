@@ -9,7 +9,7 @@ export const navLinks = [
   { name: "How It Works", href: "/how-it-works" },
   { name: "Pricing", href: "/pricing" },
   { name: "About Us", href: "/about" },
-  { name: "FAQ", href: "/how-it-works#faq" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export const footerLinks = {

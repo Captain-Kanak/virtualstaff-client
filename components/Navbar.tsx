@@ -14,7 +14,7 @@ import { X, ChevronRight, CalendarDays } from "lucide-react";
 // Routes whose hero goes under the navbar (hero-screen wrapper). Only these
 // get the transparent-at-top / white-after-scroll navbar treatment. Every
 // other route keeps the always-white solid navbar so text stays readable.
-export const HERO_ROUTES = ["/", "/about", "/services", "/how-it-works", "/pricing"];
+export const HERO_ROUTES = ["/", "/about", "/faq", "/services", "/how-it-works", "/pricing"];
 
 export function isHeroRoute(pathname: string) {
   return HERO_ROUTES.includes(pathname);
