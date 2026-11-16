@@ -99,10 +99,10 @@ export default function PricingCards({ id }: { id?: string }) {
             PRICING
           </p>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-text-heading">
-            Global Talent. Affordable Rates.{" "}
-            <span className="text-brand-primary">Flexible Options.</span>
+            <span className="block">Global Talent. Affordable Rates.</span>
+            <span className="block text-primary">Flexible Options.</span>
           </h2>
-          <p className="text-base md:text-lg text-text-body mt-3 max-w-2xl mx-auto text-balance">
+          <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg leading-relaxed text-text-body">
             Choose a managed team solution that fits your business needs and budget.
           </p>
         </div>
@@ -200,7 +200,8 @@ export default function PricingCards({ id }: { id?: string }) {
                   <div className="mt-auto pt-8">
                     <Button
                       variant="brand"
-                      className="w-full h-12 md:h-13 rounded-xl text-base md:text-lg font-semibold whitespace-nowrap px-4 cursor-pointer hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
+                      size="xl"
+                      className="w-full cursor-pointer hover:-translate-y-0.5 hover:shadow-lg focus-visible:ring-2 focus-visible:ring-brand-primary focus-visible:ring-offset-2"
                       nativeButton={false}
                       render={
                         <a

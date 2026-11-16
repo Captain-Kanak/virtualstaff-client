@@ -17,7 +17,7 @@ export interface ComparisonRow {
 
 export const comparisonRows: ComparisonRow[] = [
   {
-    icon: "/images/icons/np-icon1.png",
+    icon: "/images/icons/team.png",
     title: "What you're building",
     caption: "What you actually get",
     ours: {
