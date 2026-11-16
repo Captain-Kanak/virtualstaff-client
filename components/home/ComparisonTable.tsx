@@ -197,16 +197,14 @@ export default function ComparisonTable() {
                       >
                         <div className="flex gap-2.5 items-start">
                           {row.agency.tone === "bad" && (
-                            <div className="size-6 shrink-0 overflow-hidden rounded-full">
                               <Image
                                 src={crossIcon}
-                                width={iconSizes.check.w}
-                                height={iconSizes.check.h}
+                                width={48}
+                                height={48}
                                 alt=""
-                                className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                                className="size-6 shrink-0 object-contain mt-0.5"
                               />
-                            </div>
-                          )}
+                            )}
                           <div>
                             <span className={`font-medium leading-6 ${
                               row.agency.tone === "bad"
@@ -231,16 +229,14 @@ export default function ComparisonTable() {
                       >
                         <div className="flex gap-2.5 items-start">
                           {row.boards.tone === "bad" && (
-                            <div className="size-6 shrink-0 overflow-hidden rounded-full">
                               <Image
                                 src={crossIcon}
-                                width={iconSizes.check.w}
-                                height={iconSizes.check.h}
+                                width={48}
+                                height={48}
                                 alt=""
-                                className="size-6 rounded-full object-cover mix-blend-multiply mt-0.5"
+                                className="size-6 shrink-0 object-contain mt-0.5"
                               />
-                            </div>
-                          )}
+                            )}
                           <div>
                             <span className={`font-medium leading-6 ${
                               row.boards.tone === "bad"
